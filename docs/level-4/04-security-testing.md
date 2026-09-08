@@ -195,6 +195,30 @@ test to fail — passwords still hash and compare correctly. This is exactly
 why a linter/static-analysis pass matters: functional tests, by design,
 can't catch "this works but is insecure."
 
+## How It Actually Works
+
+Automated security testing tools fall into two mechanically distinct families,
+mirroring the static/dynamic split from Level 1. SAST (static application security
+testing — tools like `bandit`) walks your source's AST looking for known-dangerous
+patterns: a call to `subprocess.run` with `shell=True` and a variable (not a literal)
+in the command string, a hardcoded string matching common secret-key formats, an
+`eval()` call on external input — pattern-matching against the syntax tree, with zero
+code execution, which is why SAST is fast but can both miss dynamically-constructed
+vulnerabilities and false-positive on safe code that merely *looks* like a dangerous
+pattern.
+
+DAST (dynamic application security testing — tools like OWASP ZAP) instead runs your
+application for real and attacks it: it crawls actual HTTP endpoints, then
+systematically mutates request parameters with known attack payloads (`' OR '1'='1`
+for SQL injection, `<script>alert(1)</script>` for XSS) and inspects the real
+response for signs the payload executed or altered query logic — this genuinely
+exercises your live request-handling and database-query-building code the way SAST's
+AST walk cannot, at the cost of needing a running instance and being slower per check.
+Dependency scanning (`pip-audit`, `safety`) is a third, simpler mechanism: it just
+diffs your installed package versions against a known-vulnerability database (like
+the OSV or PyPI advisory database) — no code analysis at all, pure version-string
+lookup.
+
 ## Cheat sheet
 
 | Technique | Tool | Catches |

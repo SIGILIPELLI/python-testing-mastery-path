@@ -277,6 +277,31 @@ A DRE of 95% means 5 of every 100 defects reached customers. Track the trend,
 not the absolute number, and never let a metric become a target that someone can
 game by re-labelling tickets.
 
+## How It Actually Works
+
+A defect's lifecycle states map onto something more concrete than a workflow diagram:
+they track the state of a specific commit or code path relative to the branch that
+will ship.
+
+"New" means a test has produced a failing assertion — pytest's runner caught an
+`AssertionError` (or an unhandled exception) and recorded the test's outcome as
+`failed` in its internal `TestReport` object, which is the raw event that everything
+downstream (bug trackers, CI dashboards, notifications) gets built from. "In
+Progress" means a developer has a local diff that isn't yet merged — the failing
+assertion still reproduces against `main`. "Fixed" is a specific, checkable claim:
+re-running the exact same test against the new code produces a `passed` outcome
+instead of `failed`, with nothing else about the test changed (same inputs, same
+fixtures) — if the assertion itself had to be loosened to get to "Fixed," that's not
+a fix, it's a suppression, and a good bug tracker workflow (and a good code reviewer)
+should be able to tell the difference by diffing the test file alongside the
+production code.
+
+"Reopened" is the state that catches regressions: a previously-`passed` test flips
+back to `failed` on a later commit. This is precisely what CI's git-bisect-style
+tooling and coverage-diff reports are built to surface automatically — the defect
+lifecycle you're tracking by hand in Jira is the same state machine a CI system tracks
+per-test, per-commit, without a human updating a ticket at all.
+
 ## Exercise
 
 1. Take any real application and find **three genuine defects** (cosmetic ones

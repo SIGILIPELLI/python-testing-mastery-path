@@ -178,6 +178,30 @@ to add your custom line. Test framework-level hooks against a small sample
 suite before rolling them out broadly, exactly as you'd test any other piece
 of shared infrastructure.
 
+## How It Actually Works
+
+Building an in-house test framework almost always means writing a *thin layer of
+pytest plugin hooks* rather than a framework from scratch — pytest's plugin
+architecture (the same `pytest11` entry-point mechanism from Level 2) exposes
+well-defined hook points (`pytest_collection_modifyitems` to filter/reorder collected
+tests, `pytest_runtest_makereport` to customize how a `TestReport` is built,
+`pytest_addoption` to register custom CLI flags/config) that let you inject
+organization-specific behavior — custom markers enforcing team conventions, automatic
+retry logic for known-flaky categories, custom reporting formats — without
+reimplementing test discovery, fixture resolution, or assertion introspection, all of
+which you've now seen are nontrivial, well-tested pieces of machinery already living
+inside pytest core.
+
+A custom fixture library built for your framework is, mechanically, no different from
+any `conftest.py`-based fixture set from Level 1 — the "framework" part is really
+about API design and defaults (sensible base classes, pre-wired common fixtures like
+an authenticated API client or a seeded test database) layered on top of pytest's
+existing dependency-graph resolution, not a new execution engine. Recognizing this is
+what keeps an in-house framework maintainable: every hook you add plugs into a
+documented pytest extension point with well-defined ordering guarantees, rather than
+monkey-patching pytest internals directly, which would break on any pytest version
+upgrade that changes undocumented internal structure.
+
 ## Cheat sheet
 
 | Building block | Purpose |

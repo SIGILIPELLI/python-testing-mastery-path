@@ -163,6 +163,30 @@ A test that was reliable running serially can become flaky under
 concurrently in another worker. If flakiness only appears with `-n auto`, the
 bug is almost certainly shared mutable state, not timing.
 
+## How It Actually Works
+
+A flaky test is, formally, one whose outcome depends on unmanaged nondeterminism —
+and nearly every root cause traces back to one of a small number of concrete
+mechanisms you've already met in this path: (1) real time — a `time.sleep()` or
+timeout racing against actual wall-clock-dependent I/O latency that varies run to
+run; (2) shared mutable state — parallel xdist workers or ordering-dependent tests
+touching the same database row, file, or module-level global without isolation
+(Level 2); (3) unseeded randomness — a test relying on dict iteration order or
+`random` without a fixed seed, where CPython's hash randomization (`PYTHONHASHSEED`)
+deliberately varies string hash values, and therefore set/dict ordering, between
+process runs as a security mitigation; (4) async/callback races — two coroutines or
+event handlers whose completion order isn't actually guaranteed by anything in your
+code, just usually consistent by chance.
+
+`pytest-rerunfailures`'s retry mechanism doesn't fix flakiness — it re-invokes the
+same `Item`'s test function again, from scratch, hoping the nondeterministic
+condition resolves differently — this is a mitigation for triage/CI stability, not a
+diagnosis; a genuinely useful debugging technique is running the failing test alone,
+under `-p no:randomly` (disabling any random test-order plugin) and with
+`PYTHONHASHSEED=0` fixed, specifically to remove two of the most common
+nondeterminism sources and see whether the failure still reproduces deterministically
+once those are pinned.
+
 ## Cheat sheet
 
 | Symptom | Likely cause | Real fix |

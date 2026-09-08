@@ -189,6 +189,28 @@ Adding this scenario produces three more parametrized test IDs automatically
 — `test_dropdown_selection_is_reflected_after_submit[One]`, `[Two]`,
 `[Three]` — no change needed to `conftest.py` or the CI workflow.
 
+## How It Actually Works
+
+Wiring Playwright's CDP-based automation together with a BDD step-definition layer
+surfaces a subtlety in how "Given/When/Then" state gets threaded through: BDD step
+functions are ordinary pytest fixtures/functions under the hood, but Playwright's
+`Page` object is *stateful and connection-bound* — it wraps one specific tab's
+WebSocket connection to the browser. A `Given` step that creates a page and a later
+`When` step that acts on it must share the *exact same* `Page` object instance, not a
+freshly created one, or you'll be silently issuing commands against a tab that no
+longer represents where your scenario's state actually is. This is why BDD-Playwright
+integrations lean hard on pytest's fixture caching (Level 1) — the `page` fixture is
+typically function-scoped and injected into every step definition function for a
+given scenario, guaranteeing they all resolve to the identical cached instance for
+that one test run.
+
+The CI wiring for this project closes the loop from Level 3 Module 4: your scenario's
+outcome bubbles up through pytest-bdd into a normal pytest `TestReport`, which flows
+into the same `testsfailed` exit-code mechanism from Level 1 that any CI system gates
+a merge on — the entire BDD/Playwright stack, however expressive its `.feature` files
+look, ultimately reduces to the same "process exit code 0 or not" contract as every
+other test in this path.
+
 ## Stretch goals
 
 1. Add the `Scenario Outline` from section 7 to `features/search.feature`

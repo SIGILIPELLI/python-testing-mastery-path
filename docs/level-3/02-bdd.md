@@ -138,6 +138,26 @@ reads it, even though pytest still reports a pass or fail correctly. Review
 feature files as carefully as you review code — they're the artifact a
 non-engineer will actually read.
 
+## How It Actually Works
+
+Gherkin's `Given/When/Then` isn't parsed as natural language — `pytest-bdd` (or
+`behave`) matches each step line against a library of step-definition functions using
+regex or parse-string patterns you register with decorators
+(`@given("a user named {name}")`). At collection time, the BDD plugin reads each
+`.feature` file, tokenizes it into scenario/step structures, and for every step line
+searches its registered pattern table for a matching regex; a matched group (like
+`{name}`) is extracted and passed as a function argument to the corresponding
+step-definition function. This is why a phrasing typo in a `.feature` file produces a
+"step definition not found" collection-time error rather than a runtime failure —
+matching happens before any step's Python code executes.
+
+Because Gherkin steps map to plain pytest fixtures/functions underneath, `Given`
+steps commonly *are* fixtures (setting up state and returning it), `When` steps
+mutate that state, and `Then` steps assert on it — the BDD layer is a readable
+DSL sitting directly on top of the exact fixture-and-assertion machinery you already
+learned in Level 1; there's no separate execution engine, just an extra parsing and
+dispatch layer that turns English sentences into ordinary Python calls.
+
 ## Cheat sheet
 
 | Concept | Gherkin | pytest-bdd wiring |

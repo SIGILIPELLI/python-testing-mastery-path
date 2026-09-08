@@ -316,6 +316,32 @@ Structured prompts stop exploration turning into aimless clicking:
 | Time is short and risk is unclear | Risk-based prioritisation + exploratory |
 | Requirement seems complete but feels wrong | Error guessing + exploratory |
 
+## How It Actually Works
+
+Exploratory testing looks unstructured, but it's doing something specific under the
+hood: building a mental model of the program's actual state machine and hunting for
+transitions the spec never described.
+
+Every UI you test is backed by real program state — variables, session data, DOM
+nodes — and every action you take (click, type, navigate) is an event that mutates
+that state through a handler function. A scripted test case only ever drives a small,
+pre-planned set of these transitions. Exploratory testing's value comes from covering
+transitions no one wrote down: what happens if you trigger the "submit" handler twice
+before the first request's response returns (a race between two async callbacks
+mutating the same state), or navigate back mid-submission (an event handler firing
+against a component that's already been torn down). These are exactly the classes of
+defects that show up as flaky tests in Level 3 — they're timing- and
+state-ordering-dependent, which is also why they're hard to write a deterministic
+scripted test case for in the first place.
+
+Session-based test management's timer and charter aren't bureaucracy — they bound an
+otherwise-unbounded state space. The reachable-states graph of a real application is
+often too large to enumerate exhaustively (this is the same combinatorial explosion
+that limits exhaustive test-case generation for any nontrivial program), so a charter
+is a deliberate, human-directed traversal strategy through that graph, prioritizing
+the paths most likely to hide a defect (recently changed code, complex conditionals,
+areas with a history of bugs) over uniform random exploration.
+
 ## Exercise
 
 For an online hotel-booking form (check-in date, check-out date, number of

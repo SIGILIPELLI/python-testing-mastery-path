@@ -215,6 +215,28 @@ pytest \
     ignore the report entirely. Either fix them, or mark them `xfail` with a
     ticket reference so the summary line means something again.
 
+## How It Actually Works
+
+Every pytest report format — terminal summary, JUnit XML, HTML — is built from the
+same underlying data structure: a `TestReport` object emitted per test phase (setup,
+call, teardown) via pytest's hook system (`pytest_runtest_logreport`). Reporting
+plugins don't re-run anything or inspect test internals directly; they simply
+subscribe to this hook and serialize the `TestReport` fields (outcome, duration,
+captured stdout/stderr, exception info) into their target format. This is precisely
+why JUnit XML (consumed by nearly every CI dashboard) and `pytest-html`'s report
+contain the same underlying facts presented differently — one hook-emitted event feeding
+multiple listeners, a plain observer pattern.
+
+Captured stdout/stderr in a failure report isn't magic log-scraping — pytest replaces
+`sys.stdout`/`sys.stderr` with an in-memory capture object for the duration of each
+test (via its `capsys`/global-capture machinery, implemented with low-level
+file-descriptor duplication so it also catches output from C extensions and
+subprocesses, not just Python `print()` calls), then attaches the captured buffer's
+contents to the `TestReport` only if the test failed — this selective attach-on-
+failure is why passing tests don't clutter your terminal with their `print()` debug
+statements but a failure shows you everything that was printed during that specific
+test.
+
 ## Cheat sheet
 
 | Need | Command |

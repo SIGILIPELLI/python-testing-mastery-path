@@ -163,6 +163,29 @@ mutants rather than to verify real behavior — the same failure mode as
 coverage-chasing, one layer deeper. Use it to find genuine gaps, not as a
 number to maximize for its own sake.
 
+## How It Actually Works
+
+Line and branch coverage numbers come from exactly the mechanism named in Level 1:
+`coverage.py` (which `pytest-cov` wraps) installs a trace function via Python's
+`sys.settrace` (or the faster C-level tracer when available) that gets invoked by the
+interpreter on every line execution event during your test run. Each such event
+records `(filename, line number)` into an in-memory set; at the end of the run,
+coverage.py diffs "lines actually executed" against "lines the AST says exist" in
+each source file to compute the percentage. Branch coverage extends this by also
+tracing which direction a conditional branch actually took (not just "was this `if`
+line executed" but "was the True path taken, was the False path taken") — this is why
+100% line coverage can still hide an untested `else` branch that line coverage alone
+can't see but branch coverage can.
+
+A quality gate enforcing "coverage must not drop below 80%" is implemented as a CI
+step comparing the freshly computed coverage percentage against a stored threshold and
+failing (non-zero exit) if it's lower — the exact same process-exit-code contract from
+Level 1/3 that every other CI gate relies on. This is also why coverage percentage
+alone is a weak proxy for test quality: the trace function only records *that* a line
+executed, never *whether the test actually asserted anything meaningful* about the
+result — a test that calls a function and asserts nothing still counts as "covering"
+every line that function touches.
+
 ## Cheat sheet
 
 | Metric | What it actually tells you | What it misses |

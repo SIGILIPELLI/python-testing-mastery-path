@@ -215,6 +215,28 @@ You will never run everything. A workable default for a two-week sprint release:
 | Before release | Full regression + exploratory + non-functional spot checks | Mixed |
 | After release | Production smoke | Automated against prod |
 
+## How It Actually Works
+
+The unit/integration/system/acceptance hierarchy isn't arbitrary — it tracks how
+much of the real call graph and I/O boundary a test actually exercises, which
+directly determines both its speed and its blast radius when something breaks.
+
+A unit test that calls a function directly runs entirely inside one Python process
+with no syscalls beyond memory allocation — the interpreter's eval loop executes your
+bytecode and returns, typically in microseconds. An integration test that hits a real
+database or HTTP endpoint forces the OS to context-switch to the kernel for socket or
+file I/O (`connect()`, `send()`, `recv()` syscalls), which is 100-1000x slower than a
+pure in-process call — this is the mechanical reason "the test suite got slow" almost
+always means "someone added I/O to what should be a unit test." System and acceptance
+tests add browser automation (a real WebDriver process controlling a real rendering
+engine) or full deployment stacks on top of that, compounding the same syscall and
+process-boundary overhead across every layer.
+
+This is also why test doubles (mocks, stubs, fakes) exist: they let a test keep the
+call graph of an integration scenario while collapsing the I/O back to an in-process
+attribute swap, trading some fidelity for the unit test's speed. You'll see the exact
+mechanism — `unittest.mock` patching `__dict__` entries — in Level 2.
+
 ## Summary table
 
 | Axis | Options |

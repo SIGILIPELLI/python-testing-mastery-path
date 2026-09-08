@@ -142,6 +142,27 @@ Contract verification belongs in the provider's CI pipeline, running against
 every version of every contract a Pact Broker currently considers "in
 production," not as a one-time step.
 
+## How It Actually Works
+
+Contract testing (Pact-style) solves a specific coordination problem integration
+tests can't: verifying a consumer and provider agree on an API shape without either
+side needing the other's real, running system in the test loop. Mechanically, a
+consumer test runs against a Pact *mock provider* — a local HTTP server the Pact
+library spins up that returns pre-recorded expected responses — and while doing so,
+Pact's client library intercepts every request/response pair and serializes it into a
+JSON "pact file" describing exact expected request shape and response shape. That
+same pact file is later replayed against the *real* provider in a separate provider-
+side verification step: the pact tooling issues each recorded request against the
+real provider and diffs the real response against the recorded contract, failing if
+they diverge.
+
+This split-verification design is why contract tests can run fully in isolation on
+each side's own CI pipeline (no live network dependency between two teams' pipelines)
+while still catching real drift: a provider that changes a field name breaks pact
+verification on its *own* CI run the next time it re-executes the shared contract
+file, well before that change would have surfaced as an integration failure in a
+downstream consumer's environment.
+
 ## Cheat sheet
 
 | Concept | Pact-Python API |

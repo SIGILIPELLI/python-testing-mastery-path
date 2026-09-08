@@ -274,6 +274,33 @@ Module 2 argued for.
   is exactly where it would plug in, keeping `tests/e2e` fast and free of
   real network calls.
 
+## How It Actually Works
+
+This capstone's three test layers (unit, integration with real SQLite, E2E with a
+real Flask app) exist specifically to exercise every mechanism this whole path
+covered, stacked in one codebase. The unit tests against `orders.py`'s pure logic
+pay only eval-loop cost (Level 1) — no I/O, no fixtures beyond plain function calls.
+The integration tests' "real SQLite, scoped fixtures" phrase names the exact
+transaction-and-rollback isolation mechanism from Level 3 Module 8: each test gets a
+fresh transaction on a real database engine, rolled back afterward, so tests can
+catch real SQL/schema bugs a mocked DB layer cannot, without the cost of recreating
+tables per test. The E2E tests spinning up the real Flask app and hitting it over
+HTTP are paying the full integration-test I/O cost from Level 1 Module 3 — real
+sockets, a real WSGI request/response cycle — deliberately reserved for the smallest
+layer of the pyramid, exactly matching the cost/coverage trade-off from Level 4
+Module 1.
+
+`pytest.ini`'s markers enforcing "the pyramid" work through the same custom-marker
+mechanism from Level 2 Module 6: `@pytest.mark.unit`/`@pytest.mark.integration`/
+`@pytest.mark.e2e` are plain metadata on each test `Item`, and `-m "not e2e"` in a
+fast CI stage is literally filtering the collected `Item` list by marker before any
+test executes — the same filtering pytest's own `-k` and `-m` machinery does
+generally, not custom logic this project had to build. The CI wiring in Module 7
+closes the full loop back to Level 1: every layer's outcome, however it was produced
+(browser automation, real DB transaction, or a bare function call), reduces to the
+same `TestReport` → process exit code contract every CI gate in this path has relied
+on since Level 1 Module 7.
+
 ## Stretch goals
 
 1. Add a `refund_order(conn, sku, qty)` function with unit and integration

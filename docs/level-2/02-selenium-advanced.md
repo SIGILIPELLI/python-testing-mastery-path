@@ -260,6 +260,31 @@ test_adv.py::test_timeout_message PASSED                                 [100%]
 ============================= 11 passed in 23.99s ==============================
 ```
 
+## How It Actually Works
+
+Advanced Selenium waits and actions expose more of the wire-protocol machinery from
+Level 1. `ActionChains` doesn't perform a drag-and-drop as one atomic call — it builds
+a queue of low-level pointer/keyboard events (`pointerMove`, `pointerDown`,
+`pointerMove`, `pointerUp`) that get serialized into a single `POST
+/session/{id}/actions` request per the W3C Actions API, then replayed by the driver
+against the real input pipeline of the OS/browser — this is why `ActionChains` can
+correctly simulate a native HTML5 drag event that a synthetic `.click()` cannot: it's
+generating the same sequence of low-level pointer events a real mouse would.
+
+Switching frames or windows (`driver.switch_to.frame(...)`) changes which "browsing
+context" subsequent WebDriver commands target — internally the driver session tracks
+a current context ID, and every `find_element` call after a `switch_to` is scoped to
+that context's DOM, not the top-level document. This is why elements inside an
+`<iframe>` are invisible to `find_element` until you explicitly switch into that
+frame's context — Selenium isn't failing to find them, it's correctly searching the
+wrong document.
+
+JavaScript execution (`driver.execute_script(...)`) bypasses the WebDriver element
+protocol entirely and hands a raw script string to the browser's JS engine for direct
+evaluation in page context — useful for reading properties WebDriver's protocol
+doesn't expose (like a custom JS object's internal state), but it also means anything
+you do this way is invisible to WebDriver's own element-staleness tracking.
+
 ## Cheat sheet
 
 | Need | API |

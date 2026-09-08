@@ -212,6 +212,28 @@ runtime back.
     quietly runs Chrome and reports `[safari] PASSED`. Raise on an unknown name,
     as section 1 does.
 
+## How It Actually Works
+
+Running the same Selenium test against Chrome, Firefox, and WebKit works because
+WebDriver is a *protocol specification* (W3C WebDriver), not a Chrome-specific API —
+your test code talks the same JSON-over-HTTP commands regardless of target; only the
+driver executable underneath changes (`chromedriver`, `geckodriver`,
+`msedgedriver`), and each driver translates the identical incoming command into
+whatever native automation hooks its specific browser engine exposes. This
+protocol-level abstraction is also exactly where cross-browser flakiness originates:
+each browser engine's actual rendering, timing, and JavaScript execution differs
+underneath an identical WebDriver command, so a wait tuned against Chromium's render
+timing can legitimately race against Firefox's Gecko engine finishing a layout pass
+at a different rate for the same page.
+
+A cloud grid (Selenium Grid, BrowserStack) is the same protocol one hop further: your
+test's HTTP requests go to a remote hub instead of a local driver process, and the
+hub proxies them to whichever real (or virtualized) browser/OS combination is
+provisioned for that session — the wire protocol between your test code and "the
+browser" never changes; what changes is how many network hops and how much latency
+sit between the two ends, which is why cloud-grid suites need generally longer wait
+timeouts than a local run against the same test logic.
+
 ## Cheat sheet
 
 | Need | Code |

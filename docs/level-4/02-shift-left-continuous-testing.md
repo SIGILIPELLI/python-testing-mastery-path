@@ -167,6 +167,28 @@ complementary to production monitoring and canary releases, not a
 replacement for them — a team that only tests pre-merge and never observes
 production is still flying partially blind.
 
+## How It Actually Works
+
+Shifting testing left is, mechanically, about which pipeline stage first executes a
+given check and how expensive a defect is once it escapes that stage. A pre-commit
+hook (running via `pre-commit`'s framework, which hashes each staged file's content
+and only re-runs a check when that hash changes) executes static analysis and fast
+unit tests in the same process boundary as the developer's own machine, at essentially
+zero marginal infrastructure cost. Push that same check one stage later into CI, and
+you've paid for a fresh container provisioning, dependency install, and queue wait
+before the same bug is caught — push it further still into a nightly full-regression
+run, and the defect has had an entire day to compound with other changes before
+anyone sees the failure, making root-cause bisection dramatically harder.
+
+Continuous testing pipelines commonly stage checks by cost using exactly the pyramid
+mechanics from the previous module: pre-commit runs linters and unit tests (sub-
+second, per Level 1's eval-loop-only cost); a PR-triggered CI stage adds integration
+tests (real DB/API calls, Level 2's I/O cost); a merge-triggered or nightly stage adds
+full E2E suites (browser automation, Levels 1-3's process-and-protocol cost) — each
+stage is a real filter, and the pipeline is designed so a defect is caught at the
+cheapest stage capable of catching it, not deferred to the most expensive one by
+default.
+
 ## Cheat sheet
 
 | Goal | Tool / command |

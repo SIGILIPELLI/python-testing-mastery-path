@@ -185,6 +185,32 @@ while masking a raw-SQL bug that only surfaces when a report or migration
 runs hand-written SQL directly. When a query's correctness genuinely matters,
 test it at the same level it will actually run in production.
 
+## How It Actually Works
+
+Testing against a real database instead of mocking the DB layer trades speed for a
+class of bugs mocks structurally cannot catch: SQL that's syntactically valid Python-
+side but semantically wrong against the real engine (a `JOIN` on the wrong column
+type, a `NOT NULL` constraint you forgot, a query that works on SQLite's loose typing
+but fails on Postgres's strict typing). A mock of your DB access layer only ever
+returns exactly what you told it to return — it has no schema, no constraints, no
+query planner, so it can't fail the way a real database can.
+
+Test isolation for DB tests is almost always built on transactions: a fixture opens a
+connection, begins a transaction, hands the test a session bound to that transaction,
+and rolls it back in teardown — this relies on the database engine's own MVCC/
+transaction machinery (write-ahead logs or undo logs, depending on engine) to make the
+rollback both correct and fast; `ROLLBACK` discards the transaction's write set
+without touching the underlying table files, which is why transaction-per-test is
+dramatically cheaper than dropping and recreating tables between tests, even though
+both achieve the same logical isolation guarantee.
+
+Using `sqlite3` in-memory for unit-level DB tests but a real Postgres container for
+integration tests is a real fidelity trade-off, not interchangeable — SQLite's type
+affinity rules, lack of some constraint enforcement, and different concurrency model
+mean a query can behave differently on each engine; testcontainers-style ephemeral
+real-database fixtures exist specifically because "pass on SQLite" is not proof of
+"pass on your actual production database engine."
+
 ## Cheat sheet
 
 | Need | Pattern |

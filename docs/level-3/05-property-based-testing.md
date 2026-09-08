@@ -159,6 +159,29 @@ confidence. Hypothesis warns about this (`FailedHealthCheck: filter_too_much`)
 but it's worth reading `pytest -v` output closely rather than treating a green
 check as automatically meaningful.
 
+## How It Actually Works
+
+Hypothesis doesn't run your test once with example data you wrote — it runs your test
+function many times (100 by default) with inputs it *generates* from the strategy you
+declared (`st.integers()`, `st.text()`, etc.), and it does this generation
+intelligently rather than purely randomly: each strategy is a recursive data
+structure describing how to both generate and *shrink* values, and Hypothesis's core
+engine drives generation using its own internal PRNG plus a growing corpus of
+previously-interesting byte sequences (stored in `.hypothesis/examples`) so that
+inputs which triggered failures before are retried first on subsequent runs.
+
+The genuinely clever mechanism is shrinking: when a randomly generated input fails
+your test, Hypothesis doesn't just report that raw (possibly huge, nested) failing
+value — it re-runs your test against a series of "simpler" candidate inputs derived
+from the failure (smaller integers, shorter strings, fewer list elements), using a
+binary-search-like reduction strategy, repeatedly checking "does this simpler input
+still fail?" and greedily accepting any reduction that preserves the failure. This is
+why Hypothesis failure reports show a minimal counterexample (`fails on x=0`) instead
+of the messy 847-character string it originally stumbled into — the shrinker did
+real, repeated test executions to minimize it, which is also why a very slow test
+function makes Hypothesis's shrinking phase disproportionately slow: shrinking can
+mean dozens of extra test executions on top of the initial 100.
+
 ## Cheat sheet
 
 | Concept | API |

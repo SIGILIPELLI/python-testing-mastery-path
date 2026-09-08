@@ -187,6 +187,35 @@ cheap defect prevention.
 A team that only does dynamic testing is paying full price for every defect it
 finds.
 
+## How It Actually Works
+
+"Dynamic testing" and "static testing" aren't just vocabulary — they map to two
+completely different machinery paths.
+
+Static analysis (linters, type checkers, code review) never executes a single
+bytecode instruction. A tool like `pyflakes` or `mypy` parses your source into an
+Abstract Syntax Tree (AST) — the same tree structure Python's own compiler builds
+internally before generating bytecode — and walks it looking for patterns: an
+imported name that's never referenced, a variable used before assignment on every
+control-flow path, a function call passed the wrong argument count. All of this
+happens in the "front half" of Python's compilation pipeline (source → tokens → AST
+→ bytecode) and stops before the "back half" (bytecode → CPython's eval loop), which
+is why static checks are fast and can catch entire classes of bugs (unreachable code,
+type mismatches) that would need thousands of dynamic test runs to stumble across by
+chance.
+
+Dynamic testing, by contrast, requires the interpreter to actually run: source is
+compiled to bytecode, the bytecode is fed into CPython's eval loop
+(`ceval.c`'s `PyEval_EvalFrameEx`), and real objects get created, mutated, and
+garbage-collected on the heap. This is why dynamic tests can catch a defect that
+static analysis structurally cannot — a division that only becomes a
+`ZeroDivisionError` when a specific runtime value flows into it — but only for the
+exact inputs and code paths a given test run actually exercises. Coverage tools
+(covered later in this path) work by hooking Python's `sys.settrace` mechanism to
+record exactly which bytecode lines the eval loop touched during a dynamic run,
+which is the concrete, mechanical answer to "how much of my code did dynamic testing
+actually reach?"
+
 ## Glossary
 
 | Term | Meaning |

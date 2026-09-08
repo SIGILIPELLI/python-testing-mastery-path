@@ -549,6 +549,31 @@ def test_login_fails_with_unregistered_email(driver, wait, base_url):
 Note the docstring carrying the test case ID and requirement ID — that's your
 traceability matrix surviving into the code.
 
+## How It Actually Works
+
+Selenium's WebDriver isn't a library that "controls the browser" in-process — it's an
+HTTP client talking the W3C WebDriver wire protocol to a separate driver executable
+(`chromedriver`, `geckodriver`), which in turn talks to the real browser over its own
+internal automation protocol (Chrome DevTools Protocol, for Chrome). Every
+`driver.find_element(...)` or `.click()` call in your Python code is serialized into
+a JSON HTTP request (`POST /session/{id}/element`, etc.), sent to the driver process
+listening on a local port, translated into a browser-native command, executed inside
+the real rendering engine, and the result is serialized back as JSON. This round trip
+through two extra processes is the concrete reason Selenium tests are orders of
+magnitude slower than unit tests — every single interaction pays HTTP-serialization
+and inter-process-communication cost.
+
+Implicit and explicit waits exist because of a fundamental race: your Python process
+and the browser's rendering/JavaScript engine run as independent processes with no
+shared clock. `WebDriverWait(driver, 10).until(...)` works by polling — repeatedly
+issuing the same `find_element` HTTP request every ~500ms until it either succeeds or
+the timeout elapses — it is not an event subscription to the DOM; the browser doesn't
+push "element appeared" notifications to WebDriver. This polling-based design is why
+badly-tuned waits are the single largest source of flaky Selenium tests: too short a
+poll timeout races against real network/render latency, and `time.sleep()` in place
+of a wait hardcodes a guess about that latency instead of actually checking element
+state.
+
 ## Exercise
 
 Using the Selenium practice page at

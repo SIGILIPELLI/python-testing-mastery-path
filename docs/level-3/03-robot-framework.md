@@ -157,6 +157,25 @@ fine one level deep; nesting several is far harder to read than the
 equivalent Python `if/elif`. If a test needs real branching logic, that logic
 usually belongs inside a Python keyword implementation, not the `.robot` file.
 
+## How It Actually Works
+
+Robot Framework's plain-text/tabular test files are parsed by Robot's own
+lexer/parser into a keyword-call tree, then executed by Robot's interpreter — each
+keyword name is looked up in a keyword registry built from imported libraries
+(`SeleniumLibrary`, `RequestsLibrary`, or custom Python keyword libraries), resolved
+by matching the keyword's name (case- and whitespace-insensitively) against every
+loaded library's exposed methods. A "library" in Robot is, mechanically, just a
+Python class or module whose public methods are auto-exposed as callable keywords —
+`SeleniumLibrary` itself is a fairly thin Python wrapper translating Robot keyword
+calls into the exact Selenium WebDriver calls you already know from Level 1/2.
+
+Robot's test-data-as-tables format exists specifically to let non-programmers author
+and read tests, but underneath, every row is compiled into ordinary Python function
+calls before execution — there's no separate "Robot execution engine" independent of
+Python; Robot Framework itself is a Python application, and its keyword-dispatch
+layer is comparable to pytest's fixture-name matching: string-based lookup connecting
+declarative test data to executable Python code.
+
 ## Cheat sheet
 
 | pytest | Robot Framework |

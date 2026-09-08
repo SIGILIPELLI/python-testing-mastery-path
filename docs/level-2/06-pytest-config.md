@@ -247,6 +247,34 @@ fastest way to answer "why does CI behave differently from my machine".
     for provably external flakiness (a third-party sandbox), and log every rerun
     so the count is visible. A test that needs `--reruns 3` is a bug report.
 
+## How It Actually Works
+
+`pytest.ini` / `pyproject.toml` `[tool.pytest.ini_options]` settings aren't read at
+some arbitrary point — pytest's startup sequence explicitly locates the rootdir
+*first* (by walking up from the invocation directory looking for `pytest.ini`,
+`pyproject.toml` with a `[tool.pytest.ini_options]` table, `setup.cfg`, or `tox.ini`,
+in that priority order) before it does any test collection, because settings like
+`testpaths` and `python_files` change what collection even considers a candidate
+file. This ordering is why a misplaced config file (in the wrong directory, so it's
+never found while walking up) silently has zero effect rather than erroring — pytest
+simply never discovers it and falls back to defaults.
+
+Custom markers (`@pytest.mark.slow`) are, without registration, just arbitrary
+attribute lookups on the `pytest.mark` namespace object — `pytest.mark.anything`
+always succeeds because `MarkGenerator.__getattr__` dynamically creates a marker
+decorator for any name you ask for. Registering markers in `markers =` config doesn't
+change this at runtime; it only changes whether `--strict-markers` treats an
+unregistered name as an error at collection time — the marker mechanism itself is
+just metadata attached to a test `Item` object's `own_markers` list, later read by
+`-m` expression filtering or plugin code via `item.iter_markers(name=...)`.
+
+Plugin discovery works through Python's package entry-point mechanism: any installed
+package that declares a `pytest11` entry point in its metadata gets its module
+imported automatically at pytest startup and its registered hook implementations
+(`pytest_collection_modifyitems`, etc.) wired into pytest's hook-calling machinery —
+this is how `pytest-xdist` or `pytest-cov` "just work" once installed, with zero
+import statements in your test files.
+
 ## Cheat sheet
 
 | Task | Command / setting |

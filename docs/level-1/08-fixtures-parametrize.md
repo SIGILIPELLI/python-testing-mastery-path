@@ -570,6 +570,40 @@ tests/test_browsers.py::test_browser_name_is_lowercase[edge] PASSED      [100%]
 | Run the whole suite against several configurations | **Parametrized fixture** |
 | Cleanup required after the test | **Fixture** with `yield` |
 
+## How It Actually Works
+
+**Fixture resolution is dependency-graph resolution.** When a test function declares
+a parameter name that matches a fixture, pytest doesn't just "run a function with that
+name" — it builds a directed dependency graph at collection time: your test depends
+on `fixture_a`, which might itself declare `fixture_b` as a parameter, and so on.
+Pytest topologically sorts this graph per test, resolves it depth-first, caches each
+fixture's return value keyed by `(fixture name, scope, parametrization)`, and injects
+the cached values by name-matching function parameters — there's no magic
+introspection of types, purely string matching against the fixture's registered name
+in pytest's internal `FixtureManager`.
+
+**Scope caching is why `yield` teardown order is reversed.** A `scope="module"`
+fixture's setup code runs once and its return/yield value is cached against that
+module; every test in the module that requests it gets the same cached object instead
+of a fresh call. Because fixtures are resolved as a stack (each fixture's teardown is
+registered as it's set up), teardown always unwinds in reverse dependency order — if
+fixture A depends on B, A tears down before B, mirroring how Python's own `with`
+statement stack unwinds nested context managers.
+
+**`conftest.py` isn't imported like a normal module — it's discovered by directory.**
+Pytest walks up from each test file's directory to the rootdir, collecting every
+`conftest.py` along the path and registering its fixtures into a scope visible to
+every test at or below that directory — this directory-based visibility (not Python's
+normal import-based visibility) is why you never `import` fixtures from `conftest.py`
+and why the same fixture name can be legally redefined at different directory levels.
+
+**Parametrize duplicates the test node, not the function.** `@pytest.mark.parametrize`
+runs at collection time, generating one distinct `Item` per parameter set (visible as
+separate `test_name[param0]`, `test_name[param1]` node IDs) — this is why a failure
+in one parametrized case doesn't stop the others: they're genuinely separate test
+items in pytest's collection tree, each with its own pass/fail outcome, not one test
+looping internally.
+
 ## Exercise
 
 Build `tests/test_booking.py` for a hotel-booking price calculator:

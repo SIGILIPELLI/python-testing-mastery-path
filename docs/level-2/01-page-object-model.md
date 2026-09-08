@@ -299,6 +299,29 @@ Now `HeaderNav` and `SearchWidget` are reusable on every page that has them,
 instead of duplicated inside `ProductListPage`, `CheckoutPage`, and
 `AccountPage` separately.
 
+## How It Actually Works
+
+The Page Object Model isn't just "good OOP style" applied to tests — it's a
+deliberate cache-invalidation boundary around the one thing in Selenium that's most
+expensive and most brittle: locator strategy.
+
+Every `driver.find_element(By.CSS_SELECTOR, "...")` call triggers a fresh round trip
+through the WebDriver wire protocol (see Level 1) to the browser's DOM, which walks
+the live DOM tree to find a match — Selenium does not cache element references across
+calls by default (a `WebElement` reference can go stale the instant the DOM
+re-renders, raising `StaleElementReferenceException`). By centralizing locators as
+class attributes on a Page Object, you're not making lookups faster — each call still
+does the same DOM walk — but you're making the *one place* a broken locator needs
+fixing when the front-end team renames a `data-testid` a single line of code instead
+of a grep-and-replace across every test file.
+
+Method chaining (`page.login(user).open_dashboard()`) works because each page-object
+method returns `self` or a new page object instance — this is plain Python object
+composition, not a Selenium feature, but it mirrors how the actual application state
+machine works: each returned object represents "the page the browser is now
+believably on," so the type system (or at minimum, the object graph) documents valid
+UI-flow transitions the same way a state machine diagram would.
+
 ## Cheat sheet
 
 | Principle | Rule |

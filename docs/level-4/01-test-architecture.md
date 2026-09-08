@@ -177,6 +177,29 @@ confidence. Each layer should test what only *that* layer can catch: unit
 tests for logic, integration tests for component wiring, E2E tests for real
 user flows across the whole stack.
 
+## How It Actually Works
+
+The testing pyramid (many unit, fewer integration, fewest end-to-end) isn't a style
+preference — it's dictated by the process/IO cost curve you've now seen the mechanics
+of across this whole path: a unit test's cost is a bare eval-loop call (Level 1), an
+integration test's cost adds real socket/database I/O (Level 2), and an end-to-end
+test's cost adds a full browser process plus WebDriver/CDP protocol overhead (Levels
+1-3). Architecting a test suite around this shape means deliberately pushing as much
+verification as possible down to the cheapest layer that can actually catch the bug —
+a business-rule edge case belongs in a unit test not because "best practice says so"
+but because paying browser-launch cost to verify pure logic wastes CI minutes on
+overhead the fast layer already covers.
+
+A well-architected suite also separates *test doubles by boundary*, mirroring exactly
+where your production code crosses a real process/network boundary — `unittest.mock`
+patches (Level 2) at each such boundary give you the pyramid's middle layers without
+the pyramid's cost, because you keep the call graph's shape while removing the actual
+I/O. The architectural discipline is knowing precisely which boundaries in your
+dependency graph are safe to fake (external services, wall-clock time, randomness)
+versus which ones a test should cross for real (your own database schema, your own
+API contract) — faking your own contract just tests your mocks' assumptions about
+themselves.
+
 ## Cheat sheet
 
 | Layer | Tests | Speed | Failure tells you |

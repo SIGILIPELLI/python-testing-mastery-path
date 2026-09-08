@@ -170,6 +170,32 @@ A suite that only passes in a specific order has a hidden shared-state bug —
 CI parallelism is often what first exposes it, which is a feature of CI, not
 a flaw in it.
 
+## How It Actually Works
+
+A CI pipeline's "job" is, underneath the YAML, a fresh container or VM: your test
+runner's exit code (see Level 1 — pytest's `testsfailed` counter driving process exit
+status) is the *only* signal the CI system's job scheduler actually understands.
+Every green checkmark or red X in a PR check ultimately traces back to that single
+process exit code being 0 or non-zero — the YAML config's "steps" are just a sequence
+of shell commands executed inside that ephemeral environment, and the pipeline stops
+(marks the job failed) the instant any step's process returns non-zero, unless it's
+explicitly marked to continue on error.
+
+Build matrices (running the same job across Python 3.9/3.10/3.11, or multiple OSes)
+work by the CI scheduler templating your job definition once per matrix cell and
+dispatching each as an independent, parallel job — there's no shared state between
+matrix cells; each gets its own fresh container/VM, its own dependency install, its
+own full test run. This is why a matrix build's total wall-clock time is close to the
+slowest single cell's time (not the sum of all cells) when the CI provider has enough
+parallel runners available, but consumes CI-minutes proportional to the *sum* across
+cells — the parallelism is real, but the compute cost isn't free.
+
+Caching dependency installs between runs (`actions/cache`, pip's wheel cache) works
+by hashing your lock file/requirements file and using that hash as a cache key —a
+cache hit skips the network-bound `pip install` resolution and download entirely and
+just restores a previously-saved `site-packages` directory, which is the concrete
+reason a well-cached pipeline's dependency step can drop from minutes to seconds.
+
 ## Cheat sheet
 
 | Need | Command / config |

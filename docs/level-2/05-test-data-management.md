@@ -258,6 +258,27 @@ reason.
     A copied-in production record puts real names, emails, and card fragments
     into your git history permanently. Anonymise at export time, not later.
 
+## How It Actually Works
+
+Factories (`factory_boy`) generate test data lazily and declaratively: a
+`Factory` class's attributes are `Sequence`, `LazyAttribute`, or `SubFactory`
+descriptor objects, not plain values — when you call `UserFactory()`, factory_boy
+walks the class's declared attributes, resolves each one (incrementing sequence
+counters, evaluating lazy attributes against already-resolved siblings, recursively
+building any `SubFactory` dependency graph first), and finally calls your model's
+constructor with the fully resolved kwargs. This is a small dependency-resolution
+engine conceptually similar to pytest's fixture graph — deterministic build order,
+computed lazily, so a `LazyAttribute` referencing another field always sees that
+field's already-resolved value rather than its own unresolved descriptor.
+
+Database fixtures/factories that write real rows raise the isolation problem: each
+test's writes must not leak into the next test's assertions. The standard mechanism
+is wrapping each test in a database transaction that's rolled back after the test
+(`ROLLBACK` at the SQL level undoes every write since `BEGIN`, atomically and in
+constant time relative to a manual DELETE-everything approach) — this is why
+transaction-per-test fixtures are dramatically faster than truncating tables between
+tests: rollback is metadata-only work for the database engine, not a full table scan.
+
 ## Cheat sheet
 
 | Need | Pattern |

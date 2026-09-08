@@ -248,6 +248,36 @@ trade-off, and it's why the pyramid needs both layers.
     behaviour depends on (`kwargs["timeout"]`, `kwargs["params"]["city"]`) and
     let the rest vary.
 
+## How It Actually Works
+
+`unittest.mock.patch` does something very literal: it looks up the target you named
+(`"mymodule.requests.get"`), reads the object currently bound to that name via
+attribute traversal, saves it, and — for the duration of the `with` block or
+decorated function — overwrites that same attribute slot in `mymodule`'s `__dict__`
+(or the target object's `__dict__`/`__class__.__dict__` for instance/class
+attributes) with a `MagicMock` instance. When your production code later executes
+`requests.get(...)`, Python's attribute lookup finds the patched `MagicMock` in that
+`__dict__` slot instead of the real function — nothing about `requests` itself
+changed; only the name binding inside `mymodule`'s namespace did. This is exactly why
+`patch("requests.get")` at the wrong location is the single most common mocking
+mistake: you must patch the name *where it's looked up* (the importing module's
+namespace), not where it's originally defined, because Python resolves `requests.get`
+inside your module via that module's own imported reference, not a live pointer back
+to the `requests` package.
+
+`side_effect` works by `MagicMock.__call__` checking, on every invocation, whether
+`side_effect` is set: a callable gets invoked with the same arguments and its return
+value (or raised exception) is used; an iterable has `next()` called on it each call,
+raising `StopIteration` once exhausted — this is plain Python iterator protocol, not
+special mock magic.
+
+`autospec=True` introspects the real object's signature via `inspect.signature` at
+patch time and builds a mock that raises `TypeError` if called with an incompatible
+signature or if you access an attribute the real object doesn't have — this is what
+catches "the mock still passes after the real API changed" drift that a plain
+`MagicMock` (which accepts and returns a mock for literally any attribute access)
+cannot.
+
 ## Cheat sheet
 
 | Need | Code |

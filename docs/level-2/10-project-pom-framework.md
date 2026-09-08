@@ -313,6 +313,27 @@ Your framework is done when every row is true.
     someone else can run it without asking you. Three commands: install, run
     smoke, open the report.
 
+## How It Actually Works
+
+Assembling Page Objects, fixtures, and config into one framework surfaces an
+interaction worth naming explicitly: fixture scope and Page Object statefulness can
+silently fight each other.
+
+A `scope="function"` WebDriver fixture gives every test a fresh browser session (a
+new WebDriver session ID, a new browser process or tab) — safe, but paying full
+browser-launch cost per test. A `scope="session"` WebDriver shared across Page
+Objects is fast, but now every Page Object instance you construct wraps the *same*
+underlying session, so navigation state (cookies, current URL, open tabs) truly
+persists between tests unless you explicitly reset it (e.g., `driver.delete_all_
+cookies()`, navigating to a known start URL in a `function`-scoped fixture layered on
+top). This is not a framework bug to work around cleverly — it's the same fixture-
+caching mechanism from Level 1 applied to an object (the browser) that has far more
+implicit, hard-to-reset state than a plain Python object, which is exactly why real
+frameworks usually pair a `session`-scoped driver (expensive to create) with a
+`function`-scoped "clean state" fixture that resets cookies/localStorage/URL before
+each test — cheap to run, and it restores test independence without re-paying the
+browser launch cost.
+
 ## Stretch goals
 
 1. **Visual regression.** Add a fixture that captures a full-page screenshot and

@@ -183,6 +183,27 @@ pytest's fixture teardown (which runs even after a test failure) are the
 correct way to guarantee cleanup — never rely on manual stop calls placed
 after the code that might fail.
 
+## How It Actually Works
+
+Running tests against containerized dependencies (Testcontainers-style ephemeral
+Postgres/Redis containers) works by your test fixture talking to the Docker daemon's
+API (over its Unix socket) to programmatically start a real container image, poll its
+exposed port until the service inside actually accepts connections (a real TCP
+`connect()` retry loop, not a fixed sleep), hand your test the resolved host/port, and
+tear the container down afterward. This is a genuinely real, isolated instance of the
+dependency — not a mock, not an in-memory fake — running in its own Linux namespace
+with its own filesystem layer, which is why containerized integration tests catch
+real engine-specific behavior (Level 3's SQLite-vs-Postgres example) that a mocked DB
+layer structurally cannot.
+
+Container isolation is enforced by the Linux kernel's namespaces (PID, network,
+mount) and cgroups (resource limits), not by Docker itself doing anything magical —
+Docker is orchestration on top of kernel primitives that already existed. This is why
+two parallel test workers (Level 2's xdist) can each spin up their own containerized
+database without interfering: each container gets its own network namespace and,
+typically, a host-assigned ephemeral port, so "the same" service name resolves to
+genuinely separate processes and ports per worker.
+
 ## Cheat sheet
 
 | Need | Tool |

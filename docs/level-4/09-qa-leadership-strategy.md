@@ -170,6 +170,30 @@ deadline attached becomes noise the team learns to ignore — the same trust
 erosion problem as flaky tests (Level 3 Module 9), just at the organizational
 level instead of the individual-test level.
 
+## How It Actually Works
+
+Test strategy decisions that look organizational (how much to invest in E2E vs. unit,
+which suites gate a merge vs. run nightly) are, underneath, decisions about exactly
+the process/IO cost mechanics covered across this whole path. A "fast feedback loop"
+metric is quite literally: sum of wall-clock time across the specific stages a given
+change triggers, and each stage's floor is set by real, physical costs — an eval-loop-
+only unit test (Level 1) has a floor near zero, a browser-driving E2E test (Level 1-3)
+has a floor set by process-launch and protocol round-trip time that no amount of
+organizational process can shrink below the actual mechanics. A leader deciding "E2E
+only runs pre-merge, not per-commit" is making a concrete trade against those
+measured floors, not an arbitrary policy call.
+
+Flaky-test debt (Level 3) compounds specifically because of the retry/rerun mechanism
+discussed there: every masked flaky failure that gets "fixed" by adding a retry
+instead of diagnosing the real nondeterminism (unmanaged time, shared state,
+unseeded randomness, or genuine async races) leaves the underlying mechanism in
+place, silently increasing the population of tests whose pass/fail signal has
+degraded from "this code is correct" to "this code was correct on at least one of N
+tries" — a leadership-level quality-gate decision to track and cap flaky-test count is
+really a policy for bounding how much of that eroded signal the org tolerates before
+the whole suite's trustworthiness metric (its ability to be believed on a single
+red/green result) collapses.
+
 ## Cheat sheet
 
 | Decision | Tool from this module |

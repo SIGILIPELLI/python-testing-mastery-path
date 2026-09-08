@@ -162,6 +162,27 @@ latency). A test suite passing entirely on emulators can still ship bugs that
 only appear on physical devices — treat emulator-only coverage as necessary,
 not sufficient, especially for anything hardware-adjacent.
 
+## How It Actually Works
+
+Appium extends the exact WebDriver protocol from Level 1/2 rather than replacing it —
+an Appium server is itself a WebDriver-protocol-speaking HTTP server, but instead of
+launching a desktop browser driver, it translates incoming WebDriver JSON commands
+into platform-native automation calls: UiAutomator2 commands for Android (which
+themselves ride on Android's own accessibility/instrumentation framework) or
+XCUITest commands for iOS (Apple's own UI testing framework, driven via a companion
+`WebDriverAgent` process installed on the device/simulator). Your Python test code
+calling `driver.find_element(AppiumBy.ID, "...")` is issuing the same style of HTTP
+request as Selenium; Appium's server is the layer translating that into whatever
+each mobile OS's real automation API actually understands.
+
+This is why "one API surface, many platforms" comes with real platform-specific
+caveats: locator strategies differ (accessibility ID, `UiSelector` for Android,
+predicate strings for iOS) because the underlying native automation frameworks expose
+genuinely different concepts for identifying UI elements — Appium's WebDriver
+compatibility layer can standardize the *transport and command shape*, but it cannot
+paper over the fact that Android's view hierarchy and iOS's UI element tree are
+different underlying object models.
+
 ## Cheat sheet
 
 | Selenium (Level 1) | Appium |

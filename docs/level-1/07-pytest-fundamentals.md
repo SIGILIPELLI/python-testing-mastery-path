@@ -416,6 +416,35 @@ passes because `test_a` created a user, then running `pytest -k test_b` fails,
 parallel execution fails, and a re-run after a fix fails. Fixtures (Module 8)
 are the mechanism that prevents this.
 
+## How It Actually Works
+
+**Test discovery.** When you run `pytest`, it doesn't execute a fixed list of files —
+it walks the directory tree from the rootdir, collecting any file matching
+`test_*.py` or `*_test.py` (configurable via `python_files`), imports each one as a
+Python module, and then inspects that module's namespace with `dir()`-style
+introspection for any function starting with `test_` and any class starting with
+`Test` (whose methods are then collected the same way). Each match becomes an
+`Item` object in pytest's internal collection tree — this collection phase runs
+*before* any test executes, which is why a `SyntaxError` or bad import in a test file
+shows up as a "collection error" rather than a normal test failure: the module import
+itself failed, so pytest never got as far as finding `test_` functions inside it.
+
+**Assert rewriting.** Plain Python's `assert x == y` gives you nothing but
+`AssertionError` on failure — no values. Pytest's detailed failure output (`assert 4
+== 5`, with both sides shown) works because pytest's import hook intercepts test
+module imports and rewrites their AST *before* compiling to bytecode: every `assert`
+statement's expression tree is rewritten to capture each sub-expression's value into
+a temporary, so the failure message can be reconstructed with real runtime values
+substituted in. This is a genuine AST transformation happening at import time (see
+`_pytest.assertion.rewrite`), not string parsing of your source after the fact — it's
+also why assert rewriting only applies to files pytest actually imports as test
+modules, not to arbitrary library code you call into.
+
+**Exit codes.** `pytest` returns a process exit code (0 = all passed, 1 = some
+failed, 2 = interrupted, etc.) — this is the actual mechanism CI systems use to decide
+pass/fail; the colored terminal output is for humans, the exit code is the contract
+with the shell and CI runner.
+
 ## Exercise
 
 Write `tests/test_shipping.py` for this specification, using pure pytest:

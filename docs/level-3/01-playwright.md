@@ -150,6 +150,34 @@ session-scoped for speed, if you accidentally create pages directly on
 identical to reusing one Selenium `driver` across the whole suite. Always go
 through a fresh `context` per test.
 
+## How It Actually Works
+
+Playwright abandons the WebDriver wire-protocol model entirely in favor of a single
+persistent WebSocket connection to the browser's own remote-debugging protocol
+(Chrome DevTools Protocol for Chromium, analogous protocols for Firefox/WebKit that
+Playwright's team patches directly into those engines). Instead of Selenium's
+request/response HTTP round trip per command, Playwright's Node.js-based browser
+driver process stays connected over that socket and can both send commands and
+*receive push events* — this is the mechanical reason Playwright's auto-waiting
+doesn't need explicit `WebDriverWait` polling loops: it subscribes to real DOM
+mutation and network events from the browser and resolves a locator action the
+instant the element becomes actionable, rather than polling on a fixed interval.
+
+"Auto-waiting" specifically means Playwright's `.click()` internally performs a
+sequence of actionability checks (attached to DOM, visible, stable — not still
+animating, receives events — not obscured by another element) before dispatching the
+actual click event, re-checking each condition via the CDP connection's live state
+rather than a cached snapshot. This is why Playwright dramatically reduces flaky
+waits compared to Selenium for the same test logic: it's not a smarter guess about
+timing, it's checking the real, current DOM state through an always-open channel
+instead of intermittently polling through a request/response protocol.
+
+Browser contexts (`browser.new_context()`) are cheap, isolated sessions within one
+already-launched browser process — separate cookie jars, storage, and cache per
+context — which is why Playwright tests can spin up dozens of isolated "browser
+sessions" per test run far faster than Selenium can launch dozens of separate browser
+processes.
+
 ## Cheat sheet
 
 | Selenium | Playwright | Notes |

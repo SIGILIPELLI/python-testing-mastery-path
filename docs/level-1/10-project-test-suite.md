@@ -570,6 +570,31 @@ Outstanding risks, and a clear go / no-go recommendation with justification.
 What you'd do differently, including anything about testability of the page.
 ```
 
+## How It Actually Works
+
+Pulling this project's pieces together (pytest collection, fixture scoping,
+Selenium's WebDriver protocol) into one suite surfaces an interaction that doesn't
+show up in any single-topic lesson: fixture teardown order interacting with browser
+process lifecycle.
+
+A `scope="session"` WebDriver fixture is cached for the entire pytest run, but its
+`yield`-based teardown (`driver.quit()`) is only guaranteed to run when pytest's
+fixture-finalizer stack unwinds — normally at the end of the session, but also
+immediately if an earlier fixture in the same dependency chain raises during setup.
+If your suite's browser fixture setup fails halfway (browser launched, but a
+subsequent `driver.get(url)` throws), pytest still calls any already-registered
+finalizers for that fixture instance, which is why `driver.quit()` reliably runs even
+on setup failure *only if* you used `yield` (registering teardown as you go) rather
+than a plain `return` with cleanup coded separately at the end of the test — a
+`return`-based fixture has no mechanism to run cleanup when the fixture function
+itself raises before reaching that cleanup code.
+
+The suite's overall exit code is the logical OR of every collected item's outcome —
+pytest's session object accumulates a `testsfailed` counter across every `Item`, and
+the process exits non-zero if that counter is nonzero, regardless of how deep in the
+Selenium/fixture/parametrize stack the failure occurred. This single integer is the
+entire contract your CI pipeline (Level 3) relies on to gate a merge.
+
 ## Acceptance criteria
 
 Your project is complete when:

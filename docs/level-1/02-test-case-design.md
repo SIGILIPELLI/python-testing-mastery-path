@@ -208,6 +208,30 @@ metric, different meaning (Module 3).
 Whichever you pick, the fields in section 2 are what you need. The tool is an
 implementation detail; the discipline is not.
 
+## How It Actually Works
+
+Equivalence partitioning and boundary value analysis aren't just heuristics testers
+use in their heads — they're the same reasoning that automated fuzzers and
+property-based test generators (you'll meet Hypothesis in Level 3) implement
+mechanically.
+
+An equivalence class is, formally, a partition of the input domain such that the
+program's control-flow graph treats every member identically — every value in the
+class drives execution down the same sequence of branches. A boundary value sits at
+the edge of a partition specifically because comparison operators (`<`, `<=`, `>`,
+`>=`) are where off-by-one defects live: the CPython bytecode for `if age >= 18:`
+compiles to a `COMPARE_OP` instruction, and a boundary test (`age = 17`, `age = 18`)
+is deliberately chosen to flip which branch that single instruction's result sends
+execution down. This is exactly why boundary tests catch far more real bugs per test
+written than an equal number of "random" values from the middle of a partition — you
+are directly targeting the comparison instructions where a `<` was typo'd for `<=`.
+
+When you later write a Requirements Traceability Matrix, you're manually building
+what a coverage tool builds automatically from `sys.settrace` data: a mapping from
+"thing that must be true" to "code path that proves it." The RTM is the human-side
+ledger; line/branch coverage is the machine-side ledger for the same underlying
+question — does every requirement have an execution path that verifies it?
+
 ## Exercise
 
 Using the search feature of any e-commerce site you can access:

@@ -212,6 +212,29 @@ you almost nothing — fixing those two does. Common wins that beat adding worke
 - Move assertions that don't need a browser down to the API layer (module 03).
 - Replace a slow third-party call with a mock (module 04).
 
+## How It Actually Works
+
+`pytest-xdist` parallelizes by forking (or spawning, depending on platform) multiple
+worker *processes*, not threads — this sidesteps Python's Global Interpreter Lock
+entirely, since each worker has its own interpreter and GIL, running truly
+concurrently on separate CPU cores rather than time-sliced on one. The controller
+process performs collection once, then ships a load-balanced slice of test IDs to
+each worker over a pipe (using `execnet` for inter-process communication), and each
+worker independently imports the test modules, runs its assigned tests, and streams
+`TestReport` objects back to the controller, which merges them into one combined
+result — this is why xdist workers each need their own copy of any process-level
+state (a worker can't see another worker's in-memory fixtures, database
+connections, or module-level caches, since they're separate OS processes with
+separate memory).
+
+This process isolation is exactly why shared mutable external state — the same test
+database, the same file on disk — becomes a race condition under `-n auto` that never
+showed up running serially: two workers' processes can genuinely execute
+simultaneously on different cores, so if both write to the same row without locking
+or per-worker isolation (e.g., `pytest-xdist`'s `worker_id` fixture used to namespace
+each worker's temp database), you get real, reproducible data races, not a flaky
+illusion.
+
 ## Cheat sheet
 
 | Need | Flag |

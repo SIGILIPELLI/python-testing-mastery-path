@@ -185,6 +185,29 @@ they assert loses the main non-bug-catching benefit of a test suite: serving
 as living documentation of intended behavior for the next person who reads
 it.
 
+## How It Actually Works
+
+AI-assisted test generation tools (Copilot-style code completion, or LLM-based test-
+case generators) work by treating your source code as context fed into a language
+model that predicts likely-plausible test code token by token, conditioned on
+patterns learned from a huge corpus of existing test suites — it is pattern
+completion over code structure and naming conventions, not program analysis or
+execution. This is precisely why AI-generated tests reliably produce syntactically
+correct, idiomatically-styled pytest that can still assert something subtly wrong
+(mirroring a common but incorrect pattern from training data) or entirely miss a
+domain-specific edge case that never appeared in similar-looking training examples —
+the model has no access to your program's actual runtime behavior or business
+requirements, only to surface-level code shape.
+
+This is also why AI-assisted testing tools are safest used as a first draft that a
+human then runs and checks against real behavior (does the assertion's expected value
+actually match what the code produces, verified by executing it) rather than as an
+oracle — you already have every tool needed to verify an AI-generated test rigorously:
+run it, check the assertion is checking something meaningful (not `assert result is
+not None` when a real assertion on value is possible), and confirm it fails when the
+implementation is deliberately broken (a mutation-testing-style sanity check, since a
+generated test that can't fail isn't testing anything).
+
 ## Cheat sheet
 
 | Tool/technique | What it's good at | What still needs a human |

@@ -137,6 +137,27 @@ simulates a very impatient user; real users pause several seconds between
 actions. An unrealistically low `wait_time` inflates throughput numbers to
 something that doesn't reflect real traffic patterns.
 
+## How It Actually Works
+
+Load-testing tools like Locust don't send requests faster by looping tighter — they
+achieve concurrency by running many lightweight "users" as greenlets (via `gevent`),
+cooperatively scheduled on top of a small number of OS threads. Each simulated user
+runs its task function, and whenever it hits a blocking I/O call (an HTTP request),
+`gevent`'s monkey-patched socket layer yields control back to the event loop instead
+of blocking the whole process — this is how a single Locust worker process can
+simulate thousands of "concurrent" users on modest hardware: they're not thousands of
+OS threads (which would exhaust memory/context-switch overhead), they're thousands of
+suspended coroutines waking up on I/O completion.
+
+Requests-per-second and latency percentiles reported by a load test are computed from
+raw per-request timestamps: each simulated user records `(start_time, end_time,
+status_code)` for every request, and the aggregator bucket-sorts these into a
+histogram to compute p50/p95/p99 — the reason p99 latency is reported separately
+from the mean is that mean latency is dominated by the common-case fast requests and
+can completely hide a tail of slow ones (e.g., ones hitting a lock, a GC pause, or a
+cold cache) that matter enormously for real user experience but barely move the
+average.
+
 ## Cheat sheet
 
 | Concept | Locust API |

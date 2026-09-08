@@ -364,6 +364,33 @@ in the sidebar, run/debug per test, and breakpoints inside tests. Point it at th
 project interpreter (`.venv/bin/python`) — selecting the system Python instead is
 the most common reason for "it runs in the terminal but not in the IDE."
 
+## How It Actually Works
+
+`python -m venv` and `pip install` aren't just commands to memorize — understanding
+what they actually do on disk explains most "works on my machine" failures.
+
+`venv` creates a directory containing a near-empty copy of the interpreter's
+directory structure: a `pyvenv.cfg` file recording the base interpreter's path, a
+`bin/python` that's either a symlink or a small copy of the real interpreter binary,
+and an empty `site-packages/`. When you activate it, the `activate` script does one
+thing that matters mechanically: it prepends the venv's `bin/` to your shell's `PATH`
+and sets `VIRTUAL_ENV`, so `which python` now resolves to the venv's interpreter
+first. Python's own `sys.path` construction at startup then looks at where the
+running interpreter binary lives (via `pyvenv.cfg`) to decide whether to add the
+venv's `site-packages` or the system one — this is the entire mechanism behind
+"activating an environment," no magic, just `PATH` and one config file redirecting
+where `import` looks for packages.
+
+`pip install` resolves a dependency graph (reading each package's declared
+requirements, recursively), downloads wheels (`.whl` — pre-built, OS/architecture/
+Python-version-tagged zip files) or source distributions from PyPI, and for a wheel,
+simply unzips its contents into `site-packages` — there's no compilation step for
+pure-Python wheels, which is why `pip install` is fast for most testing libraries.
+`requirements.txt` with pinned versions exists because dependency resolution is
+non-deterministic across time (a package released tomorrow could satisfy today's
+unpinned `>=` constraint and change behavior) — pinning freezes the exact resolution
+your tests were verified against.
+
 ## Exercise
 
 1. Create a project called `booking-tests` with the exact structure from

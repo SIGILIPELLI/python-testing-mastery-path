@@ -224,6 +224,30 @@ testing belongs in a dedicated tool, not your functional suite.
     passes until somebody adds a row. Assert on invariants (every returned
     comment has `postId == 1`), or on records your own fixture created.
 
+## How It Actually Works
+
+API testing with `requests` cuts out an entire layer that Selenium tests pay for: no
+browser process, no rendering engine, no WebDriver wire protocol — your test process
+opens a TCP socket directly to the server and speaks HTTP itself, which is why API
+tests typically run 10-100x faster than an equivalent UI test.
+
+Under the hood, `requests.get(url)` builds a `PreparedRequest` (method, headers,
+body, encoded query string), hands it to a `Session` object's connection pool
+(`urllib3` underneath), which either reuses a keep-alive TCP connection to that host
+or opens a new one, performs the TLS handshake if HTTPS, writes the raw HTTP/1.1
+request line and headers to the socket, and blocks on `recv()` until the response
+status line, headers, and body arrive. Connection pooling (reusing a `Session` object
+across calls instead of calling `requests.get` fresh each time) avoids repeating the
+TCP handshake and TLS negotiation per request — a meaningful speedup in a test suite
+making hundreds of API calls.
+
+Schema validation (`jsonschema.validate(...)`) works by recursively walking your JSON
+document alongside the schema's declared structure, checking each node's type,
+required keys, and constraints against the schema's rules — this is a structural
+recursive-descent check, not a string comparison, which is why it can validate deeply
+nested, order-independent JSON that a naive string/dict equality check would false-
+negative on for trivial reasons like key ordering.
+
 ## Cheat sheet
 
 | Task | Code |
