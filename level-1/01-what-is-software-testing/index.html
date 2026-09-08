@@ -823,6 +823,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#glossary" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2372,6 +2383,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#glossary" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2777,6 +2799,31 @@ cheap defect prevention.</p>
 </ul>
 <p>A team that only does dynamic testing is paying full price for every defect it
 finds.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>"Dynamic testing" and "static testing" aren't just vocabulary — they map to two
+completely different machinery paths.</p>
+<p>Static analysis (linters, type checkers, code review) never executes a single
+bytecode instruction. A tool like <code>pyflakes</code> or <code>mypy</code> parses your source into an
+Abstract Syntax Tree (AST) — the same tree structure Python's own compiler builds
+internally before generating bytecode — and walks it looking for patterns: an
+imported name that's never referenced, a variable used before assignment on every
+control-flow path, a function call passed the wrong argument count. All of this
+happens in the "front half" of Python's compilation pipeline (source → tokens → AST
+→ bytecode) and stops before the "back half" (bytecode → CPython's eval loop), which
+is why static checks are fast and can catch entire classes of bugs (unreachable code,
+type mismatches) that would need thousands of dynamic test runs to stumble across by
+chance.</p>
+<p>Dynamic testing, by contrast, requires the interpreter to actually run: source is
+compiled to bytecode, the bytecode is fed into CPython's eval loop
+(<code>ceval.c</code>'s <code>PyEval_EvalFrameEx</code>), and real objects get created, mutated, and
+garbage-collected on the heap. This is why dynamic tests can catch a defect that
+static analysis structurally cannot — a division that only becomes a
+<code>ZeroDivisionError</code> when a specific runtime value flows into it — but only for the
+exact inputs and code paths a given test run actually exercises. Coverage tools
+(covered later in this path) work by hooking Python's <code>sys.settrace</code> mechanism to
+record exactly which bytecode lines the eval loop touched during a dynamic run,
+which is the concrete, mechanical answer to "how much of my code did dynamic testing
+actually reach?"</p>
 <h2 id="glossary">Glossary<a class="headerlink" href="#glossary" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

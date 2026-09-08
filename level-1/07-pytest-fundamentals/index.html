@@ -1047,6 +1047,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2473,6 +2484,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2995,6 +3017,31 @@ before opening anything.</p>
 passes because <code>test_a</code> created a user, then running <code>pytest -k test_b</code> fails,
 parallel execution fails, and a re-run after a fix fails. Fixtures (Module 8)
 are the mechanism that prevents this.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>Test discovery.</strong> When you run <code>pytest</code>, it doesn't execute a fixed list of files —
+it walks the directory tree from the rootdir, collecting any file matching
+<code>test_*.py</code> or <code>*_test.py</code> (configurable via <code>python_files</code>), imports each one as a
+Python module, and then inspects that module's namespace with <code>dir()</code>-style
+introspection for any function starting with <code>test_</code> and any class starting with
+<code>Test</code> (whose methods are then collected the same way). Each match becomes an
+<code>Item</code> object in pytest's internal collection tree — this collection phase runs
+<em>before</em> any test executes, which is why a <code>SyntaxError</code> or bad import in a test file
+shows up as a "collection error" rather than a normal test failure: the module import
+itself failed, so pytest never got as far as finding <code>test_</code> functions inside it.</p>
+<p><strong>Assert rewriting.</strong> Plain Python's <code>assert x == y</code> gives you nothing but
+<code>AssertionError</code> on failure — no values. Pytest's detailed failure output (<code>assert 4
+== 5</code>, with both sides shown) works because pytest's import hook intercepts test
+module imports and rewrites their AST <em>before</em> compiling to bytecode: every <code>assert</code>
+statement's expression tree is rewritten to capture each sub-expression's value into
+a temporary, so the failure message can be reconstructed with real runtime values
+substituted in. This is a genuine AST transformation happening at import time (see
+<code>_pytest.assertion.rewrite</code>), not string parsing of your source after the fact — it's
+also why assert rewriting only applies to files pytest actually imports as test
+modules, not to arbitrary library code you call into.</p>
+<p><strong>Exit codes.</strong> <code>pytest</code> returns a process exit code (0 = all passed, 1 = some
+failed, 2 = interrupted, etc.) — this is the actual mechanism CI systems use to decide
+pass/fail; the colored terminal output is for humans, the exit code is the contract
+with the shell and CI runner.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Write <code>tests/test_shipping.py</code> for this specification, using pure pytest:</p>
 <blockquote>

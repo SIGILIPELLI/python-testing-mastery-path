@@ -2035,6 +2035,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2316,6 +2327,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2483,6 +2505,26 @@ mutation score target pushed to the extreme produces tests written to kill
 mutants rather than to verify real behavior — the same failure mode as
 coverage-chasing, one layer deeper. Use it to find genuine gaps, not as a
 number to maximize for its own sake.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Line and branch coverage numbers come from exactly the mechanism named in Level 1:
+<code>coverage.py</code> (which <code>pytest-cov</code> wraps) installs a trace function via Python's
+<code>sys.settrace</code> (or the faster C-level tracer when available) that gets invoked by the
+interpreter on every line execution event during your test run. Each such event
+records <code>(filename, line number)</code> into an in-memory set; at the end of the run,
+coverage.py diffs "lines actually executed" against "lines the AST says exist" in
+each source file to compute the percentage. Branch coverage extends this by also
+tracing which direction a conditional branch actually took (not just "was this <code>if</code>
+line executed" but "was the True path taken, was the False path taken") — this is why
+100% line coverage can still hide an untested <code>else</code> branch that line coverage alone
+can't see but branch coverage can.</p>
+<p>A quality gate enforcing "coverage must not drop below 80%" is implemented as a CI
+step comparing the freshly computed coverage percentage against a stored threshold and
+failing (non-zero exit) if it's lower — the exact same process-exit-code contract from
+Level 1/3 that every other CI gate relies on. This is also why coverage percentage
+alone is a weak proxy for test quality: the trace function only records <em>that</em> a line
+executed, never <em>whether the test actually asserted anything meaningful</em> about the
+result — a test that calls a function and asserts nothing still counts as "covering"
+every line that function touches.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

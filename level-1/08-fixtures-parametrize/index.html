@@ -1063,6 +1063,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2449,6 +2460,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3028,6 +3050,35 @@ per parameter. This is how cross-browser suites work (Level 2).</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>Fixture resolution is dependency-graph resolution.</strong> When a test function declares
+a parameter name that matches a fixture, pytest doesn't just "run a function with that
+name" — it builds a directed dependency graph at collection time: your test depends
+on <code>fixture_a</code>, which might itself declare <code>fixture_b</code> as a parameter, and so on.
+Pytest topologically sorts this graph per test, resolves it depth-first, caches each
+fixture's return value keyed by <code>(fixture name, scope, parametrization)</code>, and injects
+the cached values by name-matching function parameters — there's no magic
+introspection of types, purely string matching against the fixture's registered name
+in pytest's internal <code>FixtureManager</code>.</p>
+<p><strong>Scope caching is why <code>yield</code> teardown order is reversed.</strong> A <code>scope="module"</code>
+fixture's setup code runs once and its return/yield value is cached against that
+module; every test in the module that requests it gets the same cached object instead
+of a fresh call. Because fixtures are resolved as a stack (each fixture's teardown is
+registered as it's set up), teardown always unwinds in reverse dependency order — if
+fixture A depends on B, A tears down before B, mirroring how Python's own <code>with</code>
+statement stack unwinds nested context managers.</p>
+<p><strong><code>conftest.py</code> isn't imported like a normal module — it's discovered by directory.</strong>
+Pytest walks up from each test file's directory to the rootdir, collecting every
+<code>conftest.py</code> along the path and registering its fixtures into a scope visible to
+every test at or below that directory — this directory-based visibility (not Python's
+normal import-based visibility) is why you never <code>import</code> fixtures from <code>conftest.py</code>
+and why the same fixture name can be legally redefined at different directory levels.</p>
+<p><strong>Parametrize duplicates the test node, not the function.</strong> <code>@pytest.mark.parametrize</code>
+runs at collection time, generating one distinct <code>Item</code> per parameter set (visible as
+separate <code>test_name[param0]</code>, <code>test_name[param1]</code> node IDs) — this is why a failure
+in one parametrized case doesn't stop the others: they're genuinely separate test
+items in pytest's collection tree, each with its own pass/fail outcome, not one test
+looping internally.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Build <code>tests/test_booking.py</code> for a hotel-booking price calculator:</p>
 <blockquote>

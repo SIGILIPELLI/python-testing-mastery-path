@@ -1434,6 +1434,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#stretch-goals" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2327,6 +2338,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#stretch-goals" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2697,6 +2719,24 @@ same day you add the flag.</p>
 someone else can run it without asking you. Three commands: install, run
 smoke, open the report.</p>
 </div>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Assembling Page Objects, fixtures, and config into one framework surfaces an
+interaction worth naming explicitly: fixture scope and Page Object statefulness can
+silently fight each other.</p>
+<p>A <code>scope="function"</code> WebDriver fixture gives every test a fresh browser session (a
+new WebDriver session ID, a new browser process or tab) — safe, but paying full
+browser-launch cost per test. A <code>scope="session"</code> WebDriver shared across Page
+Objects is fast, but now every Page Object instance you construct wraps the <em>same</em>
+underlying session, so navigation state (cookies, current URL, open tabs) truly
+persists between tests unless you explicitly reset it (e.g., <code>driver.delete_all_
+cookies()</code>, navigating to a known start URL in a <code>function</code>-scoped fixture layered on
+top). This is not a framework bug to work around cleverly — it's the same fixture-
+caching mechanism from Level 1 applied to an object (the browser) that has far more
+implicit, hard-to-reset state than a plain Python object, which is exactly why real
+frameworks usually pair a <code>session</code>-scoped driver (expensive to create) with a
+<code>function</code>-scoped "clean state" fixture that resets cookies/localStorage/URL before
+each test — cheap to run, and it restores test independence without re-paying the
+browser launch cost.</p>
 <h2 id="stretch-goals">Stretch goals<a class="headerlink" href="#stretch-goals" title="Permanent link">&para;</a></h2>
 <ol>
 <li><strong>Visual regression.</strong> Add a fixture that captures a full-page screenshot and

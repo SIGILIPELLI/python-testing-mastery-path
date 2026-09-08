@@ -1227,6 +1227,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2372,6 +2383,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2621,6 +2643,27 @@ the test pass and ships the bug.</p>
 <a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>
 <a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>============================= 11 passed in 23.99s ==============================
 </code></pre></div>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Advanced Selenium waits and actions expose more of the wire-protocol machinery from
+Level 1. <code>ActionChains</code> doesn't perform a drag-and-drop as one atomic call — it builds
+a queue of low-level pointer/keyboard events (<code>pointerMove</code>, <code>pointerDown</code>,
+<code>pointerMove</code>, <code>pointerUp</code>) that get serialized into a single <code>POST
+/session/{id}/actions</code> request per the W3C Actions API, then replayed by the driver
+against the real input pipeline of the OS/browser — this is why <code>ActionChains</code> can
+correctly simulate a native HTML5 drag event that a synthetic <code>.click()</code> cannot: it's
+generating the same sequence of low-level pointer events a real mouse would.</p>
+<p>Switching frames or windows (<code>driver.switch_to.frame(...)</code>) changes which "browsing
+context" subsequent WebDriver commands target — internally the driver session tracks
+a current context ID, and every <code>find_element</code> call after a <code>switch_to</code> is scoped to
+that context's DOM, not the top-level document. This is why elements inside an
+<code>&lt;iframe&gt;</code> are invisible to <code>find_element</code> until you explicitly switch into that
+frame's context — Selenium isn't failing to find them, it's correctly searching the
+wrong document.</p>
+<p>JavaScript execution (<code>driver.execute_script(...)</code>) bypasses the WebDriver element
+protocol entirely and hands a raw script string to the browser's JS engine for direct
+evaluation in page context — useful for reading properties WebDriver's protocol
+doesn't expose (like a custom JS object's internal state), but it also means anything
+you do this way is invisible to WebDriver's own element-staleness tracking.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

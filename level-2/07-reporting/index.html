@@ -1328,6 +1328,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2294,6 +2305,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2547,6 +2569,25 @@ a KPI.</p>
 ignore the report entirely. Either fix them, or mark them <code>xfail</code> with a
 ticket reference so the summary line means something again.</p>
 </div>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Every pytest report format — terminal summary, JUnit XML, HTML — is built from the
+same underlying data structure: a <code>TestReport</code> object emitted per test phase (setup,
+call, teardown) via pytest's hook system (<code>pytest_runtest_logreport</code>). Reporting
+plugins don't re-run anything or inspect test internals directly; they simply
+subscribe to this hook and serialize the <code>TestReport</code> fields (outcome, duration,
+captured stdout/stderr, exception info) into their target format. This is precisely
+why JUnit XML (consumed by nearly every CI dashboard) and <code>pytest-html</code>'s report
+contain the same underlying facts presented differently — one hook-emitted event feeding
+multiple listeners, a plain observer pattern.</p>
+<p>Captured stdout/stderr in a failure report isn't magic log-scraping — pytest replaces
+<code>sys.stdout</code>/<code>sys.stderr</code> with an in-memory capture object for the duration of each
+test (via its <code>capsys</code>/global-capture machinery, implemented with low-level
+file-descriptor duplication so it also catches output from C extensions and
+subprocesses, not just Python <code>print()</code> calls), then attaches the captured buffer's
+contents to the <code>TestReport</code> only if the test failed — this selective attach-on-
+failure is why passing tests don't clutter your terminal with their <code>print()</code> debug
+statements but a failure shows you everything that was printed during that specific
+test.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

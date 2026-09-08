@@ -1300,6 +1300,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2294,6 +2305,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2628,6 +2650,30 @@ fastest way to answer "why does CI behave differently from my machine".</p>
 for provably external flakiness (a third-party sandbox), and log every rerun
 so the count is visible. A test that needs <code>--reruns 3</code> is a bug report.</p>
 </div>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><code>pytest.ini</code> / <code>pyproject.toml</code> <code>[tool.pytest.ini_options]</code> settings aren't read at
+some arbitrary point — pytest's startup sequence explicitly locates the rootdir
+<em>first</em> (by walking up from the invocation directory looking for <code>pytest.ini</code>,
+<code>pyproject.toml</code> with a <code>[tool.pytest.ini_options]</code> table, <code>setup.cfg</code>, or <code>tox.ini</code>,
+in that priority order) before it does any test collection, because settings like
+<code>testpaths</code> and <code>python_files</code> change what collection even considers a candidate
+file. This ordering is why a misplaced config file (in the wrong directory, so it's
+never found while walking up) silently has zero effect rather than erroring — pytest
+simply never discovers it and falls back to defaults.</p>
+<p>Custom markers (<code>@pytest.mark.slow</code>) are, without registration, just arbitrary
+attribute lookups on the <code>pytest.mark</code> namespace object — <code>pytest.mark.anything</code>
+always succeeds because <code>MarkGenerator.__getattr__</code> dynamically creates a marker
+decorator for any name you ask for. Registering markers in <code>markers =</code> config doesn't
+change this at runtime; it only changes whether <code>--strict-markers</code> treats an
+unregistered name as an error at collection time — the marker mechanism itself is
+just metadata attached to a test <code>Item</code> object's <code>own_markers</code> list, later read by
+<code>-m</code> expression filtering or plugin code via <code>item.iter_markers(name=...)</code>.</p>
+<p>Plugin discovery works through Python's package entry-point mechanism: any installed
+package that declares a <code>pytest11</code> entry point in its metadata gets its module
+imported automatically at pytest startup and its registered hook implementations
+(<code>pytest_collection_modifyitems</code>, etc.) wired into pytest's hook-calling machinery —
+this is how <code>pytest-xdist</code> or <code>pytest-cov</code> "just work" once installed, with zero
+import statements in your test files.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

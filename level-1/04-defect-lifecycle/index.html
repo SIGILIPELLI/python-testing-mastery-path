@@ -952,6 +952,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2451,6 +2462,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3061,6 +3083,27 @@ pasting into a comment thread; comments get collapsed and evidence gets lost.</p
 <p>A DRE of 95% means 5 of every 100 defects reached customers. Track the trend,
 not the absolute number, and never let a metric become a target that someone can
 game by re-labelling tickets.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>A defect's lifecycle states map onto something more concrete than a workflow diagram:
+they track the state of a specific commit or code path relative to the branch that
+will ship.</p>
+<p>"New" means a test has produced a failing assertion — pytest's runner caught an
+<code>AssertionError</code> (or an unhandled exception) and recorded the test's outcome as
+<code>failed</code> in its internal <code>TestReport</code> object, which is the raw event that everything
+downstream (bug trackers, CI dashboards, notifications) gets built from. "In
+Progress" means a developer has a local diff that isn't yet merged — the failing
+assertion still reproduces against <code>main</code>. "Fixed" is a specific, checkable claim:
+re-running the exact same test against the new code produces a <code>passed</code> outcome
+instead of <code>failed</code>, with nothing else about the test changed (same inputs, same
+fixtures) — if the assertion itself had to be loosened to get to "Fixed," that's not
+a fix, it's a suppression, and a good bug tracker workflow (and a good code reviewer)
+should be able to tell the difference by diffing the test file alongside the
+production code.</p>
+<p>"Reopened" is the state that catches regressions: a previously-<code>passed</code> test flips
+back to <code>failed</code> on a later commit. This is precisely what CI's git-bisect-style
+tooling and coverage-diff reports are built to surface automatically — the defect
+lifecycle you're tracking by hand in Jira is the same state machine a CI system tracks
+per-test, per-commit, without a human updating a ticket at all.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Take any real application and find <strong>three genuine defects</strong> (cosmetic ones

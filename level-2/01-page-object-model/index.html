@@ -1171,6 +1171,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2316,6 +2327,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2637,6 +2659,25 @@ object, a <code>SearchWidget</code> object, and a <code>ProductListPage</code> t
 <p>Now <code>HeaderNav</code> and <code>SearchWidget</code> are reusable on every page that has them,
 instead of duplicated inside <code>ProductListPage</code>, <code>CheckoutPage</code>, and
 <code>AccountPage</code> separately.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>The Page Object Model isn't just "good OOP style" applied to tests — it's a
+deliberate cache-invalidation boundary around the one thing in Selenium that's most
+expensive and most brittle: locator strategy.</p>
+<p>Every <code>driver.find_element(By.CSS_SELECTOR, "...")</code> call triggers a fresh round trip
+through the WebDriver wire protocol (see Level 1) to the browser's DOM, which walks
+the live DOM tree to find a match — Selenium does not cache element references across
+calls by default (a <code>WebElement</code> reference can go stale the instant the DOM
+re-renders, raising <code>StaleElementReferenceException</code>). By centralizing locators as
+class attributes on a Page Object, you're not making lookups faster — each call still
+does the same DOM walk — but you're making the <em>one place</em> a broken locator needs
+fixing when the front-end team renames a <code>data-testid</code> a single line of code instead
+of a grep-and-replace across every test file.</p>
+<p>Method chaining (<code>page.login(user).open_dashboard()</code>) works because each page-object
+method returns <code>self</code> or a new page object instance — this is plain Python object
+composition, not a Selenium feature, but it mirrors how the actual application state
+machine works: each returned object represents "the page the browser is now
+believably on," so the type system (or at minimum, the object graph) documents valid
+UI-flow transitions the same way a state machine diagram would.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

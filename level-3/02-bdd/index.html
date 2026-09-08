@@ -1564,6 +1564,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2294,6 +2305,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2448,6 +2470,23 @@ actually asserts <code>result is True</code>, the scenario name is now lying to 
 reads it, even though pytest still reports a pass or fail correctly. Review
 feature files as carefully as you review code — they're the artifact a
 non-engineer will actually read.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Gherkin's <code>Given/When/Then</code> isn't parsed as natural language — <code>pytest-bdd</code> (or
+<code>behave</code>) matches each step line against a library of step-definition functions using
+regex or parse-string patterns you register with decorators
+(<code>@given("a user named {name}")</code>). At collection time, the BDD plugin reads each
+<code>.feature</code> file, tokenizes it into scenario/step structures, and for every step line
+searches its registered pattern table for a matching regex; a matched group (like
+<code>{name}</code>) is extracted and passed as a function argument to the corresponding
+step-definition function. This is why a phrasing typo in a <code>.feature</code> file produces a
+"step definition not found" collection-time error rather than a runtime failure —
+matching happens before any step's Python code executes.</p>
+<p>Because Gherkin steps map to plain pytest fixtures/functions underneath, <code>Given</code>
+steps commonly <em>are</em> fixtures (setting up state and returning it), <code>When</code> steps
+mutate that state, and <code>Then</code> steps assert on it — the BDD layer is a readable
+DSL sitting directly on top of the exact fixture-and-assertion machinery you already
+learned in Level 1; there's no separate execution engine, just an extra parsing and
+dispatch layer that turns English sentences into ordinary Python calls.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

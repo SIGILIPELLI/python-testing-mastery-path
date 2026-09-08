@@ -1266,6 +1266,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2338,6 +2349,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2642,6 +2664,32 @@ fails the day someone adds an unrelated header. Assert on the arguments the
 behaviour depends on (<code>kwargs["timeout"]</code>, <code>kwargs["params"]["city"]</code>) and
 let the rest vary.</p>
 </div>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><code>unittest.mock.patch</code> does something very literal: it looks up the target you named
+(<code>"mymodule.requests.get"</code>), reads the object currently bound to that name via
+attribute traversal, saves it, and — for the duration of the <code>with</code> block or
+decorated function — overwrites that same attribute slot in <code>mymodule</code>'s <code>__dict__</code>
+(or the target object's <code>__dict__</code>/<code>__class__.__dict__</code> for instance/class
+attributes) with a <code>MagicMock</code> instance. When your production code later executes
+<code>requests.get(...)</code>, Python's attribute lookup finds the patched <code>MagicMock</code> in that
+<code>__dict__</code> slot instead of the real function — nothing about <code>requests</code> itself
+changed; only the name binding inside <code>mymodule</code>'s namespace did. This is exactly why
+<code>patch("requests.get")</code> at the wrong location is the single most common mocking
+mistake: you must patch the name <em>where it's looked up</em> (the importing module's
+namespace), not where it's originally defined, because Python resolves <code>requests.get</code>
+inside your module via that module's own imported reference, not a live pointer back
+to the <code>requests</code> package.</p>
+<p><code>side_effect</code> works by <code>MagicMock.__call__</code> checking, on every invocation, whether
+<code>side_effect</code> is set: a callable gets invoked with the same arguments and its return
+value (or raised exception) is used; an iterable has <code>next()</code> called on it each call,
+raising <code>StopIteration</code> once exhausted — this is plain Python iterator protocol, not
+special mock magic.</p>
+<p><code>autospec=True</code> introspects the real object's signature via <code>inspect.signature</code> at
+patch time and builds a mock that raises <code>TypeError</code> if called with an incompatible
+signature or if you access an attribute the real object doesn't have — this is what
+catches "the mock still passes after the real API changed" drift that a plain
+<code>MagicMock</code> (which accepts and returns a mock for literally any attribute access)
+cannot.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

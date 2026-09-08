@@ -1704,6 +1704,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2294,6 +2305,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2471,6 +2493,24 @@ constraints (camera, GPS accuracy, low-memory conditions, real network
 latency). A test suite passing entirely on emulators can still ship bugs that
 only appear on physical devices — treat emulator-only coverage as necessary,
 not sufficient, especially for anything hardware-adjacent.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Appium extends the exact WebDriver protocol from Level 1/2 rather than replacing it —
+an Appium server is itself a WebDriver-protocol-speaking HTTP server, but instead of
+launching a desktop browser driver, it translates incoming WebDriver JSON commands
+into platform-native automation calls: UiAutomator2 commands for Android (which
+themselves ride on Android's own accessibility/instrumentation framework) or
+XCUITest commands for iOS (Apple's own UI testing framework, driven via a companion
+<code>WebDriverAgent</code> process installed on the device/simulator). Your Python test code
+calling <code>driver.find_element(AppiumBy.ID, "...")</code> is issuing the same style of HTTP
+request as Selenium; Appium's server is the layer translating that into whatever
+each mobile OS's real automation API actually understands.</p>
+<p>This is why "one API surface, many platforms" comes with real platform-specific
+caveats: locator strategies differ (accessibility ID, <code>UiSelector</code> for Android,
+predicate strings for iOS) because the underlying native automation frameworks expose
+genuinely different concepts for identifying UI elements — Appium's WebDriver
+compatibility layer can standardize the <em>transport and command shape</em>, but it cannot
+paper over the fact that Android's view hierarchy and iOS's UI element tree are
+different underlying object models.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

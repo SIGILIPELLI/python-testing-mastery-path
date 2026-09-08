@@ -1147,6 +1147,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#acceptance-criteria" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2516,6 +2527,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#acceptance-criteria" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3188,6 +3210,27 @@ five you would automate first.</p>
 <a id="__codelineno-13-33" name="__codelineno-13-33" href="#__codelineno-13-33"></a><span class="gu">## 7. Lessons learned</span>
 <a id="__codelineno-13-34" name="__codelineno-13-34" href="#__codelineno-13-34"></a>What you&#39;d do differently, including anything about testability of the page.
 </code></pre></div>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Pulling this project's pieces together (pytest collection, fixture scoping,
+Selenium's WebDriver protocol) into one suite surfaces an interaction that doesn't
+show up in any single-topic lesson: fixture teardown order interacting with browser
+process lifecycle.</p>
+<p>A <code>scope="session"</code> WebDriver fixture is cached for the entire pytest run, but its
+<code>yield</code>-based teardown (<code>driver.quit()</code>) is only guaranteed to run when pytest's
+fixture-finalizer stack unwinds — normally at the end of the session, but also
+immediately if an earlier fixture in the same dependency chain raises during setup.
+If your suite's browser fixture setup fails halfway (browser launched, but a
+subsequent <code>driver.get(url)</code> throws), pytest still calls any already-registered
+finalizers for that fixture instance, which is why <code>driver.quit()</code> reliably runs even
+on setup failure <em>only if</em> you used <code>yield</code> (registering teardown as you go) rather
+than a plain <code>return</code> with cleanup coded separately at the end of the test — a
+<code>return</code>-based fixture has no mechanism to run cleanup when the fixture function
+itself raises before reaching that cleanup code.</p>
+<p>The suite's overall exit code is the logical OR of every collected item's outcome —
+pytest's session object accumulates a <code>testsfailed</code> counter across every <code>Item</code>, and
+the process exits non-zero if that counter is nonzero, regardless of how deep in the
+Selenium/fixture/parametrize stack the failure occurred. This single integer is the
+entire contract your CI pipeline (Level 3) relies on to gate a merge.</p>
 <h2 id="acceptance-criteria">Acceptance criteria<a class="headerlink" href="#acceptance-criteria" title="Permanent link">&para;</a></h2>
 <p>Your project is complete when:</p>
 <ul>

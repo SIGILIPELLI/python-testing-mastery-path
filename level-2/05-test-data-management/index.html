@@ -1294,6 +1294,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2338,6 +2349,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2679,6 +2701,24 @@ reason.</p>
 <p>A copied-in production record puts real names, emails, and card fragments
 into your git history permanently. Anonymise at export time, not later.</p>
 </div>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Factories (<code>factory_boy</code>) generate test data lazily and declaratively: a
+<code>Factory</code> class's attributes are <code>Sequence</code>, <code>LazyAttribute</code>, or <code>SubFactory</code>
+descriptor objects, not plain values — when you call <code>UserFactory()</code>, factory_boy
+walks the class's declared attributes, resolves each one (incrementing sequence
+counters, evaluating lazy attributes against already-resolved siblings, recursively
+building any <code>SubFactory</code> dependency graph first), and finally calls your model's
+constructor with the fully resolved kwargs. This is a small dependency-resolution
+engine conceptually similar to pytest's fixture graph — deterministic build order,
+computed lazily, so a <code>LazyAttribute</code> referencing another field always sees that
+field's already-resolved value rather than its own unresolved descriptor.</p>
+<p>Database fixtures/factories that write real rows raise the isolation problem: each
+test's writes must not leak into the next test's assertions. The standard mechanism
+is wrapping each test in a database transaction that's rolled back after the test
+(<code>ROLLBACK</code> at the SQL level undoes every write since <code>BEGIN</code>, atomically and in
+constant time relative to a manual DELETE-everything approach) — this is why
+transaction-per-test fixtures are dramatically faster than truncating tables between
+tests: rollback is metadata-only work for the database engine, not a full table scan.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

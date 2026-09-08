@@ -1620,6 +1620,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2294,6 +2305,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2474,6 +2496,28 @@ surfaces as a test failure and gets debugged as one.</p>
 A suite that only passes in a specific order has a hidden shared-state bug —
 CI parallelism is often what first exposes it, which is a feature of CI, not
 a flaw in it.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>A CI pipeline's "job" is, underneath the YAML, a fresh container or VM: your test
+runner's exit code (see Level 1 — pytest's <code>testsfailed</code> counter driving process exit
+status) is the <em>only</em> signal the CI system's job scheduler actually understands.
+Every green checkmark or red X in a PR check ultimately traces back to that single
+process exit code being 0 or non-zero — the YAML config's "steps" are just a sequence
+of shell commands executed inside that ephemeral environment, and the pipeline stops
+(marks the job failed) the instant any step's process returns non-zero, unless it's
+explicitly marked to continue on error.</p>
+<p>Build matrices (running the same job across Python 3.9/3.10/3.11, or multiple OSes)
+work by the CI scheduler templating your job definition once per matrix cell and
+dispatching each as an independent, parallel job — there's no shared state between
+matrix cells; each gets its own fresh container/VM, its own dependency install, its
+own full test run. This is why a matrix build's total wall-clock time is close to the
+slowest single cell's time (not the sum of all cells) when the CI provider has enough
+parallel runners available, but consumes CI-minutes proportional to the <em>sum</em> across
+cells — the parallelism is real, but the compute cost isn't free.</p>
+<p>Caching dependency installs between runs (<code>actions/cache</code>, pip's wheel cache) works
+by hashing your lock file/requirements file and using that hash as a cache key —a
+cache hit skips the network-bound <code>pip install</code> resolution and download entirely and
+just restores a previously-saved <code>site-packages</code> directory, which is the concrete
+reason a well-cached pipeline's dependency step can drop from minutes to seconds.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

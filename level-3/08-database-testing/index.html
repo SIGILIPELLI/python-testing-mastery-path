@@ -1721,6 +1721,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2272,6 +2283,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2466,6 +2488,28 @@ an ORM's high-level API (e.g. SQLAlchemy's <code>session.query(...)</code>) can 
 while masking a raw-SQL bug that only surfaces when a report or migration
 runs hand-written SQL directly. When a query's correctness genuinely matters,
 test it at the same level it will actually run in production.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Testing against a real database instead of mocking the DB layer trades speed for a
+class of bugs mocks structurally cannot catch: SQL that's syntactically valid Python-
+side but semantically wrong against the real engine (a <code>JOIN</code> on the wrong column
+type, a <code>NOT NULL</code> constraint you forgot, a query that works on SQLite's loose typing
+but fails on Postgres's strict typing). A mock of your DB access layer only ever
+returns exactly what you told it to return — it has no schema, no constraints, no
+query planner, so it can't fail the way a real database can.</p>
+<p>Test isolation for DB tests is almost always built on transactions: a fixture opens a
+connection, begins a transaction, hands the test a session bound to that transaction,
+and rolls it back in teardown — this relies on the database engine's own MVCC/
+transaction machinery (write-ahead logs or undo logs, depending on engine) to make the
+rollback both correct and fast; <code>ROLLBACK</code> discards the transaction's write set
+without touching the underlying table files, which is why transaction-per-test is
+dramatically cheaper than dropping and recreating tables between tests, even though
+both achieve the same logical isolation guarantee.</p>
+<p>Using <code>sqlite3</code> in-memory for unit-level DB tests but a real Postgres container for
+integration tests is a real fidelity trade-off, not interchangeable — SQLite's type
+affinity rules, lack of some constraint enforcement, and different concurrency model
+mean a query can behave differently on each engine; testcontainers-style ephemeral
+real-database fixtures exist specifically because "pass on SQLite" is not proof of
+"pass on your actual production database engine."</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

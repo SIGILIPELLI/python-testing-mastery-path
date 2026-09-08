@@ -1384,6 +1384,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2294,6 +2305,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2578,6 +2600,25 @@ one WebKit browser does.</p>
 quietly runs Chrome and reports <code>[safari] PASSED</code>. Raise on an unknown name,
 as section 1 does.</p>
 </div>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Running the same Selenium test against Chrome, Firefox, and WebKit works because
+WebDriver is a <em>protocol specification</em> (W3C WebDriver), not a Chrome-specific API —
+your test code talks the same JSON-over-HTTP commands regardless of target; only the
+driver executable underneath changes (<code>chromedriver</code>, <code>geckodriver</code>,
+<code>msedgedriver</code>), and each driver translates the identical incoming command into
+whatever native automation hooks its specific browser engine exposes. This
+protocol-level abstraction is also exactly where cross-browser flakiness originates:
+each browser engine's actual rendering, timing, and JavaScript execution differs
+underneath an identical WebDriver command, so a wait tuned against Chromium's render
+timing can legitimately race against Firefox's Gecko engine finishing a layout pass
+at a different rate for the same page.</p>
+<p>A cloud grid (Selenium Grid, BrowserStack) is the same protocol one hop further: your
+test's HTTP requests go to a remote hub instead of a local driver process, and the
+hub proxies them to whichever real (or virtualized) browser/OS combination is
+provisioned for that session — the wire protocol between your test code and "the
+browser" never changes; what changes is how many network hops and how much latency
+sit between the two ends, which is why cloud-grid suites need generally longer wait
+timeouts than a local run against the same test logic.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

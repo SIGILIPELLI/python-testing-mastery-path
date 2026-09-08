@@ -1536,6 +1536,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2294,6 +2305,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2450,6 +2472,30 @@ session-scoped for speed, if you accidentally create pages directly on
 <code>browser</code> (skipping <code>new_context()</code>) they <em>do</em> share cookies across tests —
 identical to reusing one Selenium <code>driver</code> across the whole suite. Always go
 through a fresh <code>context</code> per test.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Playwright abandons the WebDriver wire-protocol model entirely in favor of a single
+persistent WebSocket connection to the browser's own remote-debugging protocol
+(Chrome DevTools Protocol for Chromium, analogous protocols for Firefox/WebKit that
+Playwright's team patches directly into those engines). Instead of Selenium's
+request/response HTTP round trip per command, Playwright's Node.js-based browser
+driver process stays connected over that socket and can both send commands and
+<em>receive push events</em> — this is the mechanical reason Playwright's auto-waiting
+doesn't need explicit <code>WebDriverWait</code> polling loops: it subscribes to real DOM
+mutation and network events from the browser and resolves a locator action the
+instant the element becomes actionable, rather than polling on a fixed interval.</p>
+<p>"Auto-waiting" specifically means Playwright's <code>.click()</code> internally performs a
+sequence of actionability checks (attached to DOM, visible, stable — not still
+animating, receives events — not obscured by another element) before dispatching the
+actual click event, re-checking each condition via the CDP connection's live state
+rather than a cached snapshot. This is why Playwright dramatically reduces flaky
+waits compared to Selenium for the same test logic: it's not a smarter guess about
+timing, it's checking the real, current DOM state through an always-open channel
+instead of intermittently polling through a request/response protocol.</p>
+<p>Browser contexts (<code>browser.new_context()</code>) are cheap, isolated sessions within one
+already-launched browser process — separate cookie jars, storage, and cache per
+context — which is why Playwright tests can spin up dozens of isolated "browser
+sessions" per test run far faster than Selenium can launch dozens of separate browser
+processes.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

@@ -991,6 +991,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2417,6 +2428,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2791,6 +2813,29 @@ secrets, Jenkins credentials — never a committed file.</p>
 in the sidebar, run/debug per test, and breakpoints inside tests. Point it at the
 project interpreter (<code>.venv/bin/python</code>) — selecting the system Python instead is
 the most common reason for "it runs in the terminal but not in the IDE."</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><code>python -m venv</code> and <code>pip install</code> aren't just commands to memorize — understanding
+what they actually do on disk explains most "works on my machine" failures.</p>
+<p><code>venv</code> creates a directory containing a near-empty copy of the interpreter's
+directory structure: a <code>pyvenv.cfg</code> file recording the base interpreter's path, a
+<code>bin/python</code> that's either a symlink or a small copy of the real interpreter binary,
+and an empty <code>site-packages/</code>. When you activate it, the <code>activate</code> script does one
+thing that matters mechanically: it prepends the venv's <code>bin/</code> to your shell's <code>PATH</code>
+and sets <code>VIRTUAL_ENV</code>, so <code>which python</code> now resolves to the venv's interpreter
+first. Python's own <code>sys.path</code> construction at startup then looks at where the
+running interpreter binary lives (via <code>pyvenv.cfg</code>) to decide whether to add the
+venv's <code>site-packages</code> or the system one — this is the entire mechanism behind
+"activating an environment," no magic, just <code>PATH</code> and one config file redirecting
+where <code>import</code> looks for packages.</p>
+<p><code>pip install</code> resolves a dependency graph (reading each package's declared
+requirements, recursively), downloads wheels (<code>.whl</code> — pre-built, OS/architecture/
+Python-version-tagged zip files) or source distributions from PyPI, and for a wheel,
+simply unzips its contents into <code>site-packages</code> — there's no compilation step for
+pure-Python wheels, which is why <code>pip install</code> is fast for most testing libraries.
+<code>requirements.txt</code> with pinned versions exists because dependency resolution is
+non-deterministic across time (a package released tomorrow could satisfy today's
+unpinned <code>&gt;=</code> constraint and change behavior) — pinning freezes the exact resolution
+your tests were verified against.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Create a project called <code>booking-tests</code> with the exact structure from

@@ -2206,6 +2206,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#stretch-goals" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2362,6 +2373,17 @@
     <span class="md-ellipsis">
       
         8. Applying earlier levels' practices to this codebase
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
       
     </span>
   </a>
@@ -2636,6 +2658,30 @@ Module 2 argued for.</p>
   is exactly where it would plug in, keeping <code>tests/e2e</code> fast and free of
   real network calls.</li>
 </ul>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>This capstone's three test layers (unit, integration with real SQLite, E2E with a
+real Flask app) exist specifically to exercise every mechanism this whole path
+covered, stacked in one codebase. The unit tests against <code>orders.py</code>'s pure logic
+pay only eval-loop cost (Level 1) — no I/O, no fixtures beyond plain function calls.
+The integration tests' "real SQLite, scoped fixtures" phrase names the exact
+transaction-and-rollback isolation mechanism from Level 3 Module 8: each test gets a
+fresh transaction on a real database engine, rolled back afterward, so tests can
+catch real SQL/schema bugs a mocked DB layer cannot, without the cost of recreating
+tables per test. The E2E tests spinning up the real Flask app and hitting it over
+HTTP are paying the full integration-test I/O cost from Level 1 Module 3 — real
+sockets, a real WSGI request/response cycle — deliberately reserved for the smallest
+layer of the pyramid, exactly matching the cost/coverage trade-off from Level 4
+Module 1.</p>
+<p><code>pytest.ini</code>'s markers enforcing "the pyramid" work through the same custom-marker
+mechanism from Level 2 Module 6: <code>@pytest.mark.unit</code>/<code>@pytest.mark.integration</code>/
+<code>@pytest.mark.e2e</code> are plain metadata on each test <code>Item</code>, and <code>-m "not e2e"</code> in a
+fast CI stage is literally filtering the collected <code>Item</code> list by marker before any
+test executes — the same filtering pytest's own <code>-k</code> and <code>-m</code> machinery does
+generally, not custom logic this project had to build. The CI wiring in Module 7
+closes the full loop back to Level 1: every layer's outcome, however it was produced
+(browser automation, real DB transaction, or a bare function call), reduces to the
+same <code>TestReport</code> → process exit code contract every CI gate in this path has relied
+on since Level 1 Module 7.</p>
 <h2 id="stretch-goals">Stretch goals<a class="headerlink" href="#stretch-goals" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Add a <code>refund_order(conn, sku, qty)</code> function with unit and integration

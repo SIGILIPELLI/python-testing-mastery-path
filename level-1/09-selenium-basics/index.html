@@ -1147,6 +1147,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2561,6 +2572,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3225,6 +3247,28 @@ map it directly:</p>
 </code></pre></div>
 <p>Note the docstring carrying the test case ID and requirement ID — that's your
 traceability matrix surviving into the code.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Selenium's WebDriver isn't a library that "controls the browser" in-process — it's an
+HTTP client talking the W3C WebDriver wire protocol to a separate driver executable
+(<code>chromedriver</code>, <code>geckodriver</code>), which in turn talks to the real browser over its own
+internal automation protocol (Chrome DevTools Protocol, for Chrome). Every
+<code>driver.find_element(...)</code> or <code>.click()</code> call in your Python code is serialized into
+a JSON HTTP request (<code>POST /session/{id}/element</code>, etc.), sent to the driver process
+listening on a local port, translated into a browser-native command, executed inside
+the real rendering engine, and the result is serialized back as JSON. This round trip
+through two extra processes is the concrete reason Selenium tests are orders of
+magnitude slower than unit tests — every single interaction pays HTTP-serialization
+and inter-process-communication cost.</p>
+<p>Implicit and explicit waits exist because of a fundamental race: your Python process
+and the browser's rendering/JavaScript engine run as independent processes with no
+shared clock. <code>WebDriverWait(driver, 10).until(...)</code> works by polling — repeatedly
+issuing the same <code>find_element</code> HTTP request every ~500ms until it either succeeds or
+the timeout elapses — it is not an event subscription to the DOM; the browser doesn't
+push "element appeared" notifications to WebDriver. This polling-based design is why
+badly-tuned waits are the single largest source of flaky Selenium tests: too short a
+poll timeout races against real network/render latency, and <code>time.sleep()</code> in place
+of a wait hardcodes a guess about that latency instead of actually checking element
+state.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Using the Selenium practice page at
 <code>https://www.selenium.dev/selenium/web/web-form.html</code>:</p>

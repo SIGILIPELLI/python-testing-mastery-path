@@ -1367,6 +1367,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2316,6 +2327,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2586,6 +2608,26 @@ you almost nothing — fixing those two does. Common wins that beat adding worke
 <li>Move assertions that don't need a browser down to the API layer (module 03).</li>
 <li>Replace a slow third-party call with a mock (module 04).</li>
 </ul>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><code>pytest-xdist</code> parallelizes by forking (or spawning, depending on platform) multiple
+worker <em>processes</em>, not threads — this sidesteps Python's Global Interpreter Lock
+entirely, since each worker has its own interpreter and GIL, running truly
+concurrently on separate CPU cores rather than time-sliced on one. The controller
+process performs collection once, then ships a load-balanced slice of test IDs to
+each worker over a pipe (using <code>execnet</code> for inter-process communication), and each
+worker independently imports the test modules, runs its assigned tests, and streams
+<code>TestReport</code> objects back to the controller, which merges them into one combined
+result — this is why xdist workers each need their own copy of any process-level
+state (a worker can't see another worker's in-memory fixtures, database
+connections, or module-level caches, since they're separate OS processes with
+separate memory).</p>
+<p>This process isolation is exactly why shared mutable external state — the same test
+database, the same file on disk — becomes a race condition under <code>-n auto</code> that never
+showed up running serially: two workers' processes can genuinely execute
+simultaneously on different cores, so if both write to the same row without locking
+or per-worker isolation (e.g., <code>pytest-xdist</code>'s <code>worker_id</code> fixture used to namespace
+each worker's temp database), you get real, reproducible data races, not a flaky
+illusion.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

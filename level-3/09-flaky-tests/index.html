@@ -1760,6 +1760,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2294,6 +2305,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2462,6 +2484,27 @@ A test that was reliable running serially can become flaky under
 <code>pytest-xdist</code> if it shares a file, port, or database row with a test running
 concurrently in another worker. If flakiness only appears with <code>-n auto</code>, the
 bug is almost certainly shared mutable state, not timing.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>A flaky test is, formally, one whose outcome depends on unmanaged nondeterminism —
+and nearly every root cause traces back to one of a small number of concrete
+mechanisms you've already met in this path: (1) real time — a <code>time.sleep()</code> or
+timeout racing against actual wall-clock-dependent I/O latency that varies run to
+run; (2) shared mutable state — parallel xdist workers or ordering-dependent tests
+touching the same database row, file, or module-level global without isolation
+(Level 2); (3) unseeded randomness — a test relying on dict iteration order or
+<code>random</code> without a fixed seed, where CPython's hash randomization (<code>PYTHONHASHSEED</code>)
+deliberately varies string hash values, and therefore set/dict ordering, between
+process runs as a security mitigation; (4) async/callback races — two coroutines or
+event handlers whose completion order isn't actually guaranteed by anything in your
+code, just usually consistent by chance.</p>
+<p><code>pytest-rerunfailures</code>'s retry mechanism doesn't fix flakiness — it re-invokes the
+same <code>Item</code>'s test function again, from scratch, hoping the nondeterministic
+condition resolves differently — this is a mitigation for triage/CI stability, not a
+diagnosis; a genuinely useful debugging technique is running the failing test alone,
+under <code>-p no:randomly</code> (disabling any random test-order plugin) and with
+<code>PYTHONHASHSEED=0</code> fixed, specifically to remove two of the most common
+nondeterminism sources and see whether the failure still reproduces deterministically
+once those are pinned.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

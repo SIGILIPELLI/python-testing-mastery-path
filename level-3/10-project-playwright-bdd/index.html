@@ -1810,6 +1810,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#stretch-goals" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2327,6 +2338,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#stretch-goals" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2511,6 +2533,25 @@ BDD-flavored Playwright tests rather than plain pytest.</p>
 <p>Adding this scenario produces three more parametrized test IDs automatically
 — <code>test_dropdown_selection_is_reflected_after_submit[One]</code>, <code>[Two]</code>,
 <code>[Three]</code> — no change needed to <code>conftest.py</code> or the CI workflow.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Wiring Playwright's CDP-based automation together with a BDD step-definition layer
+surfaces a subtlety in how "Given/When/Then" state gets threaded through: BDD step
+functions are ordinary pytest fixtures/functions under the hood, but Playwright's
+<code>Page</code> object is <em>stateful and connection-bound</em> — it wraps one specific tab's
+WebSocket connection to the browser. A <code>Given</code> step that creates a page and a later
+<code>When</code> step that acts on it must share the <em>exact same</em> <code>Page</code> object instance, not a
+freshly created one, or you'll be silently issuing commands against a tab that no
+longer represents where your scenario's state actually is. This is why BDD-Playwright
+integrations lean hard on pytest's fixture caching (Level 1) — the <code>page</code> fixture is
+typically function-scoped and injected into every step definition function for a
+given scenario, guaranteeing they all resolve to the identical cached instance for
+that one test run.</p>
+<p>The CI wiring for this project closes the loop from Level 3 Module 4: your scenario's
+outcome bubbles up through pytest-bdd into a normal pytest <code>TestReport</code>, which flows
+into the same <code>testsfailed</code> exit-code mechanism from Level 1 that any CI system gates
+a merge on — the entire BDD/Playwright stack, however expressive its <code>.feature</code> files
+look, ultimately reduces to the same "process exit code 0 or not" contract as every
+other test in this path.</p>
 <h2 id="stretch-goals">Stretch goals<a class="headerlink" href="#stretch-goals" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Add the <code>Scenario Outline</code> from section 7 to <code>features/search.feature</code>

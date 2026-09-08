@@ -1676,6 +1676,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2294,6 +2305,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2447,6 +2469,24 @@ this reason.</p>
 simulates a very impatient user; real users pause several seconds between
 actions. An unrealistically low <code>wait_time</code> inflates throughput numbers to
 something that doesn't reflect real traffic patterns.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Load-testing tools like Locust don't send requests faster by looping tighter — they
+achieve concurrency by running many lightweight "users" as greenlets (via <code>gevent</code>),
+cooperatively scheduled on top of a small number of OS threads. Each simulated user
+runs its task function, and whenever it hits a blocking I/O call (an HTTP request),
+<code>gevent</code>'s monkey-patched socket layer yields control back to the event loop instead
+of blocking the whole process — this is how a single Locust worker process can
+simulate thousands of "concurrent" users on modest hardware: they're not thousands of
+OS threads (which would exhaust memory/context-switch overhead), they're thousands of
+suspended coroutines waking up on I/O completion.</p>
+<p>Requests-per-second and latency percentiles reported by a load test are computed from
+raw per-request timestamps: each simulated user records <code>(start_time, end_time,
+status_code)</code> for every request, and the aggregator bucket-sorts these into a
+histogram to compute p50/p95/p99 — the reason p99 latency is reported separately
+from the mean is that mean latency is dominated by the common-case fast requests and
+can completely hide a tail of slow ones (e.g., ones hitting a lock, a GC pause, or a
+cold cache) that matter enormously for real user experience but barely move the
+average.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

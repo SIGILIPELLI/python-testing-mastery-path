@@ -868,6 +868,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2395,6 +2406,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2920,6 +2942,26 @@ Requirement ID field. Record the link once, at case-writing time.</p>
 </table>
 <p>Whichever you pick, the fields in section 2 are what you need. The tool is an
 implementation detail; the discipline is not.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Equivalence partitioning and boundary value analysis aren't just heuristics testers
+use in their heads — they're the same reasoning that automated fuzzers and
+property-based test generators (you'll meet Hypothesis in Level 3) implement
+mechanically.</p>
+<p>An equivalence class is, formally, a partition of the input domain such that the
+program's control-flow graph treats every member identically — every value in the
+class drives execution down the same sequence of branches. A boundary value sits at
+the edge of a partition specifically because comparison operators (<code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>,
+<code>&gt;=</code>) are where off-by-one defects live: the CPython bytecode for <code>if age &gt;= 18:</code>
+compiles to a <code>COMPARE_OP</code> instruction, and a boundary test (<code>age = 17</code>, <code>age = 18</code>)
+is deliberately chosen to flip which branch that single instruction's result sends
+execution down. This is exactly why boundary tests catch far more real bugs per test
+written than an equal number of "random" values from the middle of a partition — you
+are directly targeting the comparison instructions where a <code>&lt;</code> was typo'd for <code>&lt;=</code>.</p>
+<p>When you later write a Requirements Traceability Matrix, you're manually building
+what a coverage tool builds automatically from <code>sys.settrace</code> data: a mapping from
+"thing that must be true" to "code path that proves it." The RTM is the human-side
+ledger; line/branch coverage is the machine-side ledger for the same underlying
+question — does every requirement have an execution path that verifies it?</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Using the search feature of any e-commerce site you can access:</p>
 <ol>

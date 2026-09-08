@@ -1940,6 +1940,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2294,6 +2305,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2468,6 +2490,25 @@ production load, real data, or real user behavior. Shift-left is
 complementary to production monitoring and canary releases, not a
 replacement for them — a team that only tests pre-merge and never observes
 production is still flying partially blind.</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Shifting testing left is, mechanically, about which pipeline stage first executes a
+given check and how expensive a defect is once it escapes that stage. A pre-commit
+hook (running via <code>pre-commit</code>'s framework, which hashes each staged file's content
+and only re-runs a check when that hash changes) executes static analysis and fast
+unit tests in the same process boundary as the developer's own machine, at essentially
+zero marginal infrastructure cost. Push that same check one stage later into CI, and
+you've paid for a fresh container provisioning, dependency install, and queue wait
+before the same bug is caught — push it further still into a nightly full-regression
+run, and the defect has had an entire day to compound with other changes before
+anyone sees the failure, making root-cause bisection dramatically harder.</p>
+<p>Continuous testing pipelines commonly stage checks by cost using exactly the pyramid
+mechanics from the previous module: pre-commit runs linters and unit tests (sub-
+second, per Level 1's eval-loop-only cost); a PR-triggered CI stage adds integration
+tests (real DB/API calls, Level 2's I/O cost); a merge-triggered or nightly stage adds
+full E2E suites (browser automation, Levels 1-3's process-and-protocol cost) — each
+stage is a real filter, and the pipeline is designed so a defect is caught at the
+cheapest stage capable of catching it, not deferred to the most expensive one by
+default.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

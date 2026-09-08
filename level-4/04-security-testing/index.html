@@ -1985,6 +1985,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2272,6 +2283,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cheat-sheet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2478,6 +2500,27 @@ check authorization) are complementary, not substitutes for each other.</p>
 test to fail — passwords still hash and compare correctly. This is exactly
 why a linter/static-analysis pass matters: functional tests, by design,
 can't catch "this works but is insecure."</p>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Automated security testing tools fall into two mechanically distinct families,
+mirroring the static/dynamic split from Level 1. SAST (static application security
+testing — tools like <code>bandit</code>) walks your source's AST looking for known-dangerous
+patterns: a call to <code>subprocess.run</code> with <code>shell=True</code> and a variable (not a literal)
+in the command string, a hardcoded string matching common secret-key formats, an
+<code>eval()</code> call on external input — pattern-matching against the syntax tree, with zero
+code execution, which is why SAST is fast but can both miss dynamically-constructed
+vulnerabilities and false-positive on safe code that merely <em>looks</em> like a dangerous
+pattern.</p>
+<p>DAST (dynamic application security testing — tools like OWASP ZAP) instead runs your
+application for real and attacks it: it crawls actual HTTP endpoints, then
+systematically mutates request parameters with known attack payloads (<code>' OR '1'='1</code>
+for SQL injection, <code>&lt;script&gt;alert(1)&lt;/script&gt;</code> for XSS) and inspects the real
+response for signs the payload executed or altered query logic — this genuinely
+exercises your live request-handling and database-query-building code the way SAST's
+AST walk cannot, at the cost of needing a running instance and being slower per check.
+Dependency scanning (<code>pip-audit</code>, <code>safety</code>) is a third, simpler mechanism: it just
+diffs your installed package versions against a known-vulnerability database (like
+the OSV or PyPI advisory database) — no code analysis at all, pure version-string
+lookup.</p>
 <h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
