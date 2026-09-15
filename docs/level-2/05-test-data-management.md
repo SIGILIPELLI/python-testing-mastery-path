@@ -1,3 +1,7 @@
+---
+description: "Test Data Management & Factories — Most suites don't rot because the assertions were wrong. They rot because of the data: a hard-coded qa.buyer01@test.com…"
+---
+
 # 05 · Test Data Management & Factories
 
 Most suites don't rot because the assertions were wrong. They rot because of the

@@ -1,3 +1,7 @@
+---
+description: "Cross-Browser Testing — 'Works on my machine' has a browser-shaped variant: works in Chrome. Date inputs render differently in Firefox, Safari treats…"
+---
+
 # 09 · Cross-Browser Testing
 
 "Works on my machine" has a browser-shaped variant: works in Chrome. Date inputs

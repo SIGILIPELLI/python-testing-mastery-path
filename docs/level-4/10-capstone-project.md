@@ -1,3 +1,7 @@
+---
+description: "Capstone — Production-Grade Framework — This capstone assembles the whole course into one working project: a small order-management service, tested across…"
+---
+
 # 10 · Capstone — Production-Grade Framework
 
 This capstone assembles the whole course into one working project: a small

@@ -1,3 +1,7 @@
+---
+description: "Property-Based Testing with Hypothesis — Every test so far has been example-based: you pick specific inputs (from equivalence partitioning, Level 1 Module…"
+---
+
 # 05 · Property-Based Testing with Hypothesis
 
 Every test so far has been **example-based**: you pick specific inputs (from

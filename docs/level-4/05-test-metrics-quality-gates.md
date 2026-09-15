@@ -1,3 +1,7 @@
+---
+description: "Test Metrics & Quality Gates — Module 2 warned against chasing coverage percentage as a target. This module is about what to measure instead — and…"
+---
+
 # 05 · Test Metrics & Quality Gates
 
 Module 2 warned against chasing coverage percentage as a target. This module

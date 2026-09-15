@@ -1,3 +1,7 @@
+---
+description: "Playwright for Python — Playwright is a newer browser automation library from Microsoft. It talks to Chromium, Firefox, and WebKit over a single protocol…"
+---
+
 # 01 · Playwright for Python
 
 Playwright is a newer browser automation library from Microsoft. It talks to

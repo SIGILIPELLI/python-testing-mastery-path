@@ -1,3 +1,7 @@
+---
+description: "BDD with pytest-bdd / Behave — Behavior-Driven Development writes test scenarios in plain English (Gherkin) first, then wires each line to Python code.…"
+---
+
 # 02 · BDD with pytest-bdd / Behave
 
 Behavior-Driven Development writes test scenarios in plain English (Gherkin)

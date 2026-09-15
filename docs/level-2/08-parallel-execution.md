@@ -1,3 +1,7 @@
+---
+description: "Parallel Execution (pytest-xdist) — A 400-test UI suite at 20 seconds a test is two hours and thirteen minutes. Nobody runs that per pull request, so it…"
+---
+
 # 08 · Parallel Execution (pytest-xdist)
 
 A 400-test UI suite at 20 seconds a test is two hours and thirteen minutes. Nobody

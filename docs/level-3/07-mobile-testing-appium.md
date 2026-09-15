@@ -1,3 +1,7 @@
+---
+description: "Mobile Testing with Appium — Appium extends the WebDriver protocol from Selenium (Level 1 Module 9) to native and hybrid mobile apps on Android and iOS.…"
+---
+
 # 07 · Mobile Testing with Appium
 
 Appium extends the WebDriver protocol from Selenium (Level 1 Module 9) to

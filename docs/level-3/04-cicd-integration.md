@@ -1,3 +1,7 @@
+---
+description: "CI/CD Integration — Every fixture, marker, and report format from Levels 1–3 exists to be run somewhere other than your laptop. This module wires a pytest…"
+---
+
 # 04 · CI/CD Integration
 
 Every fixture, marker, and report format from Levels 1–3 exists to be run

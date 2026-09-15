@@ -1,3 +1,7 @@
+---
+description: "pytest Fixtures & Parametrize — Two features do most of the work in a real pytest suite. Fixtures handle setup and teardown — the 'Preconditions' row of…"
+---
+
 # 08 · pytest Fixtures & Parametrize
 
 Two features do most of the work in a real pytest suite. **Fixtures** handle

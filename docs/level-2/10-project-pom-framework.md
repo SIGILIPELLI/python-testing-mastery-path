@@ -1,3 +1,7 @@
+---
+description: "Project — POM Framework with API Tests — Everything in Level 2 becomes one deliverable here: a test framework you could hand to a new team member on their…"
+---
+
 # 10 · Project — POM Framework with API Tests
 
 Everything in Level 2 becomes one deliverable here: a test framework you could

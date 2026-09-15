@@ -1,3 +1,7 @@
+---
+description: "Test Architecture at Scale — Every technique in Levels 1–3 answers 'how do I write this test?' This module answers a different question: once a project…"
+---
+
 # 01 · Test Architecture at Scale
 
 Every technique in Levels 1–3 answers "how do I write this test?" This

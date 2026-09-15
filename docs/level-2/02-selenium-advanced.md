@@ -1,3 +1,7 @@
+---
+description: "Selenium Advanced — Level 1 covered find_element, click, send_keys, and explicit waits — enough to automate a static form. Real applications are not…"
+---
+
 # 02 · Selenium Advanced
 
 Level 1 covered `find_element`, `click`, `send_keys`, and explicit waits — enough

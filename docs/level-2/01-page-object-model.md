@@ -1,3 +1,7 @@
+---
+description: "Page Object Model in Python — Level 1 wrote locators directly inside test functions. That works for ten tests. It falls apart at a hundred: change one CSS…"
+---
+
 # 01 · Page Object Model in Python
 
 Level 1 wrote locators directly inside test functions. That works for ten

@@ -1,3 +1,7 @@
+---
+description: "Manual Testing in Practice — You can't test everything. This module covers the formal techniques that let you choose a small set of test cases with a high…"
+---
+
 # 05 · Manual Testing in Practice
 
 You can't test everything. This module covers the formal techniques that let you

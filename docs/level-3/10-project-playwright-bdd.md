@@ -1,3 +1,7 @@
+---
+description: "Project — Playwright + BDD in CI — This project combines every piece from this level into one working suite: Gherkin scenarios (Module 2) drive Playwright…"
+---
+
 # 10 · Project — Playwright + BDD in CI
 
 This project combines every piece from this level into one working suite:

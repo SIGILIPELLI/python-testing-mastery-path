@@ -1,3 +1,7 @@
+---
+description: "pytest Fundamentals — pytest is the standard Python test framework. Its appeal is that a test is just a function with a plain assert — no class hierarchy…"
+---
+
 # 07 · pytest Fundamentals
 
 pytest is the standard Python test framework. Its appeal is that a test is just

@@ -1,3 +1,7 @@
+---
+description: "AI-Assisted Testing — 'AI-assisted testing' covers two genuinely different things: tools that generate test cases automatically by analyzing your code…"
+---
+
 # 07 · AI-Assisted Testing
 
 "AI-assisted testing" covers two genuinely different things: tools that

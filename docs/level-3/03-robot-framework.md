@@ -1,3 +1,7 @@
+---
+description: "Robot Framework Basics — Robot Framework is a keyword-driven test framework: test cases are written as tables of keywords (Add, Click Button, Should Be…"
+---
+
 # 03 · Robot Framework Basics
 
 Robot Framework is a keyword-driven test framework: test cases are written as

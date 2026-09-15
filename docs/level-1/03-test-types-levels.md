@@ -1,3 +1,7 @@
+---
+description: "Test Types & Levels — 'Testing' is not one activity. Ask a team what they test and you'll get answers that operate at different altitudes and answer…"
+---
+
 # 03 · Test Types & Levels
 
 "Testing" is not one activity. Ask a team what they test and you'll get answers

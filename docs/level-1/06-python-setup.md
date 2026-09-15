@@ -1,3 +1,7 @@
+---
+description: "Python Setup for Testers — From here on, the course is hands-on Python. This module gets you a working, isolated environment and a project layout that…"
+---
+
 # 06 · Python Setup for Testers
 
 From here on, the course is hands-on Python. This module gets you a working,

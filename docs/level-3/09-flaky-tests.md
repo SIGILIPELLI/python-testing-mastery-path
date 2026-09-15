@@ -1,3 +1,7 @@
+---
+description: "Flaky Test Diagnosis & Stabilization — A flaky test is one that passes and fails on the same code, with no changes in between — the single most…"
+---
+
 # 09 · Flaky Test Diagnosis & Stabilization
 
 A flaky test is one that passes and fails on the same code, with no changes

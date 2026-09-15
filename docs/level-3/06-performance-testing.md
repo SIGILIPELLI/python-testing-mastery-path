@@ -1,3 +1,7 @@
+---
+description: "Performance Testing with Locust — Every test so far checks correctness — does the right thing happen? Locust checks capacity — how many users, requests…"
+---
+
 # 06 · Performance Testing with Locust
 
 Every test so far checks *correctness* — does the right thing happen? Locust

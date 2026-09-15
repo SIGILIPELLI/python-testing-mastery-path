@@ -1,3 +1,7 @@
+---
+description: "Reporting (pytest-html, Allure) — Terminal output is for you, while you're sitting in front of it. A report is for everyone else: the developer who wants…"
+---
+
 # 07 · Reporting (pytest-html, Allure)
 
 Terminal output is for you, while you're sitting in front of it. A report is for

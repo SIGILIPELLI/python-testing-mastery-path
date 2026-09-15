@@ -1,3 +1,7 @@
+---
+description: "Database Testing from Python — Every mocking technique in Level 2 Module 4 exists partly to avoid hitting a real database in a unit test. This module is…"
+---
+
 # 08 · Database Testing from Python
 
 Every mocking technique in Level 2 Module 4 exists partly to *avoid* hitting a

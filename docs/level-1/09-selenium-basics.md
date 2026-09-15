@@ -1,3 +1,7 @@
+---
+description: "Selenium WebDriver Basics with Python — Selenium WebDriver drives a real browser the way a user does — clicking, typing, navigating. This is how the…"
+---
+
 # 09 · Selenium WebDriver Basics with Python
 
 Selenium WebDriver drives a real browser the way a user does — clicking,

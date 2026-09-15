@@ -1,3 +1,7 @@
+---
+description: "API Testing with requests + pytest — A browser test that checks 'the order total shows ₹1,499' spends thirty seconds launching Chrome, logging in, and…"
+---
+
 # 03 · API Testing with requests + pytest
 
 A browser test that checks "the order total shows ₹1,499" spends thirty seconds

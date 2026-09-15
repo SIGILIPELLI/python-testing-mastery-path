@@ -1,3 +1,7 @@
+---
+description: "Mocking with unittest.mock — Module 03 tested a real API over the real network. That's the right call for contract tests — and the wrong call for the…"
+---
+
 # 04 · Mocking with unittest.mock
 
 Module 03 tested a real API over the real network. That's the right call for

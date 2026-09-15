@@ -1,3 +1,7 @@
+---
+description: "QA Leadership & Strategy — Every module so far answers 'how do I test this?' A QA lead also has to answer 'should we automate this, and is it working?' …"
+---
+
 # 09 · QA Leadership & Strategy
 
 Every module so far answers "how do I test this?" A QA lead also has to

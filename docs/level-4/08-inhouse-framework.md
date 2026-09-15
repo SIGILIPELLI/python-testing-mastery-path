@@ -1,3 +1,7 @@
+---
+description: "Building an In-House Test Framework — By this point in the course you've used markers, fixtures, and plugins built by other people. This module builds one…"
+---
+
 # 08 · Building an In-House Test Framework
 
 By this point in the course you've used markers, fixtures, and plugins built

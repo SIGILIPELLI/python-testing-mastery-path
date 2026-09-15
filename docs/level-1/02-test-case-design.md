@@ -1,3 +1,7 @@
+---
+description: "Test Case Design & Documentation — A test case is the unit of work in testing. Written well, anyone on the team can execute it and get the same result.…"
+---
+
 # 02 · Test Case Design & Documentation
 
 A test case is the unit of work in testing. Written well, anyone on the team can

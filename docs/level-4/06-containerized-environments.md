@@ -1,3 +1,7 @@
+---
+description: "Containerized Test Environments — Level 3 Module 8 flagged that Postgres-in-Docker testing wasn't runnable in this sandboxed environment — confirmed again…"
+---
+
 # 06 · Containerized Test Environments
 
 Level 3 Module 8 flagged that Postgres-in-Docker testing wasn't runnable in

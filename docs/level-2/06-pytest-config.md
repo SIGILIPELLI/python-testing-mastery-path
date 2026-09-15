@@ -1,3 +1,7 @@
+---
+description: "pytest Plugins & Configuration — Every command you've typed so far — pytest -v, pytest -k login, pytest -m smoke — is a decision your team has to remember…"
+---
+
 # 06 · pytest Plugins & Configuration
 
 Every command you've typed so far — `pytest -v`, `pytest -k login`, `pytest -m

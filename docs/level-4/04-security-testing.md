@@ -1,3 +1,7 @@
+---
+description: "Security Testing Basics for QA — Security testing isn't only the security team's job. A QA engineer who knows how to write a test proving an injection…"
+---
+
 # 04 · Security Testing Basics for QA
 
 Security testing isn't only the security team's job. A QA engineer who knows

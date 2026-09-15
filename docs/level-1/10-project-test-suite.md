@@ -1,3 +1,7 @@
+---
+description: "Project — Test Plan + Automated Suite — This project combines everything in Level 1: you'll write a real test plan and test cases for a live web page…"
+---
+
 # 10 · Project — Test Plan + Automated Suite
 
 This project combines everything in Level 1: you'll write a real **test plan**

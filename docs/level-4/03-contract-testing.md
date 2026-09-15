@@ -1,3 +1,7 @@
+---
+description: "Contract Testing (Pact) — API testing (Level 2 Module 3) verifies your own service works. Contract testing verifies that a consumer (a service calling an…"
+---
+
 # 03 · Contract Testing (Pact)
 
 API testing (Level 2 Module 3) verifies your own service works. Contract

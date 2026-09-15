@@ -1,3 +1,7 @@
+---
+description: "Shift-Left & Continuous Testing — 'Shift-left' means moving testing earlier — catching a bug while a developer is still typing the change, not two days…"
+---
+
 # 02 · Shift-Left & Continuous Testing
 
 "Shift-left" means moving testing earlier — catching a bug while a developer
