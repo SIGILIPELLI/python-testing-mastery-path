@@ -277,6 +277,12 @@ negative on for trivial reasons like key ordering.
 | 422 | Validation failed | Well-formed but semantically invalid input |
 | 429 | Rate limited | Client backs off rather than hammering |
 
+## 🔀 Related lessons on other tracks
+
+- [Java Testing — 04 · API Testing with RestAssured](https://sigilipelli.github.io/java-testing-mastery-path/level-2/04-api-testing-restassured/)
+- [Playwright — 03 · API Testing with Request Context](https://sigilipelli.github.io/playwright-mastery-path/level-3/03-api-testing/)
+- [REST API — 05 · API Testing Strategy](https://sigilipelli.github.io/rest-api-mastery-path/level-3/05-api-testing-strategy/)
+
 ## Exercise
 
 Using `https://jsonplaceholder.typicode.com`:

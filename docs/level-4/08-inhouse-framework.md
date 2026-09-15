@@ -217,6 +217,11 @@ upgrade that changes undocumented internal structure.
 | `pyproject.toml` + `pytest11` entry point | make the framework a real, versioned, installable pytest plugin |
 | When to build one at all | after the same setup pattern repeats across 3+ test files, not before |
 
+## 🔀 Related lessons on other tracks
+
+- [Cpp Testing — 09 · Building an In-House C/C++ Test Framework](https://sigilipelli.github.io/cpp-testing-mastery-path/level-4/09-in-house-test-framework/)
+- [Java Testing — 08 · Building an In-House Test Framework](https://sigilipelli.github.io/java-testing-mastery-path/level-4/08-in-house-test-framework/)
+
 ## Exercise
 
 1. Build the `myframework` package above yourself, write two more tests using

@@ -202,6 +202,11 @@ once those are pinned.
 | Async assertion right after `.start()` | race condition | join the thread / await properly, never `sleep()`-and-hope |
 | "It's flaky, just rerun it" as policy | root cause never investigated | `--reruns` only as a last resort, with a tracked ticket |
 
+## 🔀 Related lessons on other tracks
+
+- [Java Testing — 09 · Flaky Test Diagnosis & Stabilization](https://sigilipelli.github.io/java-testing-mastery-path/level-3/09-flaky-test-diagnosis/)
+- [Playwright — 05 · Test Retries & Flaky Test Triage](https://sigilipelli.github.io/playwright-mastery-path/level-3/05-retries-flaky-tests/)
+
 ## Exercise
 
 1. Reproduce the flaky test in section 1 yourself, run it five times in a

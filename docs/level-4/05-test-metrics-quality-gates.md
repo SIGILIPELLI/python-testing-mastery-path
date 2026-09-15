@@ -200,6 +200,12 @@ every line that function touches.
 | Defect escape rate | whether testing investment prevents real bugs | lagging indicator, needs incident-to-test tracing |
 | Suite runtime (Module 1) | pyramid shape / architecture health | not a correctness signal at all |
 
+## 🔀 Related lessons on other tracks
+
+- [Java Testing — 05 · Test Metrics & Quality Gates](https://sigilipelli.github.io/java-testing-mastery-path/level-4/05-test-metrics-quality-gates/)
+- [Cpp Testing — 08 · Quality Gates & Metrics](https://sigilipelli.github.io/cpp-testing-mastery-path/level-4/08-quality-gates-metrics/)
+- [Pyspark — 07 · Data Quality Gates](https://sigilipelli.github.io/pyspark-mastery-path/level-4/07-data-quality-gates/)
+
 ## Exercise
 
 1. Reproduce section 1–2 yourself: write `clamp`, the two under-covering

@@ -297,6 +297,12 @@ tests: rollback is metadata-only work for the database engine, not a full table 
 | Expensive shared resource | `scope="session"` — connections only, never data |
 | Temp files | pytest's built-in `tmp_path` fixture |
 
+## 🔀 Related lessons on other tracks
+
+- [Automotive Testing — 05 · Test Data Management at Scale](https://sigilipelli.github.io/automotive-testing-mastery-path/level-4/05-test-data-management/)
+- [Java Testing — 05 · Test Data Management](https://sigilipelli.github.io/java-testing-mastery-path/level-2/05-test-data-management/)
+- [Playwright — 08 · Environment & Test Data Management](https://sigilipelli.github.io/playwright-mastery-path/level-2/08-env-test-data/)
+
 ## Exercise
 
 1. Convert a test that hard-codes five user fields into a `make_user` factory

@@ -234,6 +234,10 @@ lookup.
 | Document a known gap | an assertion recording current (missing) behavior | tracks debt without silently ignoring it |
 | What these don't catch | business-logic authorization bugs, novel payloads | needs dedicated logic-level tests, not just pattern matching |
 
+## 🔀 Related lessons on other tracks
+
+- [Java Testing — 04 · Security Testing Basics for QA](https://sigilipelli.github.io/java-testing-mastery-path/level-4/04-security-testing-basics/)
+
 ## Exercise
 
 1. Run `bandit` against a small Python file containing at least three

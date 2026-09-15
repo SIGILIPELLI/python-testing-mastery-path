@@ -205,6 +205,11 @@ default.
 | Avoid coverage-as-vanity-metric | pair with meaningful assertions, not just line execution |
 | Complement, don't replace, prod signal | shift-left + production monitoring together |
 
+## 🔀 Related lessons on other tracks
+
+- [Java Testing — 02 · Shift-Left & Continuous Testing](https://sigilipelli.github.io/java-testing-mastery-path/level-4/02-shift-left-continuous-testing/)
+- [Automotive Testing — 02 · Continuous Testing in Automotive](https://sigilipelli.github.io/automotive-testing-mastery-path/level-4/02-continuous-testing-automotive/)
+
 ## Exercise
 
 1. Reproduce the coverage-gate failure in section 1 yourself: write `app.py`

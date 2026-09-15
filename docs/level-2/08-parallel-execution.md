@@ -255,6 +255,11 @@ illusion.
 | Find slow tests | `--durations=10` |
 | Expose hidden coupling | `pytest -p randomly` |
 
+## 🔀 Related lessons on other tracks
+
+- [Java Testing — 04 · Selenium Grid & Parallel Execution](https://sigilipelli.github.io/java-testing-mastery-path/level-3/04-selenium-grid-parallel/)
+- [Playwright — 06 · Parallel Execution & Sharding](https://sigilipelli.github.io/playwright-mastery-path/level-2/06-parallel-sharding/)
+
 ## Exercise
 
 1. Write eight tests that each `time.sleep(0.5)`. Record the wall time at `-n 1`,

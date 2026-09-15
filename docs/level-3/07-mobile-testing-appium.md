@@ -200,6 +200,10 @@ different underlying object models.
 | Fresh browser per test | `options.full_reset = True` or `driver.reset()` |
 | N/A | disable device animations to reduce transition flakiness |
 
+## 🔀 Related lessons on other tracks
+
+- [Java Testing — 06 · Mobile Testing with Appium](https://sigilipelli.github.io/java-testing-mastery-path/level-3/06-mobile-testing-appium/)
+
 ## Exercise
 
 *(This exercise assumes access to Appium server + an Android emulator or iOS

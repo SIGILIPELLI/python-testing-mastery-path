@@ -208,6 +208,10 @@ red/green result) collapses.
 | Is quality actually healthy? | `quality_status` — explicit thresholds, not a subjective read |
 | What to avoid reporting | raw counts with no outcome link (Trap 1) |
 
+## 🔀 Related lessons on other tracks
+
+- [Java Testing — 09 · QA Leadership & Strategy](https://sigilipelli.github.io/java-testing-mastery-path/level-4/09-qa-leadership-strategy/)
+
 ## Exercise
 
 1. Extend `automation_roi` with a `maintenance_hours_per_month` parameter

@@ -346,6 +346,11 @@ is a deliberate, human-directed traversal strategy through that graph, prioritiz
 the paths most likely to hide a defect (recently changed code, complex conditionals,
 areas with a history of bugs) over uniform random exploration.
 
+## 🔀 Related lessons on other tracks
+
+- [Cpp Testing — 05 · Manual Testing in Practice](https://sigilipelli.github.io/cpp-testing-mastery-path/level-1/05-manual-testing-in-practice/)
+- [Java Testing — 05 · Manual Testing in Practice](https://sigilipelli.github.io/java-testing-mastery-path/level-1/05-manual-testing-practice/)
+
 ## Exercise
 
 For an online hotel-booking form (check-in date, check-out date, number of

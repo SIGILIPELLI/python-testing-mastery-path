@@ -239,6 +239,11 @@ actually reach?"
 A defect does not always cause a failure — a bug in a branch nobody executes sits
 there silently. This is why coverage matters.
 
+## 🔀 Related lessons on other tracks
+
+- [Cpp Testing — 01 · What Is Software Testing?](https://sigilipelli.github.io/cpp-testing-mastery-path/level-1/01-what-is-software-testing/)
+- [Java Testing — 01 · What Is Software Testing?](https://sigilipelli.github.io/java-testing-mastery-path/level-1/01-what-is-software-testing/)
+
 ## Exercise
 
 Pick any application you use daily — a banking app, an e-commerce site, a food

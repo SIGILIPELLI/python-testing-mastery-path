@@ -236,6 +236,12 @@ what a coverage tool builds automatically from `sys.settrace` data: a mapping fr
 ledger; line/branch coverage is the machine-side ledger for the same underlying
 question — does every requirement have an execution path that verifies it?
 
+## 🔀 Related lessons on other tracks
+
+- [Cpp Testing — 02 · Test Case Design & Documentation](https://sigilipelli.github.io/cpp-testing-mastery-path/level-1/02-test-case-design-documentation/)
+- [Java Testing — 02 · Test Case Design & Documentation](https://sigilipelli.github.io/java-testing-mastery-path/level-1/02-test-case-design/)
+- [Automotive Testing — 08 · Test Case Design for ECUs](https://sigilipelli.github.io/automotive-testing-mastery-path/level-1/08-test-case-design-for-ecus/)
+
 ## Exercise
 
 Using the search feature of any e-commerce site you can access:

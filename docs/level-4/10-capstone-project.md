@@ -325,3 +325,8 @@ on since Level 1 Module 7.
    suite: given how long it takes a human to manually verify order placement
    and stock-out behavior, at what team size and release frequency does this
    automated suite pay for the hours spent building it?
+
+## 🔀 Related lessons on other tracks
+
+- [Java Testing — 10 · Capstone — Production-Grade Test Framework](https://sigilipelli.github.io/java-testing-mastery-path/level-4/10-capstone-test-framework/)
+- [Playwright — 10 · Capstone — Production-Grade E2E Framework](https://sigilipelli.github.io/playwright-mastery-path/level-4/10-capstone-project/)

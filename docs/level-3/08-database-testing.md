@@ -227,6 +227,10 @@ real-database fixtures exist specifically because "pass on SQLite" is not proof 
 | Avoid false passes from same-connection reads | commit, then read back with a separate connection |
 | Avoid cross-test pollution | function-scoped fixtures unless deliberately testing rollback behavior |
 
+## 🔀 Related lessons on other tracks
+
+- [Java Testing — 07 · Database Testing from Java](https://sigilipelli.github.io/java-testing-mastery-path/level-3/07-database-testing/)
+
 ## Exercise
 
 1. Extend `db.py` with a `delete_user(conn, email)` function and write tests

@@ -578,6 +578,10 @@ poll timeout races against real network/render latency, and `time.sleep()` in pl
 of a wait hardcodes a guess about that latency instead of actually checking element
 state.
 
+## 🔀 Related lessons on other tracks
+
+- [Java Testing — 08 · Selenium WebDriver Basics](https://sigilipelli.github.io/java-testing-mastery-path/level-1/08-selenium-webdriver-basics/)
+
 ## Exercise
 
 Using the Selenium practice page at

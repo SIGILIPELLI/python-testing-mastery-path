@@ -254,6 +254,11 @@ timeouts than a local run against the same test logic.
 | Watch a Grid session | Port 7900, noVNC, password `secret` |
 | Speed it up | Combine with `-n` from module 08 |
 
+## 🔀 Related lessons on other tracks
+
+- [Java Testing — 09 · Cross-Browser Testing](https://sigilipelli.github.io/java-testing-mastery-path/level-2/09-cross-browser-testing/)
+- [Playwright — 01 · Cross-Browser & Device Strategy](https://sigilipelli.github.io/playwright-mastery-path/level-4/01-cross-browser-strategy/)
+
 ## Exercise
 
 !!! note "Browsers required"

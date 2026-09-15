@@ -220,6 +220,10 @@ genuinely separate processes and ports per worker.
 | Avoid container-per-test slowness | session-scoped container, reset data per test |
 | Avoid startup races | wait for a real health check / connection, not just "container started" |
 
+## 🔀 Related lessons on other tracks
+
+- [Java Testing — 06 · Containerized Test Environments](https://sigilipelli.github.io/java-testing-mastery-path/level-4/06-containerized-test-environments/)
+
 ## Exercise
 
 *(Requires Docker — not available in the environment this module was written

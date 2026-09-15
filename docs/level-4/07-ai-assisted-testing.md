@@ -222,6 +222,10 @@ generated test that can't fail isn't testing anything).
 | Either, for property suggestions (Level 3 Module 5) | surfacing candidate invariants | verifying the invariant is actually true |
 | Neither | encoding domain/business rules as edge cases | requires understanding the requirements, not just the code |
 
+## 🔀 Related lessons on other tracks
+
+- [Java Testing — 07 · AI-Assisted Testing](https://sigilipelli.github.io/java-testing-mastery-path/level-4/07-ai-assisted-testing/)
+
 ## Exercise
 
 1. Install `pynguin`, run it against a small function of your own (something

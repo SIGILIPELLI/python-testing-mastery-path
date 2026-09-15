@@ -200,6 +200,10 @@ mean dozens of extra test executions on top of the initial 100.
 | What Hypothesis does on failure | shrinks to the minimal failing case automatically |
 | Good property shapes | round-trip, invariant, comparison to a reference impl |
 
+## 🔀 Related lessons on other tracks
+
+- [Cpp Testing — 05 · Property-Based Testing](https://sigilipelli.github.io/cpp-testing-mastery-path/level-3/05-property-based-testing/)
+
 ## Exercise
 
 1. Write a `flatten(nested_list)` function and a Hypothesis property checking

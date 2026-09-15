@@ -638,3 +638,9 @@ Your project is complete when:
 Keep this project. A working suite with a real test plan and traceability matrix
 is a stronger portfolio piece than any certificate, because it demonstrates both
 halves of the job: the thinking and the automation.
+
+## 🔀 Related lessons on other tracks
+
+- [Java Testing — 10 · Project — Manual Test Plan + Automated Suite](https://sigilipelli.github.io/java-testing-mastery-path/level-1/10-project-test-plan-suite/)
+- [Cpp Testing — 10 · Project — Test Plan & GoogleTest Suite](https://sigilipelli.github.io/cpp-testing-mastery-path/level-1/10-project-test-plan-and-suite/)
+- [Automotive Testing — 07 · Automated Test Sequences in CANoe](https://sigilipelli.github.io/automotive-testing-mastery-path/level-2/07-automated-test-sequences/)

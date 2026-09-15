@@ -215,6 +215,11 @@ themselves.
 | Keep suites decoupled | directory-scoped `conftest.py` | — | a layer's fixture change can't break another layer |
 | Catch marker typos | `--strict-markers` | — | unregistered markers become collection errors, not warnings |
 
+## 🔀 Related lessons on other tracks
+
+- [Cpp Testing — 01 · Test Architecture for Large Codebases](https://sigilipelli.github.io/cpp-testing-mastery-path/level-4/01-test-architecture-large-codebases/)
+- [Java Testing — 01 · Test Architecture at Scale](https://sigilipelli.github.io/java-testing-mastery-path/level-4/01-test-architecture-at-scale/)
+
 ## Exercise
 
 1. Reorganize a small project's tests into `tests/unit`, `tests/integration`,

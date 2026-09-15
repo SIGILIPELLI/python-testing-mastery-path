@@ -180,6 +180,10 @@ downstream consumer's environment.
 | What breaks the contract | consumer expectations changing, or provider dropping a used field |
 | What contract testing is NOT | a substitute for all E2E/business-logic tests |
 
+## 🔀 Related lessons on other tracks
+
+- [Java Testing — 03 · Contract Testing (Pact)](https://sigilipelli.github.io/java-testing-mastery-path/level-4/03-contract-testing-pact/)
+
 ## Exercise
 
 1. Write a consumer contract for a `POST /orders` endpoint expecting a

@@ -257,6 +257,10 @@ test.
 | Allure step | `with allure.step("..."):` |
 | Detect failure in teardown | `pytest_runtest_makereport` hook + `report_call` |
 
+## 🔀 Related lessons on other tracks
+
+- [Java Testing — 08 · Reporting (Allure, ExtentReports)](https://sigilipelli.github.io/java-testing-mastery-path/level-2/08-reporting/)
+
 ## Exercise
 
 1. Add `--junitxml` and `--html=... --self-contained-html` to `addopts` in your

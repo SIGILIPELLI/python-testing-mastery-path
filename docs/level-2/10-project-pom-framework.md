@@ -359,3 +359,7 @@ browser launch cost.
 7. **Self-healing locators.** Log every `NoSuchElementException` with the page,
    locator, and a screenshot, and produce a weekly report of the most brittle
    locators in the suite. Then rewrite the worst three.
+
+## 🔀 Related lessons on other tracks
+
+- [Java Testing — 10 · Project — POM Framework with API Tests](https://sigilipelli.github.io/java-testing-mastery-path/level-2/10-project-pom-framework/)

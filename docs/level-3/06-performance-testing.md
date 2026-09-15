@@ -176,6 +176,12 @@ average.
 | Machine-readable output | `--csv=prefix` produces `prefix_stats.csv` etc. |
 | Distribute load | `--master` / `--worker` |
 
+## 🔀 Related lessons on other tracks
+
+- [Azure — 06 · Performance Engineering & Load Testing](https://sigilipelli.github.io/azure-mastery-path/level-4/06-performance-load-testing/)
+- [Cpp Testing — 07 · Performance & Benchmark Testing](https://sigilipelli.github.io/cpp-testing-mastery-path/level-3/07-performance-benchmark-testing/)
+- [Java Testing — 05 · Performance Testing Basics (JMeter)](https://sigilipelli.github.io/java-testing-mastery-path/level-3/05-performance-testing-jmeter/)
+
 ## Exercise
 
 1. Write a locustfile with two `@task`s at different weights against a
