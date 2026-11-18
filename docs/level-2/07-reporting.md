@@ -259,7 +259,7 @@ test.
 
 ## 🔀 Related lessons on other tracks
 
-- [Java Testing — 08 · Reporting (Allure, ExtentReports)](https://sigilipelli.github.io/java-testing-mastery-path/level-2/08-reporting/)
+- [Java Testing — 08 · Reporting (Allure, ExtentReports)](https://learnmasterypath.com/java-testing-mastery-path/level-2/08-reporting/)
 
 ## Exercise
 

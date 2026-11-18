@@ -229,7 +229,7 @@ real-database fixtures exist specifically because "pass on SQLite" is not proof 
 
 ## 🔀 Related lessons on other tracks
 
-- [Java Testing — 07 · Database Testing from Java](https://sigilipelli.github.io/java-testing-mastery-path/level-3/07-database-testing/)
+- [Java Testing — 07 · Database Testing from Java](https://learnmasterypath.com/java-testing-mastery-path/level-3/07-database-testing/)
 
 ## Exercise
 

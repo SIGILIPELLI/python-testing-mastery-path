@@ -362,4 +362,4 @@ browser launch cost.
 
 ## 🔀 Related lessons on other tracks
 
-- [Java Testing — 10 · Project — POM Framework with API Tests](https://sigilipelli.github.io/java-testing-mastery-path/level-2/10-project-pom-framework/)
+- [Java Testing — 10 · Project — POM Framework with API Tests](https://learnmasterypath.com/java-testing-mastery-path/level-2/10-project-pom-framework/)

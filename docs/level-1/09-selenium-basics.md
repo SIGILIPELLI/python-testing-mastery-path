@@ -580,7 +580,7 @@ state.
 
 ## 🔀 Related lessons on other tracks
 
-- [Java Testing — 08 · Selenium WebDriver Basics](https://sigilipelli.github.io/java-testing-mastery-path/level-1/08-selenium-webdriver-basics/)
+- [Java Testing — 08 · Selenium WebDriver Basics](https://learnmasterypath.com/java-testing-mastery-path/level-1/08-selenium-webdriver-basics/)
 
 ## Exercise
 

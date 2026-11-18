@@ -236,7 +236,7 @@ lookup.
 
 ## 🔀 Related lessons on other tracks
 
-- [Java Testing — 04 · Security Testing Basics for QA](https://sigilipelli.github.io/java-testing-mastery-path/level-4/04-security-testing-basics/)
+- [Java Testing — 04 · Security Testing Basics for QA](https://learnmasterypath.com/java-testing-mastery-path/level-4/04-security-testing-basics/)
 
 ## Exercise
 

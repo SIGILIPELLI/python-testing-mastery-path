@@ -224,7 +224,7 @@ generated test that can't fail isn't testing anything).
 
 ## 🔀 Related lessons on other tracks
 
-- [Java Testing — 07 · AI-Assisted Testing](https://sigilipelli.github.io/java-testing-mastery-path/level-4/07-ai-assisted-testing/)
+- [Java Testing — 07 · AI-Assisted Testing](https://learnmasterypath.com/java-testing-mastery-path/level-4/07-ai-assisted-testing/)
 
 ## Exercise
 

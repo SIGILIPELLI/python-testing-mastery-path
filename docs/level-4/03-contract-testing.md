@@ -182,7 +182,7 @@ downstream consumer's environment.
 
 ## 🔀 Related lessons on other tracks
 
-- [Java Testing — 03 · Contract Testing (Pact)](https://sigilipelli.github.io/java-testing-mastery-path/level-4/03-contract-testing-pact/)
+- [Java Testing — 03 · Contract Testing (Pact)](https://learnmasterypath.com/java-testing-mastery-path/level-4/03-contract-testing-pact/)
 
 ## Exercise
 

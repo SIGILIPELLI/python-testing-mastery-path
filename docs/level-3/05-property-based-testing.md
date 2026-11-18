@@ -202,7 +202,7 @@ mean dozens of extra test executions on top of the initial 100.
 
 ## 🔀 Related lessons on other tracks
 
-- [Cpp Testing — 05 · Property-Based Testing](https://sigilipelli.github.io/cpp-testing-mastery-path/level-3/05-property-based-testing/)
+- [Cpp Testing — 05 · Property-Based Testing](https://learnmasterypath.com/cpp-testing-mastery-path/level-3/05-property-based-testing/)
 
 ## Exercise
 

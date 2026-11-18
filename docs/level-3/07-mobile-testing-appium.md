@@ -202,7 +202,7 @@ different underlying object models.
 
 ## 🔀 Related lessons on other tracks
 
-- [Java Testing — 06 · Mobile Testing with Appium](https://sigilipelli.github.io/java-testing-mastery-path/level-3/06-mobile-testing-appium/)
+- [Java Testing — 06 · Mobile Testing with Appium](https://learnmasterypath.com/java-testing-mastery-path/level-3/06-mobile-testing-appium/)
 
 ## Exercise
 

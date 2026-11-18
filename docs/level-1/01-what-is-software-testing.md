@@ -241,8 +241,8 @@ there silently. This is why coverage matters.
 
 ## 🔀 Related lessons on other tracks
 
-- [Cpp Testing — 01 · What Is Software Testing?](https://sigilipelli.github.io/cpp-testing-mastery-path/level-1/01-what-is-software-testing/)
-- [Java Testing — 01 · What Is Software Testing?](https://sigilipelli.github.io/java-testing-mastery-path/level-1/01-what-is-software-testing/)
+- [Cpp Testing — 01 · What Is Software Testing?](https://learnmasterypath.com/cpp-testing-mastery-path/level-1/01-what-is-software-testing/)
+- [Java Testing — 01 · What Is Software Testing?](https://learnmasterypath.com/java-testing-mastery-path/level-1/01-what-is-software-testing/)
 
 ## Exercise
 

@@ -207,8 +207,8 @@ default.
 
 ## 🔀 Related lessons on other tracks
 
-- [Java Testing — 02 · Shift-Left & Continuous Testing](https://sigilipelli.github.io/java-testing-mastery-path/level-4/02-shift-left-continuous-testing/)
-- [Automotive Testing — 02 · Continuous Testing in Automotive](https://sigilipelli.github.io/automotive-testing-mastery-path/level-4/02-continuous-testing-automotive/)
+- [Java Testing — 02 · Shift-Left & Continuous Testing](https://learnmasterypath.com/java-testing-mastery-path/level-4/02-shift-left-continuous-testing/)
+- [Automotive Testing — 02 · Continuous Testing in Automotive](https://learnmasterypath.com/automotive-testing-mastery-path/level-4/02-continuous-testing-automotive/)
 
 ## Exercise
 

@@ -328,5 +328,5 @@ on since Level 1 Module 7.
 
 ## 🔀 Related lessons on other tracks
 
-- [Java Testing — 10 · Capstone — Production-Grade Test Framework](https://sigilipelli.github.io/java-testing-mastery-path/level-4/10-capstone-test-framework/)
-- [Playwright — 10 · Capstone — Production-Grade E2E Framework](https://sigilipelli.github.io/playwright-mastery-path/level-4/10-capstone-project/)
+- [Java Testing — 10 · Capstone — Production-Grade Test Framework](https://learnmasterypath.com/java-testing-mastery-path/level-4/10-capstone-test-framework/)
+- [Playwright — 10 · Capstone — Production-Grade E2E Framework](https://learnmasterypath.com/playwright-mastery-path/level-4/10-capstone-project/)

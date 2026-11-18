@@ -204,8 +204,8 @@ once those are pinned.
 
 ## 🔀 Related lessons on other tracks
 
-- [Java Testing — 09 · Flaky Test Diagnosis & Stabilization](https://sigilipelli.github.io/java-testing-mastery-path/level-3/09-flaky-test-diagnosis/)
-- [Playwright — 05 · Test Retries & Flaky Test Triage](https://sigilipelli.github.io/playwright-mastery-path/level-3/05-retries-flaky-tests/)
+- [Java Testing — 09 · Flaky Test Diagnosis & Stabilization](https://learnmasterypath.com/java-testing-mastery-path/level-3/09-flaky-test-diagnosis/)
+- [Playwright — 05 · Test Retries & Flaky Test Triage](https://learnmasterypath.com/playwright-mastery-path/level-3/05-retries-flaky-tests/)
 
 ## Exercise
 

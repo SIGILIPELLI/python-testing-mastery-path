@@ -217,8 +217,8 @@ themselves.
 
 ## 🔀 Related lessons on other tracks
 
-- [Cpp Testing — 01 · Test Architecture for Large Codebases](https://sigilipelli.github.io/cpp-testing-mastery-path/level-4/01-test-architecture-large-codebases/)
-- [Java Testing — 01 · Test Architecture at Scale](https://sigilipelli.github.io/java-testing-mastery-path/level-4/01-test-architecture-at-scale/)
+- [Cpp Testing — 01 · Test Architecture for Large Codebases](https://learnmasterypath.com/cpp-testing-mastery-path/level-4/01-test-architecture-large-codebases/)
+- [Java Testing — 01 · Test Architecture at Scale](https://learnmasterypath.com/java-testing-mastery-path/level-4/01-test-architecture-at-scale/)
 
 ## Exercise
 

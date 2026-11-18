@@ -256,8 +256,8 @@ timeouts than a local run against the same test logic.
 
 ## 🔀 Related lessons on other tracks
 
-- [Java Testing — 09 · Cross-Browser Testing](https://sigilipelli.github.io/java-testing-mastery-path/level-2/09-cross-browser-testing/)
-- [Playwright — 01 · Cross-Browser & Device Strategy](https://sigilipelli.github.io/playwright-mastery-path/level-4/01-cross-browser-strategy/)
+- [Java Testing — 09 · Cross-Browser Testing](https://learnmasterypath.com/java-testing-mastery-path/level-2/09-cross-browser-testing/)
+- [Playwright — 01 · Cross-Browser & Device Strategy](https://learnmasterypath.com/playwright-mastery-path/level-4/01-cross-browser-strategy/)
 
 ## Exercise
 

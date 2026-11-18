@@ -219,8 +219,8 @@ upgrade that changes undocumented internal structure.
 
 ## 🔀 Related lessons on other tracks
 
-- [Cpp Testing — 09 · Building an In-House C/C++ Test Framework](https://sigilipelli.github.io/cpp-testing-mastery-path/level-4/09-in-house-test-framework/)
-- [Java Testing — 08 · Building an In-House Test Framework](https://sigilipelli.github.io/java-testing-mastery-path/level-4/08-in-house-test-framework/)
+- [Cpp Testing — 09 · Building an In-House C/C++ Test Framework](https://learnmasterypath.com/cpp-testing-mastery-path/level-4/09-in-house-test-framework/)
+- [Java Testing — 08 · Building an In-House Test Framework](https://learnmasterypath.com/java-testing-mastery-path/level-4/08-in-house-test-framework/)
 
 ## Exercise
 

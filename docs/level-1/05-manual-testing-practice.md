@@ -348,8 +348,8 @@ areas with a history of bugs) over uniform random exploration.
 
 ## 🔀 Related lessons on other tracks
 
-- [Cpp Testing — 05 · Manual Testing in Practice](https://sigilipelli.github.io/cpp-testing-mastery-path/level-1/05-manual-testing-in-practice/)
-- [Java Testing — 05 · Manual Testing in Practice](https://sigilipelli.github.io/java-testing-mastery-path/level-1/05-manual-testing-practice/)
+- [Cpp Testing — 05 · Manual Testing in Practice](https://learnmasterypath.com/cpp-testing-mastery-path/level-1/05-manual-testing-in-practice/)
+- [Java Testing — 05 · Manual Testing in Practice](https://learnmasterypath.com/java-testing-mastery-path/level-1/05-manual-testing-practice/)
 
 ## Exercise
 

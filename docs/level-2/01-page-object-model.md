@@ -340,8 +340,8 @@ UI-flow transitions the same way a state machine diagram would.
 
 ## 🔀 Related lessons on other tracks
 
-- [Java Testing — 01 · Page Object Model (POM)](https://sigilipelli.github.io/java-testing-mastery-path/level-2/01-page-object-model/)
-- [Playwright — 01 · Page Object Model](https://sigilipelli.github.io/playwright-mastery-path/level-2/01-page-object-model/)
+- [Java Testing — 01 · Page Object Model (POM)](https://learnmasterypath.com/java-testing-mastery-path/level-2/01-page-object-model/)
+- [Playwright — 01 · Page Object Model](https://learnmasterypath.com/playwright-mastery-path/level-2/01-page-object-model/)
 
 ## Exercise
 

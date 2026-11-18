@@ -222,7 +222,7 @@ genuinely separate processes and ports per worker.
 
 ## 🔀 Related lessons on other tracks
 
-- [Java Testing — 06 · Containerized Test Environments](https://sigilipelli.github.io/java-testing-mastery-path/level-4/06-containerized-test-environments/)
+- [Java Testing — 06 · Containerized Test Environments](https://learnmasterypath.com/java-testing-mastery-path/level-4/06-containerized-test-environments/)
 
 ## Exercise
 

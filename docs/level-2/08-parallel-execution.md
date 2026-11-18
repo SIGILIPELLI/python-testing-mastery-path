@@ -257,8 +257,8 @@ illusion.
 
 ## 🔀 Related lessons on other tracks
 
-- [Java Testing — 04 · Selenium Grid & Parallel Execution](https://sigilipelli.github.io/java-testing-mastery-path/level-3/04-selenium-grid-parallel/)
-- [Playwright — 06 · Parallel Execution & Sharding](https://sigilipelli.github.io/playwright-mastery-path/level-2/06-parallel-sharding/)
+- [Java Testing — 04 · Selenium Grid & Parallel Execution](https://learnmasterypath.com/java-testing-mastery-path/level-3/04-selenium-grid-parallel/)
+- [Playwright — 06 · Parallel Execution & Sharding](https://learnmasterypath.com/playwright-mastery-path/level-2/06-parallel-sharding/)
 
 ## Exercise
 

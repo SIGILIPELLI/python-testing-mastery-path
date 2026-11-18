@@ -254,8 +254,8 @@ mechanism — `unittest.mock` patching `__dict__` entries — in Level 2.
 
 ## 🔀 Related lessons on other tracks
 
-- [Cpp Testing — 03 · Test Types & Levels](https://sigilipelli.github.io/cpp-testing-mastery-path/level-1/03-test-types-and-levels/)
-- [Java Testing — 03 · Test Types & Levels](https://sigilipelli.github.io/java-testing-mastery-path/level-1/03-test-types-levels/)
+- [Cpp Testing — 03 · Test Types & Levels](https://learnmasterypath.com/cpp-testing-mastery-path/level-1/03-test-types-and-levels/)
+- [Java Testing — 03 · Test Types & Levels](https://learnmasterypath.com/java-testing-mastery-path/level-1/03-test-types-levels/)
 
 ## Exercise
 

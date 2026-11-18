@@ -210,7 +210,7 @@ red/green result) collapses.
 
 ## 🔀 Related lessons on other tracks
 
-- [Java Testing — 09 · QA Leadership & Strategy](https://sigilipelli.github.io/java-testing-mastery-path/level-4/09-qa-leadership-strategy/)
+- [Java Testing — 09 · QA Leadership & Strategy](https://learnmasterypath.com/java-testing-mastery-path/level-4/09-qa-leadership-strategy/)
 
 ## Exercise
 

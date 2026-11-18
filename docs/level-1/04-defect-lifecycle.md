@@ -308,8 +308,8 @@ per-test, per-commit, without a human updating a ticket at all.
 
 ## 🔀 Related lessons on other tracks
 
-- [Cpp Testing — 04 · Defect Lifecycle & Bug Reporting](https://sigilipelli.github.io/cpp-testing-mastery-path/level-1/04-defect-lifecycle-bug-reporting/)
-- [Java Testing — 04 · Defect Lifecycle & Bug Reporting](https://sigilipelli.github.io/java-testing-mastery-path/level-1/04-defect-lifecycle/)
+- [Cpp Testing — 04 · Defect Lifecycle & Bug Reporting](https://learnmasterypath.com/cpp-testing-mastery-path/level-1/04-defect-lifecycle-bug-reporting/)
+- [Java Testing — 04 · Defect Lifecycle & Bug Reporting](https://learnmasterypath.com/java-testing-mastery-path/level-1/04-defect-lifecycle/)
 
 ## Exercise
 
