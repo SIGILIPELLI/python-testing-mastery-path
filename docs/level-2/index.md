@@ -1,3 +1,7 @@
+---
+description: "Level 2 (Intermediate) of the free Python Testing Mastery Path: Page Object Model in Python, Selenium Advanced, API Testing with requests + pytest, Mocking…"
+---
+
 # Level 2 · Intermediate
 
 ## Modules

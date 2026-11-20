@@ -1,3 +1,7 @@
+---
+description: "Level 1 (Entry) of the free Python Testing Mastery Path. Understand what software testing actually is, be able to design and document test cases and defect…"
+---
+
 # Level 1 · Entry <span class="level-badge">Foundations</span>
 
 Goal: understand what software testing actually is, be able to design and

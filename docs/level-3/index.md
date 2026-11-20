@@ -1,3 +1,7 @@
+---
+description: "Level 3 (Advanced) of the free Python Testing Mastery Path: Playwright for Python, BDD with pytest-bdd / Behave, Robot Framework Basics, CI/CD Integration…"
+---
+
 # Level 3 · Advanced
 
 ## Modules
