@@ -1,6 +1,6 @@
 ---
 title: "Learn Python Software Testing Free: Manual QA + Automation"
-description: "Free software testing course using Python -- 36 hands-on lessons and 4 projects covering manual QA, test case design, pytest, Selenium and CI automation, with 4 real projects. Part of a free learning library."
+description: "Free software testing course using Python -- 36 hands-on lessons, 3 projects and 1 capstone covering manual QA, test case design, pytest, Selenium and CI automation. Part of a free learning library."
 ---
 
 # Python Testing Mastery Path
