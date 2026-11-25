@@ -1,0 +1,4485 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="180 Python Testing interview questions with answers and explanations, from beginner to advanced, organised by level. Free, from the Python Testing Mastery Path.">
+      
+      
+      
+        <link rel="canonical" href="https://learnmasterypath.com/python-testing-mastery-path/interview-questions/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../cheat-sheet/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+  
+  <title>Python Testing Interview Questions and Answers (180 Questions)</title>
+
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../stylesheets/progress-tracker.css">
+    
+      <link rel="stylesheet" href="../stylesheets/final-quiz.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-05VBGCXN12"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-05VBGCXN12');
+  </script>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Mastery Path">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Python Testing Interview Questions and Answers (180 Questions)">
+  <meta property="og:description" content="180 Python Testing interview questions with answers and explanations, from beginner to advanced, organised by level. Free, from the Python Testing Mastery Path.">
+  <meta property="og:url" content="https://learnmasterypath.com/python-testing-mastery-path/interview-questions/">
+  <meta property="og:image" content="https://learnmasterypath.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mastery Path: free structured courses, beginner to master">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Python Testing Interview Questions and Answers (180 Questions)">
+  <meta name="twitter:description" content="180 Python Testing interview questions with answers and explanations, from beginner to advanced, organised by level. Free, from the Python Testing Mastery Path.">
+  <meta name="twitter:image" content="https://learnmasterypath.com/og-image.png">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9440969811959397"
+     crossorigin="anonymous"></script><script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Mastery Path", "item": "https://learnmasterypath.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Python Testing Mastery Path", "item": "https://learnmasterypath.com/python-testing-mastery-path/"},
+      {"@type": "ListItem", "position": 3, "name": "Interview Questions", "item": "https://learnmasterypath.com/python-testing-mastery-path/interview-questions/"}
+    ]
+  }
+  </script>
+  <style>
+    .md-banner a:hover { text-decoration: underline !important; }
+    .mp-related { margin-top: 2.4rem; padding-top: 1rem; border-top: 1px solid var(--md-default-fg-color--lightest); font-size: .78rem; }
+    .mp-related h2 { font-size: .9rem; margin: 0 0 .5rem; }
+    .mp-related ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem .9rem; }
+    .mp-related li { margin: 0 !important; }
+  </style>
+  <script type="application/json" id="mp-course-meta">{"home": false, "id": "python-testing-mastery-path", "name": "Python Testing Mastery Path", "repo": "https://github.com/SIGILIPELLI/python-testing-mastery-path", "src": "interview-questions.md", "url": "https://learnmasterypath.com/python-testing-mastery-path/"}</script>
+  <link rel="stylesheet" href="https://learnmasterypath.com/assets/learn.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://learnmasterypath.com/assets/course.css?v=1">
+  <script src="https://learnmasterypath.com/assets/learn.js" defer></script>
+  <script src="https://learnmasterypath.com/assets/signup.js" defer></script>
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#python-testing-interview-questions-and-answers" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  <a href="https://learnmasterypath.com/" style="color: inherit; text-decoration: none;">
+    &larr; Mastery Path &middot; all 100+ free courses
+  </a>
+  <span style="opacity: .6; margin: 0 .6em;">|</span>
+  <a href="https://learnmasterypath.com/search/" style="color: inherit; text-decoration: none;">Search all courses</a>
+  <span style="opacity: .6; margin: 0 .6em;">|</span>
+  <a href="https://learnmasterypath.com/resume/" style="color: inherit; font-weight: 700; text-decoration: none;">
+    Got the skills? Free resume ATS check &rarr;
+  </a>
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Python Testing Mastery Path" class="md-header__button md-logo" aria-label="Python Testing Mastery Path" data-md-component="logo">
+      <svg class="mp-mark" viewBox="0 0 160 160" role="img" aria-label="Mastery Path logo">
+  <circle cx="80" cy="80" r="74" fill="#FAF7EF" stroke="#2FA98D" stroke-width="5"/>
+  <rect class="mp-bar mp-bar-1" x="36" y="90" width="17" height="24" rx="5" fill="#2FA98D"/>
+  <rect class="mp-bar mp-bar-2" x="59" y="74" width="17" height="40" rx="5" fill="#7FC9B7"/>
+  <rect class="mp-bar mp-bar-3" x="82" y="56" width="17" height="58" rx="5" fill="#E0B457"/>
+  <rect class="mp-bar mp-bar-4" x="105" y="38" width="17" height="76" rx="5" fill="#C97B4A"/>
+  <circle class="mp-dot" cx="44.5" cy="82" r="7" fill="#22261f"/>
+</svg>
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python Testing Mastery Path
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Python Testing Interview Questions and Answers (180 Questions)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/SIGILIPELLI/python-testing-mastery-path" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    python-testing-mastery-path
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Interview Questions
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../cheat-sheet/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Cheat Sheet
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../level-1/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Level 1 · Entry
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../level-2/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Level 2 · Intermediate
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../level-3/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Level 3 · Advanced
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../level-4/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Level 4 · Master
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../quiz/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Final Quiz
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Python Testing Mastery Path" class="md-nav__button md-logo" aria-label="Python Testing Mastery Path" data-md-component="logo">
+      <svg class="mp-mark" viewBox="0 0 160 160" role="img" aria-label="Mastery Path logo">
+  <circle cx="80" cy="80" r="74" fill="#FAF7EF" stroke="#2FA98D" stroke-width="5"/>
+  <rect class="mp-bar mp-bar-1" x="36" y="90" width="17" height="24" rx="5" fill="#2FA98D"/>
+  <rect class="mp-bar mp-bar-2" x="59" y="74" width="17" height="40" rx="5" fill="#7FC9B7"/>
+  <rect class="mp-bar mp-bar-3" x="82" y="56" width="17" height="58" rx="5" fill="#E0B457"/>
+  <rect class="mp-bar mp-bar-4" x="105" y="38" width="17" height="76" rx="5" fill="#C97B4A"/>
+  <circle class="mp-dot" cx="44.5" cy="82" r="7" fill="#22261f"/>
+</svg>
+    </a>
+    Python Testing Mastery Path
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/SIGILIPELLI/python-testing-mastery-path" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    python-testing-mastery-path
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Questions
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#level-1-entry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 1 · Entry
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 1 · Entry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-what-is-software-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · What Is Software Testing?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-test-case-design-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · Test Case Design &amp; Documentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-test-types-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · Test Types &amp; Levels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-defect-lifecycle-bug-reporting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · Defect Lifecycle &amp; Bug Reporting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-manual-testing-in-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Manual Testing in Practice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-python-setup-for-testers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Python Setup for Testers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-pytest-fundamentals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · pytest Fundamentals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-pytest-fixtures-parametrize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · pytest Fixtures &amp; Parametrize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-selenium-webdriver-basics-with-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · Selenium WebDriver Basics with Python
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-project-test-plan-automated-suite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Project — Test Plan + Automated Suite
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-2-intermediate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 2 · Intermediate
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 2 · Intermediate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-page-object-model-in-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · Page Object Model in Python
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-selenium-advanced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · Selenium Advanced
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-api-testing-with-requests-pytest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · API Testing with requests + pytest
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-mocking-with-unittestmock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · Mocking with unittest.mock
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-test-data-management-factories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Test Data Management &amp; Factories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-pytest-plugins-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · pytest Plugins &amp; Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-reporting-pytest-html-allure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · Reporting (pytest-html, Allure)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-parallel-execution-pytest-xdist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · Parallel Execution (pytest-xdist)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-cross-browser-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · Cross-Browser Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-project-pom-framework-with-api-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Project — POM Framework with API Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-3-advanced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 3 · Advanced
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 3 · Advanced">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-playwright-for-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · Playwright for Python
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-bdd-with-pytest-bdd-behave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · BDD with pytest-bdd / Behave
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-robot-framework-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · Robot Framework Basics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-cicd-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · CI/CD Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-property-based-testing-with-hypothesis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Property-Based Testing with Hypothesis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-performance-testing-with-locust" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Performance Testing with Locust
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-mobile-testing-with-appium" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · Mobile Testing with Appium
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-database-testing-from-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · Database Testing from Python
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-flaky-test-diagnosis-stabilization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · Flaky Test Diagnosis &amp; Stabilization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-project-playwright-bdd-in-ci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Project — Playwright + BDD in CI
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-4-master" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 4 · Master
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 4 · Master">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-test-architecture-at-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · Test Architecture at Scale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-shift-left-continuous-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · Shift-Left &amp; Continuous Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-contract-testing-pact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · Contract Testing (Pact)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-security-testing-basics-for-qa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · Security Testing Basics for QA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-test-metrics-quality-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Test Metrics &amp; Quality Gates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-containerized-test-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Containerized Test Environments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-ai-assisted-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · AI-Assisted Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-building-an-in-house-test-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · Building an In-House Test Framework
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-qa-leadership-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · QA Leadership &amp; Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-capstone-production-grade-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Capstone — Production-Grade Framework
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mixed-questions-across-all-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mixed questions across all levels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-coding-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical coding questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practical coding questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-parametrized-test-suite-for-a-shopping-cart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A parametrized test suite for a shopping cart
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-a-rate-limiter-with-a-fake-clock-parametrization-and-hypothesis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing a rate limiter with a fake clock, parametrization and Hypothesis
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheat-sheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cheat Sheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../level-1/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 1 · Entry
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Level 1 · Entry
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/01-what-is-software-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · What Is Software Testing?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/02-test-case-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · Test Case Design & Documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/03-test-types-levels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Test Types & Levels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/04-defect-lifecycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · Defect Lifecycle & Bug Reporting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/05-manual-testing-practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · Manual Testing in Practice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/06-python-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 · Python Setup for Testers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/07-pytest-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 · pytest Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/08-fixtures-parametrize/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 · pytest Fixtures & Parametrize
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/09-selenium-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 · Selenium WebDriver Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/10-project-test-suite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 · Project — Test Plan + Automated Suite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../level-2/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 2 · Intermediate
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Level 2 · Intermediate
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/01-page-object-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Page Object Model in Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/02-selenium-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · Selenium Advanced
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/03-api-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · API Testing with requests + pytest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/04-mocking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · Mocking with unittest.mock
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/05-test-data-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · Test Data Management & Factories
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/06-pytest-config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 · pytest Plugins & Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/07-reporting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 · Reporting (pytest-html, Allure)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/08-parallel-execution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 · Parallel Execution (pytest-xdist)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/09-cross-browser-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 · Cross-Browser Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/10-project-pom-framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 · Project — POM Framework with API Tests
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../level-3/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 3 · Advanced
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Level 3 · Advanced
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/01-playwright/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Playwright for Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/02-bdd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · BDD with pytest-bdd / Behave
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/03-robot-framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Robot Framework Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/04-cicd-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · CI/CD Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/05-property-based-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · Property-Based Testing with Hypothesis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/06-performance-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 · Performance Testing with Locust
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/07-mobile-testing-appium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 · Mobile Testing with Appium
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/08-database-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 · Database Testing from Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/09-flaky-tests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 · Flaky Test Diagnosis & Stabilization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/10-project-playwright-bdd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 · Project — Playwright + BDD in CI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../level-4/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 4 · Master
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Level 4 · Master
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/01-test-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Test Architecture at Scale
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/02-shift-left-continuous-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · Shift-Left & Continuous Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/03-contract-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Contract Testing (Pact)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/04-security-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · Security Testing Basics for QA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/05-test-metrics-quality-gates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · Test Metrics & Quality Gates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/06-containerized-environments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 · Containerized Test Environments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/07-ai-assisted-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 · AI-Assisted Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/08-inhouse-framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 · Building an In-House Test Framework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/09-qa-leadership-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 · QA Leadership & Strategy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/10-capstone-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 · Capstone — Production-Grade Framework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Final Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#level-1-entry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 1 · Entry
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 1 · Entry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-what-is-software-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · What Is Software Testing?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-test-case-design-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · Test Case Design &amp; Documentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-test-types-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · Test Types &amp; Levels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-defect-lifecycle-bug-reporting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · Defect Lifecycle &amp; Bug Reporting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-manual-testing-in-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Manual Testing in Practice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-python-setup-for-testers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Python Setup for Testers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-pytest-fundamentals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · pytest Fundamentals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-pytest-fixtures-parametrize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · pytest Fixtures &amp; Parametrize
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-selenium-webdriver-basics-with-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · Selenium WebDriver Basics with Python
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-project-test-plan-automated-suite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Project — Test Plan + Automated Suite
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-2-intermediate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 2 · Intermediate
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 2 · Intermediate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-page-object-model-in-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · Page Object Model in Python
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-selenium-advanced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · Selenium Advanced
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-api-testing-with-requests-pytest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · API Testing with requests + pytest
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-mocking-with-unittestmock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · Mocking with unittest.mock
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-test-data-management-factories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Test Data Management &amp; Factories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-pytest-plugins-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · pytest Plugins &amp; Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-reporting-pytest-html-allure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · Reporting (pytest-html, Allure)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-parallel-execution-pytest-xdist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · Parallel Execution (pytest-xdist)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-cross-browser-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · Cross-Browser Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-project-pom-framework-with-api-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Project — POM Framework with API Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-3-advanced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 3 · Advanced
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 3 · Advanced">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-playwright-for-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · Playwright for Python
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-bdd-with-pytest-bdd-behave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · BDD with pytest-bdd / Behave
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-robot-framework-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · Robot Framework Basics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-cicd-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · CI/CD Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-property-based-testing-with-hypothesis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Property-Based Testing with Hypothesis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-performance-testing-with-locust" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Performance Testing with Locust
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-mobile-testing-with-appium" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · Mobile Testing with Appium
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-database-testing-from-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · Database Testing from Python
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-flaky-test-diagnosis-stabilization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · Flaky Test Diagnosis &amp; Stabilization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-project-playwright-bdd-in-ci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Project — Playwright + BDD in CI
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-4-master" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 4 · Master
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 4 · Master">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-test-architecture-at-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · Test Architecture at Scale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-shift-left-continuous-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · Shift-Left &amp; Continuous Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-contract-testing-pact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · Contract Testing (Pact)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-security-testing-basics-for-qa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · Security Testing Basics for QA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-test-metrics-quality-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Test Metrics &amp; Quality Gates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-containerized-test-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Containerized Test Environments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-ai-assisted-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · AI-Assisted Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-building-an-in-house-test-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · Building an In-House Test Framework
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-qa-leadership-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · QA Leadership &amp; Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-capstone-production-grade-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Capstone — Production-Grade Framework
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mixed-questions-across-all-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mixed questions across all levels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-coding-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical coding questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practical coding questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-parametrized-test-suite-for-a-shopping-cart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A parametrized test suite for a shopping cart
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-a-rate-limiter-with-a-fake-clock-parametrization-and-hypothesis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing a rate limiter with a fake clock, parametrization and Hypothesis
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+
+  
+  
+
+
+<h1 id="python-testing-interview-questions-and-answers">Python Testing Interview Questions and Answers<a class="headerlink" href="#python-testing-interview-questions-and-answers" title="Permanent link">&para;</a></h1>
+<p><strong>180 questions</strong> with the correct answer and a short explanation, organised from beginner (Level 1) to advanced (Level 4). Every question comes from a lesson in the free Python Testing Mastery Path, so you can open the lesson to go deeper.</p>
+<div class="admonition tip">
+<p class="admonition-title">Practise, don't just read</p>
+<p>Each lesson also ends with an interactive quiz, and the <a href="../quiz/">final quiz</a> tests all four levels. Try to answer each question below before reading the answer.</p>
+</div>
+<h2 id="level-1-entry">Level 1 · Entry<a class="headerlink" href="#level-1-entry" title="Permanent link">&para;</a></h2>
+<h3 id="01-what-is-software-testing"><a href="../level-1/01-what-is-software-testing/">01 · What Is Software Testing?</a><a class="headerlink" href="#01-what-is-software-testing" title="Permanent link">&para;</a></h3>
+<p><strong>Q1.</strong> What is the main goal of software testing?</p>
+<p><strong>Answer:</strong> Find defects and give information about quality and risk</p>
+<p>Testing can't prove absence of bugs.</p>
+<p><strong>Q2.</strong> Which principle says exhaustive testing is impossible?</p>
+<p><strong>Answer:</strong> Test with risk-based selection because inputs and paths are practically infinite</p>
+<p>Prioritize.</p>
+<p><strong>Q3.</strong> What is the difference between verification and validation?</p>
+<p><strong>Answer:</strong> Verification checks we built it right; validation checks we built the right thing</p>
+<p>Spec vs need.</p>
+<p><strong>Q4.</strong> Why test early?</p>
+<p><strong>Answer:</strong> Defects are cheaper to find and fix the earlier they're caught</p>
+<p>Shift left.</p>
+<h3 id="02-test-case-design-documentation"><a href="../level-1/02-test-case-design/">02 · Test Case Design &amp; Documentation</a><a class="headerlink" href="#02-test-case-design-documentation" title="Permanent link">&para;</a></h3>
+<p><strong>Q5.</strong> What does equivalence partitioning do?</p>
+<p><strong>Answer:</strong> Groups inputs that should behave the same and tests one per group</p>
+<p>Reduces cases.</p>
+<p><strong>Q6.</strong> An age field accepts 18–65. Which boundary values do you test?</p>
+<p><strong>Answer:</strong> 17, 18, 65, 66</p>
+<p>Boundary value analysis.</p>
+<p><strong>Q7.</strong> What is a decision table for?</p>
+<p><strong>Answer:</strong> Testing combinations of conditions and their outcomes</p>
+<p>Business rules.</p>
+<p><strong>Q8.</strong> What makes a good test case?</p>
+<p><strong>Answer:</strong> Clear steps, data, expected result and independence</p>
+<p>Reproducible.</p>
+<h3 id="03-test-types-levels"><a href="../level-1/03-test-types-levels/">03 · Test Types &amp; Levels</a><a class="headerlink" href="#03-test-types-levels" title="Permanent link">&para;</a></h3>
+<p><strong>Q9.</strong> What is the test pyramid?</p>
+<p><strong>Answer:</strong> Many unit tests, fewer integration tests and fewest end-to-end tests</p>
+<p>Speed and cost.</p>
+<p><strong>Q10.</strong> Which test type checks components work together?</p>
+<p><strong>Answer:</strong> Integration test</p>
+<p>Interfaces.</p>
+<p><strong>Q11.</strong> What is a smoke test?</p>
+<p><strong>Answer:</strong> A quick check that the build's critical functions work</p>
+<p>Gatekeeper.</p>
+<p><strong>Q12.</strong> What does regression testing guard against?</p>
+<p><strong>Answer:</strong> Previously working behavior breaking after changes</p>
+<p>Automate.</p>
+<h3 id="04-defect-lifecycle-bug-reporting"><a href="../level-1/04-defect-lifecycle/">04 · Defect Lifecycle &amp; Bug Reporting</a><a class="headerlink" href="#04-defect-lifecycle-bug-reporting" title="Permanent link">&para;</a></h3>
+<p><strong>Q13.</strong> What is the usual defect lifecycle?</p>
+<p><strong>Answer:</strong> New → assigned → fixed → retested → closed (or reopened)</p>
+<p>Tracking.</p>
+<p><strong>Q14.</strong> What should a bug report include?</p>
+<p><strong>Answer:</strong> Steps to reproduce, expected vs actual, environment and evidence</p>
+<p>Reproducible.</p>
+<p><strong>Q15.</strong> Severity vs priority?</p>
+<p><strong>Answer:</strong> Severity is impact; priority is how soon to fix</p>
+<p>Different axes.</p>
+<p><strong>Q16.</strong> What is a 'cannot reproduce' bug?</p>
+<p><strong>Answer:</strong> One the developer can't recreate; add details or logs</p>
+<p>Collaborate.</p>
+<h3 id="05-manual-testing-in-practice"><a href="../level-1/05-manual-testing-practice/">05 · Manual Testing in Practice</a><a class="headerlink" href="#05-manual-testing-in-practice" title="Permanent link">&para;</a></h3>
+<p><strong>Q17.</strong> What is exploratory testing?</p>
+<p><strong>Answer:</strong> Simultaneous learning, test design and execution guided by charters</p>
+<p>Finds unexpected bugs.</p>
+<p><strong>Q18.</strong> When is manual testing best?</p>
+<p><strong>Answer:</strong> Usability, exploration and one-off checks</p>
+<p>Human judgement.</p>
+<p><strong>Q19.</strong> What is a test charter?</p>
+<p><strong>Answer:</strong> A mission and time-box for an exploratory session</p>
+<p>Focus.</p>
+<p><strong>Q20.</strong> What do you record in sessions?</p>
+<p><strong>Answer:</strong> Notes, bugs found and areas covered</p>
+<p>Evidence.</p>
+<h3 id="06-python-setup-for-testers"><a href="../level-1/06-python-setup/">06 · Python Setup for Testers</a><a class="headerlink" href="#06-python-setup-for-testers" title="Permanent link">&para;</a></h3>
+<p><strong>Q21.</strong> What does this print?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">pytest</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Answer:</strong> True
+pytest</p>
+<p>Environment sanity check. Verified by running it.</p>
+<p><strong>Q22.</strong> Why use a virtual environment?</p>
+<p><strong>Answer:</strong> Isolate dependencies per project</p>
+<p>Reproducible.</p>
+<p><strong>Q23.</strong> How pin test dependencies?</p>
+<p><strong>Answer:</strong> requirements.txt/lock file with exact versions</p>
+<p>Reproducible CI.</p>
+<p><strong>Q24.</strong> What does pip install -e . do?</p>
+<p><strong>Answer:</strong> Installs the project in editable mode for development</p>
+<p>Import your package.</p>
+<h3 id="07-pytest-fundamentals"><a href="../level-1/07-pytest-fundamentals/">07 · pytest Fundamentals</a><a class="headerlink" href="#07-pytest-fundamentals" title="Permanent link">&para;</a></h3>
+<p><strong>Q25.</strong> What does pytest report?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># test_a.py</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_pass</span><span class="p">():</span> <span class="k">assert</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">4</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_fail</span><span class="p">():</span> <span class="k">assert</span> <span class="s2">"a"</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"b"</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_error_in_code</span><span class="p">():</span> <span class="nb">int</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Answer:</strong> .FF
+2 failed, 1 passed</p>
+<p>Assertion introspection shows values. Verified by running pytest (shown output normalized).</p>
+<p><strong>Q26.</strong> What does pytest report?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># test_b.py</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_raises</span><span class="p">():</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">ZeroDivisionError</span><span class="p">):</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_approx</span><span class="p">():</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="k">assert</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">==</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_skip</span><span class="p">():</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    <span class="n">pytest</span><span class="o">.</span><span class="n">skip</span><span class="p">(</span><span class="s2">"not today"</span><span class="p">)</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">xfail</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_known_bug</span><span class="p">():</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    <span class="k">assert</span> <span class="kc">False</span>
+</code></pre></div>
+<p><strong>Answer:</strong> ..sx
+2 passed, 1 skipped, 1 xfailed</p>
+<p>raises, approx, skip, xfail. Verified by running pytest (shown output normalized).</p>
+<p><strong>Q27.</strong> How does pytest discover tests?</p>
+<p><strong>Answer:</strong> Files named test_*.py or <em><em>test.py with functions named test</em></em></p>
+<p>Conventions.</p>
+<p><strong>Q28.</strong> What's the advantage of plain assert?</p>
+<p><strong>Answer:</strong> pytest rewrites it to show helpful values on failure</p>
+<p>No self.assertEqual.</p>
+<h3 id="08-pytest-fixtures-parametrize"><a href="../level-1/08-fixtures-parametrize/">08 · pytest Fixtures &amp; Parametrize</a><a class="headerlink" href="#08-pytest-fixtures-parametrize" title="Permanent link">&para;</a></h3>
+<p><strong>Q29.</strong> What does pytest report?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># test_f.py</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">items</span><span class="p">():</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="k">return</span> <span class="p">[]</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_a</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="k">assert</span> <span class="n">items</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_b</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="k">assert</span> <span class="n">items</span> <span class="o">==</span> <span class="p">[]</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s2">"a,b,total"</span><span class="p">,</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">)])</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">total</span><span class="p">):</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    <span class="k">assert</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">==</span> <span class="n">total</span>
+</code></pre></div>
+<p><strong>Answer:</strong> ....F
+1 failed, 4 passed</p>
+<p>Function-scoped fixtures give each test a fresh object; parametrize creates one test per row. Verified by running pytest (shown output normalized).</p>
+<p><strong>Q30.</strong> What does <code>yield</code> do in a pytest fixture?</p>
+<p><strong>Answer:</strong> Splits setup (before) from teardown (after the test)</p>
+<p>Cleanup.</p>
+<p><strong>Q31.</strong> What does scope='session' do?</p>
+<p><strong>Answer:</strong> Creates the fixture once for the whole run</p>
+<p>Expensive resources.</p>
+<p><strong>Q32.</strong> Where do shared fixtures go?</p>
+<p><strong>Answer:</strong> conftest.py</p>
+<p>Auto-discovered.</p>
+<h3 id="09-selenium-webdriver-basics-with-python"><a href="../level-1/09-selenium-basics/">09 · Selenium WebDriver Basics with Python</a><a class="headerlink" href="#09-selenium-webdriver-basics-with-python" title="Permanent link">&para;</a></h3>
+<p><strong>Q33.</strong> What does Selenium automate?</p>
+<p><strong>Answer:</strong> A real browser through WebDriver</p>
+<p>UI tests.</p>
+<p><strong>Q34.</strong> What are explicit waits for?</p>
+<p><strong>Answer:</strong> Waiting for a condition (visible, clickable) instead of sleeping</p>
+<p>WebDriverWait.</p>
+<p><strong>Q35.</strong> Which locator is usually most stable?</p>
+<p><strong>Answer:</strong> IDs or dedicated test attributes (data-testid)</p>
+<p>Resilient.</p>
+<p><strong>Q36.</strong> Why avoid time.sleep?</p>
+<p><strong>Answer:</strong> It is slow and still flaky; wait for conditions</p>
+<p>Sync properly.</p>
+<h3 id="10-project-test-plan-automated-suite"><a href="../level-1/10-project-test-suite/">10 · Project — Test Plan + Automated Suite</a><a class="headerlink" href="#10-project-test-plan-automated-suite" title="Permanent link">&para;</a></h3>
+<p><strong>Q37.</strong> What does the test suite project combine?</p>
+<p><strong>Answer:</strong> Manual design, pytest tests, fixtures, parametrization and Selenium checks</p>
+<p>Level 1 project.</p>
+<p><strong>Q38.</strong> How organize tests?</p>
+<p><strong>Answer:</strong> By feature with clear names and shared fixtures</p>
+<p>Maintainable.</p>
+<p><strong>Q39.</strong> What should failures show?</p>
+<p><strong>Answer:</strong> Clear assertion messages and screenshots for UI tests</p>
+<p>Diagnosable.</p>
+<p><strong>Q40.</strong> How run a subset?</p>
+<p><strong>Answer:</strong> -k expression or markers (-m smoke)</p>
+<p>Selective runs.</p>
+<h2 id="level-2-intermediate">Level 2 · Intermediate<a class="headerlink" href="#level-2-intermediate" title="Permanent link">&para;</a></h2>
+<h3 id="01-page-object-model-in-python"><a href="../level-2/01-page-object-model/">01 · Page Object Model in Python</a><a class="headerlink" href="#01-page-object-model-in-python" title="Permanent link">&para;</a></h3>
+<p><strong>Q41.</strong> What does pytest report for this page-object test?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># test_pom.py</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">Page</span><span class="p">:</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">store</span><span class="p">):</span> <span class="bp">self</span><span class="o">.</span><span class="n">store</span> <span class="o">=</span> <span class="n">store</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">LoginPage</span><span class="p">(</span><span class="n">Page</span><span class="p">):</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">login</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">pw</span><span class="p">):</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="p">[</span><span class="s2">"user"</span><span class="p">]</span> <span class="o">=</span> <span class="n">user</span> <span class="k">if</span> <span class="n">pw</span> <span class="o">==</span> <span class="s2">"ok"</span> <span class="k">else</span> <span class="kc">None</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>        <span class="k">return</span> <span class="bp">self</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="nd">@property</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">logged_in</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"user"</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_login</span><span class="p">():</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>    <span class="k">assert</span> <span class="n">LoginPage</span><span class="p">({})</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s2">"ann"</span><span class="p">,</span> <span class="s2">"ok"</span><span class="p">)</span><span class="o">.</span><span class="n">logged_in</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_bad</span><span class="p">():</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>    <span class="k">assert</span> <span class="ow">not</span> <span class="n">LoginPage</span><span class="p">({})</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s2">"ann"</span><span class="p">,</span> <span class="s2">"no"</span><span class="p">)</span><span class="o">.</span><span class="n">logged_in</span>
+</code></pre></div>
+<p><strong>Answer:</strong> ..
+2 passed</p>
+<p>Page objects hold actions and state; tests assert intent. Verified by running pytest (shown output normalized).</p>
+<p><strong>Q42.</strong> What belongs in a page object?</p>
+<p><strong>Answer:</strong> Locators and user actions, not test assertions about goals</p>
+<p>Encapsulation.</p>
+<p><strong>Q43.</strong> What's the main benefit of POM?</p>
+<p><strong>Answer:</strong> One place to fix when the UI changes</p>
+<p>Maintainability.</p>
+<p><strong>Q44.</strong> Should page methods return something?</p>
+<p><strong>Answer:</strong> Often another page object or self for fluent flows</p>
+<p>Chaining.</p>
+<h3 id="02-selenium-advanced"><a href="../level-2/02-selenium-advanced/">02 · Selenium Advanced</a><a class="headerlink" href="#02-selenium-advanced" title="Permanent link">&para;</a></h3>
+<p><strong>Q45.</strong> When use ActionChains?</p>
+<p><strong>Answer:</strong> Hover, drag-and-drop and complex mouse/keyboard sequences</p>
+<p>Advanced input.</p>
+<p><strong>Q46.</strong> How handle iframes?</p>
+<p><strong>Answer:</strong> Switch to the frame first, then back to default content</p>
+<p>switch_to.frame.</p>
+<p><strong>Q47.</strong> How handle alerts?</p>
+<p><strong>Answer:</strong> switch_to.alert to accept or dismiss</p>
+<p>Browser dialogs.</p>
+<p><strong>Q48.</strong> How run JavaScript?</p>
+<p><strong>Answer:</strong> execute_script (sparingly)</p>
+<p>Escape hatch.</p>
+<h3 id="03-api-testing-with-requests-pytest"><a href="../level-2/03-api-testing/">03 · API Testing with requests + pytest</a><a class="headerlink" href="#03-api-testing-with-requests-pytest" title="Permanent link">&para;</a></h3>
+<p><strong>Q49.</strong> What does pytest report?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># test_api.py</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">http.server</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseHTTPRequestHandler</span><span class="p">,</span> <span class="n">HTTPServer</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">threading</span><span class="w"> </span><span class="kn">import</span> <span class="n">Thread</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">urllib.request</span><span class="w"> </span><span class="kn">import</span> <span class="n">urlopen</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="k">class</span><span class="w"> </span><span class="nc">H</span><span class="p">(</span><span class="n">BaseHTTPRequestHandler</span><span class="p">):</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">do_GET</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>        <span class="n">body</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">"id"</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"ann"</span><span class="p">})</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">send_response</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span> <span class="bp">self</span><span class="o">.</span><span class="n">send_header</span><span class="p">(</span><span class="s2">"Content-Type"</span><span class="p">,</span> <span class="s2">"application/json"</span><span class="p">);</span> <span class="bp">self</span><span class="o">.</span><span class="n">end_headers</span><span class="p">();</span> <span class="bp">self</span><span class="o">.</span><span class="n">wfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">log_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">a</span><span class="p">):</span> <span class="k">pass</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_get_user</span><span class="p">():</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    <span class="n">srv</span> <span class="o">=</span> <span class="n">HTTPServer</span><span class="p">((</span><span class="s2">"127.0.0.1"</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">H</span><span class="p">);</span> <span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">srv</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">,</span> <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>    <span class="n">r</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="sa">f</span><span class="s2">"http://127.0.0.1:</span><span class="si">{</span><span class="n">srv</span><span class="o">.</span><span class="n">server_port</span><span class="si">}</span><span class="s2">/users/7"</span><span class="p">)</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>    <span class="k">assert</span> <span class="n">r</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">200</span> <span class="ow">and</span> <span class="n">r</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"application/json"</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>    <span class="k">assert</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s2">"id"</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"ann"</span><span class="p">}</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>    <span class="n">srv</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+</code></pre></div>
+<p><strong>Answer:</strong> .
+1 passed</p>
+<p>A tiny local server makes API tests deterministic. Verified by running pytest (shown output normalized).</p>
+<p><strong>Q50.</strong> What should API tests assert?</p>
+<p><strong>Answer:</strong> Status code, headers and the response body schema</p>
+<p>Contract.</p>
+<p><strong>Q51.</strong> Why test negative cases?</p>
+<p><strong>Answer:</strong> Invalid input and auth failures must be handled correctly</p>
+<p>Robustness.</p>
+<p><strong>Q52.</strong> Which library is common for HTTP tests?</p>
+<p><strong>Answer:</strong> requests (or httpx) with pytest</p>
+<p>Simple.</p>
+<h3 id="04-mocking-with-unittestmock"><a href="../level-2/04-mocking/">04 · Mocking with unittest.mock</a><a class="headerlink" href="#04-mocking-with-unittestmock" title="Permanent link">&para;</a></h3>
+<p><strong>Q53.</strong> What does pytest report?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># test_m.py</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">unittest.mock</span><span class="w"> </span><span class="kn">import</span> <span class="n">Mock</span><span class="p">,</span> <span class="n">patch</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">fetch</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span> <span class="k">return</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">"/u/</span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s2">"</span><span class="p">)[</span><span class="s2">"name"</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_fetch</span><span class="p">():</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="n">c</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">();</span> <span class="n">c</span><span class="o">.</span><span class="n">get</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"ann"</span><span class="p">}</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="k">assert</span> <span class="n">fetch</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"ANN"</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    <span class="n">c</span><span class="o">.</span><span class="n">get</span><span class="o">.</span><span class="n">assert_called_once_with</span><span class="p">(</span><span class="s2">"/u/3"</span><span class="p">)</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_patch</span><span class="p">():</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    <span class="k">with</span> <span class="n">patch</span><span class="p">(</span><span class="s2">"os.getenv"</span><span class="p">,</span> <span class="n">return_value</span><span class="o">=</span><span class="s2">"x"</span><span class="p">)</span> <span class="k">as</span> <span class="n">g</span><span class="p">:</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>        <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>        <span class="k">assert</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"A"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"x"</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>        <span class="n">g</span><span class="o">.</span><span class="n">assert_called_once_with</span><span class="p">(</span><span class="s2">"A"</span><span class="p">)</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_side_effect</span><span class="p">():</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>    <span class="n">m</span> <span class="o">=</span> <span class="n">Mock</span><span class="p">(</span><span class="n">side_effect</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"boom"</span><span class="p">)])</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>    <span class="k">assert</span> <span class="n">m</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>    <span class="k">try</span><span class="p">:</span> <span class="n">m</span><span class="p">()</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>    <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="k">assert</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"boom"</span>
+</code></pre></div>
+<p><strong>Answer:</strong> ...
+3 passed</p>
+<p>Mock return values, patch and side effects. Verified by running pytest (shown output normalized).</p>
+<p><strong>Q54.</strong> What should you mock?</p>
+<p><strong>Answer:</strong> Slow or external boundaries (network, clock, DB), not your own logic</p>
+<p>Boundary mocking.</p>
+<p><strong>Q55.</strong> What is the patch rule?</p>
+<p><strong>Answer:</strong> Patch where the name is looked up, not where it's defined</p>
+<p>Common trap.</p>
+<p><strong>Q56.</strong> What does assert_called_once_with verify?</p>
+<p><strong>Answer:</strong> That the mock was called exactly once with those arguments</p>
+<p>Interaction check.</p>
+<h3 id="05-test-data-management-factories"><a href="../level-2/05-test-data-management/">05 · Test Data Management &amp; Factories</a><a class="headerlink" href="#05-test-data-management-factories" title="Permanent link">&para;</a></h3>
+<p><strong>Q57.</strong> What's a good test data approach?</p>
+<p><strong>Answer:</strong> Create data per test with factories and clean it up</p>
+<p>Isolation.</p>
+<p><strong>Q58.</strong> What is a factory?</p>
+<p><strong>Answer:</strong> A helper creating valid objects with overridable defaults</p>
+<p>Readable tests.</p>
+<p><strong>Q59.</strong> Why avoid shared mutable data?</p>
+<p><strong>Answer:</strong> Tests become order-dependent and flaky</p>
+<p>Independence.</p>
+<p><strong>Q60.</strong> How handle secrets in tests?</p>
+<p><strong>Answer:</strong> Environment variables or a secret store</p>
+<p>Security.</p>
+<h3 id="06-pytest-plugins-configuration"><a href="../level-2/06-pytest-config/">06 · pytest Plugins &amp; Configuration</a><a class="headerlink" href="#06-pytest-plugins-configuration" title="Permanent link">&para;</a></h3>
+<p><strong>Q61.</strong> What does pytest report with this config?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># pytest.ini</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="p">[</span><span class="n">pytest</span><span class="p">]</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">addopts</span> <span class="o">=</span> <span class="o">-</span><span class="n">q</span> <span class="o">--</span><span class="n">tb</span><span class="o">=</span><span class="n">no</span> <span class="o">-</span><span class="n">m</span> <span class="s2">"not slow"</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">markers</span> <span class="o">=</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    <span class="n">slow</span><span class="p">:</span> <span class="n">slow</span> <span class="n">tests</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1"># test_c.py</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_fast</span><span class="p">():</span> <span class="k">pass</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">slow</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_slow</span><span class="p">():</span> <span class="k">pass</span>
+</code></pre></div>
+<p><strong>Answer:</strong> .
+1 passed, 1 deselected</p>
+<p>addopts and markers in pytest.ini. Verified by running pytest (shown output normalized).</p>
+<p><strong>Q62.</strong> What do markers allow?</p>
+<p><strong>Answer:</strong> Selecting or skipping groups of tests (-m smoke)</p>
+<p>Register them.</p>
+<p><strong>Q63.</strong> Where else can config live?</p>
+<p><strong>Answer:</strong> pyproject.toml or tox.ini</p>
+<p>Common files.</p>
+<p><strong>Q64.</strong> What does --strict-markers do?</p>
+<p><strong>Answer:</strong> Fails on unregistered markers (catching typos)</p>
+<p>Safety.</p>
+<h3 id="07-reporting-pytest-html-allure"><a href="../level-2/07-reporting/">07 · Reporting (pytest-html, Allure)</a><a class="headerlink" href="#07-reporting-pytest-html-allure" title="Permanent link">&para;</a></h3>
+<p><strong>Q65.</strong> Which plugin makes HTML reports?</p>
+<p><strong>Answer:</strong> pytest-html</p>
+<p>Readable results.</p>
+<p><strong>Q66.</strong> What does Allure add?</p>
+<p><strong>Answer:</strong> Rich reports with steps, attachments and history</p>
+<p>Team reporting.</p>
+<p><strong>Q67.</strong> What does --junitxml do?</p>
+<p><strong>Answer:</strong> Writes results CI tools understand</p>
+<p>Integration.</p>
+<p><strong>Q68.</strong> What belongs in a failure report?</p>
+<p><strong>Answer:</strong> Error, steps, screenshots/logs and environment</p>
+<p>Debuggable.</p>
+<h3 id="08-parallel-execution-pytest-xdist"><a href="../level-2/08-parallel-execution/">08 · Parallel Execution (pytest-xdist)</a><a class="headerlink" href="#08-parallel-execution-pytest-xdist" title="Permanent link">&para;</a></h3>
+<p><strong>Q69.</strong> What does pytest -n auto do?</p>
+<p><strong>Answer:</strong> Runs tests in parallel across CPU cores (pytest-xdist)</p>
+<p>Faster suites.</p>
+<p><strong>Q70.</strong> What must parallel tests avoid?</p>
+<p><strong>Answer:</strong> Shared state like the same file, DB rows or ports</p>
+<p>Independence.</p>
+<p><strong>Q71.</strong> How share expensive setup safely?</p>
+<p><strong>Answer:</strong> Per-worker fixtures using worker_id</p>
+<p>xdist.</p>
+<p><strong>Q72.</strong> What is sharding?</p>
+<p><strong>Answer:</strong> Splitting tests across multiple machines/jobs</p>
+<p>CI matrix.</p>
+<h3 id="09-cross-browser-testing"><a href="../level-2/09-cross-browser-testing/">09 · Cross-Browser Testing</a><a class="headerlink" href="#09-cross-browser-testing" title="Permanent link">&para;</a></h3>
+<p><strong>Q73.</strong> What does cross-browser testing check?</p>
+<p><strong>Answer:</strong> Behavior on different browsers/versions</p>
+<p>Compatibility.</p>
+<p><strong>Q74.</strong> Which services run browsers in the cloud?</p>
+<p><strong>Answer:</strong> BrowserStack, Sauce Labs or Selenium Grid</p>
+<p>Grids.</p>
+<p><strong>Q75.</strong> How choose browsers?</p>
+<p><strong>Answer:</strong> From user analytics and risk</p>
+<p>Cost-benefit.</p>
+<p><strong>Q76.</strong> What often differs across browsers?</p>
+<p><strong>Answer:</strong> Rendering, timing and unsupported features</p>
+<p>Test the risky parts.</p>
+<h3 id="10-project-pom-framework-with-api-tests"><a href="../level-2/10-project-pom-framework/">10 · Project — POM Framework with API Tests</a><a class="headerlink" href="#10-project-pom-framework-with-api-tests" title="Permanent link">&para;</a></h3>
+<p><strong>Q77.</strong> What does the POM framework project combine?</p>
+<p><strong>Answer:</strong> Page objects, fixtures, config, reports and parallel runs</p>
+<p>Level 2 project.</p>
+<p><strong>Q78.</strong> How keep tests readable?</p>
+<p><strong>Answer:</strong> Intent-revealing methods and no locators in tests</p>
+<p>Abstraction.</p>
+<p><strong>Q79.</strong> How handle environments?</p>
+<p><strong>Answer:</strong> Config files/env vars selecting base URLs and credentials</p>
+<p>Portability.</p>
+<p><strong>Q80.</strong> What makes it maintainable?</p>
+<p><strong>Answer:</strong> Small page objects, naming conventions and review</p>
+<p>Standards.</p>
+<h2 id="level-3-advanced">Level 3 · Advanced<a class="headerlink" href="#level-3-advanced" title="Permanent link">&para;</a></h2>
+<h3 id="01-playwright-for-python"><a href="../level-3/01-playwright/">01 · Playwright for Python</a><a class="headerlink" href="#01-playwright-for-python" title="Permanent link">&para;</a></h3>
+<p><strong>Q81.</strong> What's an advantage of Playwright?</p>
+<p><strong>Answer:</strong> Auto-waiting, fast, built-in tracing and multiple browsers</p>
+<p>Modern tool.</p>
+<p><strong>Q82.</strong> What does the trace viewer show?</p>
+<p><strong>Answer:</strong> Actions, DOM snapshots, network and console for failed tests</p>
+<p>Post-mortem.</p>
+<p><strong>Q83.</strong> How isolate tests in Playwright?</p>
+<p><strong>Answer:</strong> A fresh browser context per test</p>
+<p>Fast isolation.</p>
+<p><strong>Q84.</strong> What replaces explicit waits?</p>
+<p><strong>Answer:</strong> Auto-wait plus web-first assertions</p>
+<p>expect(...).</p>
+<h3 id="02-bdd-with-pytest-bdd-behave"><a href="../level-3/02-bdd/">02 · BDD with pytest-bdd / Behave</a><a class="headerlink" href="#02-bdd-with-pytest-bdd-behave" title="Permanent link">&para;</a></h3>
+<p><strong>Q85.</strong> What is BDD?</p>
+<p><strong>Answer:</strong> Describing behavior in a shared language (Given/When/Then) that all roles understand</p>
+<p>Collaboration.</p>
+<p><strong>Q86.</strong> Which Python library runs Gherkin?</p>
+<p><strong>Answer:</strong> pytest-bdd (or behave)</p>
+<p>Step definitions.</p>
+<p><strong>Q87.</strong> What is a bad BDD smell?</p>
+<p><strong>Answer:</strong> Scenarios full of UI details instead of business behavior</p>
+<p>Declarative style.</p>
+<p><strong>Q88.</strong> Who writes scenarios?</p>
+<p><strong>Answer:</strong> Business, QA and developers together (three amigos)</p>
+<p>Shared understanding.</p>
+<h3 id="03-robot-framework-basics"><a href="../level-3/03-robot-framework/">03 · Robot Framework Basics</a><a class="headerlink" href="#03-robot-framework-basics" title="Permanent link">&para;</a></h3>
+<p><strong>Q89.</strong> What is Robot Framework?</p>
+<p><strong>Answer:</strong> A keyword-driven automation framework with readable tables</p>
+<p>Extensible.</p>
+<p><strong>Q90.</strong> What are keywords?</p>
+<p><strong>Answer:</strong> Reusable actions made of other keywords or libraries</p>
+<p>Abstraction.</p>
+<p><strong>Q91.</strong> When choose Robot?</p>
+<p><strong>Answer:</strong> For teams wanting keyword/readable tests and acceptance testing</p>
+<p>Fit.</p>
+<p><strong>Q92.</strong> How extend it?</p>
+<p><strong>Answer:</strong> Custom libraries in Python</p>
+<p>Flexible.</p>
+<h3 id="04-cicd-integration"><a href="../level-3/04-cicd-integration/">04 · CI/CD Integration</a><a class="headerlink" href="#04-cicd-integration" title="Permanent link">&para;</a></h3>
+<p><strong>Q93.</strong> What should CI run?</p>
+<p><strong>Answer:</strong> Fast tests on every push and slower suites on a schedule or before release</p>
+<p>Feedback speed.</p>
+<p><strong>Q94.</strong> What artifacts to keep?</p>
+<p><strong>Answer:</strong> Reports, logs, screenshots and traces</p>
+<p>Debuggability.</p>
+<p><strong>Q95.</strong> How speed CI?</p>
+<p><strong>Answer:</strong> Cache dependencies and parallelize</p>
+<p>Efficiency.</p>
+<p><strong>Q96.</strong> What gates a merge?</p>
+<p><strong>Answer:</strong> Green required checks</p>
+<p>Quality.</p>
+<h3 id="05-property-based-testing-with-hypothesis"><a href="../level-3/05-property-based-testing/">05 · Property-Based Testing with Hypothesis</a><a class="headerlink" href="#05-property-based-testing-with-hypothesis" title="Permanent link">&para;</a></h3>
+<p><strong>Q97.</strong> What does pytest report?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># test_h.py</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hypothesis</span><span class="w"> </span><span class="kn">import</span> <span class="n">given</span><span class="p">,</span> <span class="n">strategies</span> <span class="k">as</span> <span class="n">st</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">reverse</span><span class="p">(</span><span class="n">xs</span><span class="p">):</span> <span class="k">return</span> <span class="n">xs</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="nd">@given</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">lists</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">integers</span><span class="p">()))</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_reverse_twice</span><span class="p">(</span><span class="n">xs</span><span class="p">):</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    <span class="k">assert</span> <span class="n">reverse</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="n">xs</span><span class="p">))</span> <span class="o">==</span> <span class="n">xs</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="nd">@given</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">lists</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">integers</span><span class="p">()))</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_length</span><span class="p">(</span><span class="n">xs</span><span class="p">):</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="n">xs</span><span class="p">))</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="nd">@given</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">integers</span><span class="p">(),</span> <span class="n">st</span><span class="o">.</span><span class="n">integers</span><span class="p">())</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_add_commutes</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>    <span class="k">assert</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">==</span> <span class="n">b</span> <span class="o">+</span> <span class="n">a</span>
+</code></pre></div>
+<p><strong>Answer:</strong> ...
+3 passed</p>
+<p>Properties hold for generated inputs. Verified by running pytest (shown output normalized).</p>
+<p><strong>Q98.</strong> What does Hypothesis do when a property fails?</p>
+<p><strong>Answer:</strong> Shrinks the input to a minimal failing example and reports it</p>
+<p>Counterexamples.</p>
+<p><strong>Q99.</strong> What is a property?</p>
+<p><strong>Answer:</strong> A statement that should hold for all valid inputs (e.g. reverse twice is identity)</p>
+<p>Beyond examples.</p>
+<p><strong>Q100.</strong> When use property-based tests?</p>
+<p><strong>Answer:</strong> For parsers, serializers and invariants</p>
+<p>Good fit.</p>
+<h3 id="06-performance-testing-with-locust"><a href="../level-3/06-performance-testing/">06 · Performance Testing with Locust</a><a class="headerlink" href="#06-performance-testing-with-locust" title="Permanent link">&para;</a></h3>
+<p><strong>Q101.</strong> What does a load test measure?</p>
+<p><strong>Answer:</strong> Behavior under expected concurrent usage (throughput, latency, errors)</p>
+<p>Performance.</p>
+<p><strong>Q102.</strong> Which tool is Python-based for load tests?</p>
+<p><strong>Answer:</strong> Locust</p>
+<p>Python scripts.</p>
+<p><strong>Q103.</strong> Which metrics matter?</p>
+<p><strong>Answer:</strong> Percentile latency (p95/p99), error rate and throughput</p>
+<p>Tail latency.</p>
+<p><strong>Q104.</strong> What is a common mistake?</p>
+<p><strong>Answer:</strong> Testing a different environment from production</p>
+<p>Realism.</p>
+<h3 id="07-mobile-testing-with-appium"><a href="../level-3/07-mobile-testing-appium/">07 · Mobile Testing with Appium</a><a class="headerlink" href="#07-mobile-testing-with-appium" title="Permanent link">&para;</a></h3>
+<p><strong>Q105.</strong> What does Appium automate?</p>
+<p><strong>Answer:</strong> Native and hybrid mobile apps on iOS/Android via WebDriver</p>
+<p>Mobile.</p>
+<p><strong>Q106.</strong> What do capabilities define?</p>
+<p><strong>Answer:</strong> The device, platform and app under test</p>
+<p>Session setup.</p>
+<p><strong>Q107.</strong> What's a mobile-specific challenge?</p>
+<p><strong>Answer:</strong> Device fragmentation and flaky gestures</p>
+<p>Use cloud devices.</p>
+<p><strong>Q108.</strong> Which locators are best?</p>
+<p><strong>Answer:</strong> Accessibility IDs</p>
+<p>Stable and accessible.</p>
+<h3 id="08-database-testing-from-python"><a href="../level-3/08-database-testing/">08 · Database Testing from Python</a><a class="headerlink" href="#08-database-testing-from-python" title="Permanent link">&para;</a></h3>
+<p><strong>Q109.</strong> What does pytest report?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># test_db.py</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span><span class="o">,</span><span class="w"> </span><span class="nn">pytest</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">db</span><span class="p">():</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="n">c</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">":memory:"</span><span class="p">)</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    <span class="n">c</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"CREATE TABLE u(id INTEGER PRIMARY KEY, email TEXT UNIQUE NOT NULL)"</span><span class="p">)</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>    <span class="k">yield</span> <span class="n">c</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>    <span class="n">c</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_insert</span><span class="p">(</span><span class="n">db</span><span class="p">):</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>    <span class="n">db</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"INSERT INTO u(email) VALUES ('a@x.com')"</span><span class="p">)</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>    <span class="k">assert</span> <span class="n">db</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"SELECT count(*) FROM u"</span><span class="p">)</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_unique</span><span class="p">(</span><span class="n">db</span><span class="p">):</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>    <span class="n">db</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"INSERT INTO u(email) VALUES ('a@x.com')"</span><span class="p">)</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="n">sqlite3</span><span class="o">.</span><span class="n">IntegrityError</span><span class="p">):</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>        <span class="n">db</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"INSERT INTO u(email) VALUES ('a@x.com')"</span><span class="p">)</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_not_null</span><span class="p">(</span><span class="n">db</span><span class="p">):</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="n">sqlite3</span><span class="o">.</span><span class="n">IntegrityError</span><span class="p">):</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>        <span class="n">db</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"INSERT INTO u(email) VALUES (NULL)"</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Answer:</strong> ...
+3 passed</p>
+<p>In-memory databases give isolated, fast tests. Verified by running pytest (shown output normalized).</p>
+<p><strong>Q110.</strong> What do database tests verify?</p>
+<p><strong>Answer:</strong> Constraints, migrations and queries behave as designed</p>
+<p>Data layer.</p>
+<p><strong>Q111.</strong> How isolate DB tests?</p>
+<p><strong>Answer:</strong> Use transactions rolled back after each test or a fresh DB</p>
+<p>Clean state.</p>
+<p><strong>Q112.</strong> What should migrations be tested for?</p>
+<p><strong>Answer:</strong> Applying forwards (and rollback) on realistic data</p>
+<p>Safety.</p>
+<h3 id="09-flaky-test-diagnosis-stabilization"><a href="../level-3/09-flaky-tests/">09 · Flaky Test Diagnosis &amp; Stabilization</a><a class="headerlink" href="#09-flaky-test-diagnosis-stabilization" title="Permanent link">&para;</a></h3>
+<p><strong>Q113.</strong> What does pytest report for this order-dependent suite?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># test_flaky.py</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">state</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_a</span><span class="p">():</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    <span class="n">state</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    <span class="k">assert</span> <span class="n">state</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_b</span><span class="p">():</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>    <span class="k">assert</span> <span class="n">state</span> <span class="o">==</span> <span class="p">[]</span>
+</code></pre></div>
+<p><strong>Answer:</strong> .F
+1 failed, 1 passed</p>
+<p>Shared state makes test_b depend on test_a. Verified by running pytest (shown output normalized).</p>
+<p><strong>Q114.</strong> What causes flaky tests?</p>
+<p><strong>Answer:</strong> Timing, shared state, order dependence and unstable environments</p>
+<p>Fix root causes.</p>
+<p><strong>Q115.</strong> What do retries do?</p>
+<p><strong>Answer:</strong> Hide flakiness; use them only with tracking</p>
+<p>Short-term.</p>
+<p><strong>Q116.</strong> How find order dependence?</p>
+<p><strong>Answer:</strong> Run with random order (pytest-randomly) and in isolation</p>
+<p>Detect.</p>
+<h3 id="10-project-playwright-bdd-in-ci"><a href="../level-3/10-project-playwright-bdd/">10 · Project — Playwright + BDD in CI</a><a class="headerlink" href="#10-project-playwright-bdd-in-ci" title="Permanent link">&para;</a></h3>
+<p><strong>Q117.</strong> What does the Playwright BDD project combine?</p>
+<p><strong>Answer:</strong> Gherkin scenarios, Playwright steps, fixtures, reports and CI</p>
+<p>Level 3 project.</p>
+<p><strong>Q118.</strong> How structure steps?</p>
+<p><strong>Answer:</strong> Reusable step definitions calling page objects</p>
+<p>DRY.</p>
+<p><strong>Q119.</strong> What report helps stakeholders?</p>
+<p><strong>Answer:</strong> Scenario-level pass/fail in readable form</p>
+<p>Living documentation.</p>
+<p><strong>Q120.</strong> How keep scenarios maintainable?</p>
+<p><strong>Answer:</strong> Business-language steps and few UI details</p>
+<p>Declarative.</p>
+<h2 id="level-4-master">Level 4 · Master<a class="headerlink" href="#level-4-master" title="Permanent link">&para;</a></h2>
+<h3 id="01-test-architecture-at-scale"><a href="../level-4/01-test-architecture/">01 · Test Architecture at Scale</a><a class="headerlink" href="#01-test-architecture-at-scale" title="Permanent link">&para;</a></h3>
+<p><strong>Q121.</strong> What does a good test architecture have?</p>
+<p><strong>Answer:</strong> Layers, clear responsibilities, reusable components and fast feedback</p>
+<p>Scalable.</p>
+<p><strong>Q122.</strong> How decide what to automate?</p>
+<p><strong>Answer:</strong> Risk, repetition and stability</p>
+<p>Value.</p>
+<p><strong>Q123.</strong> What is the cost of bad architecture?</p>
+<p><strong>Answer:</strong> Brittle suites that nobody trusts</p>
+<p>Maintenance.</p>
+<p><strong>Q124.</strong> What is a test strategy?</p>
+<p><strong>Answer:</strong> Goals, scope, levels and approaches for testing the product</p>
+<p>Direction.</p>
+<h3 id="02-shift-left-continuous-testing"><a href="../level-4/02-shift-left-continuous-testing/">02 · Shift-Left &amp; Continuous Testing</a><a class="headerlink" href="#02-shift-left-continuous-testing" title="Permanent link">&para;</a></h3>
+<p><strong>Q125.</strong> What is shift-left?</p>
+<p><strong>Answer:</strong> Testing earlier (requirements, unit, CI) to find defects sooner</p>
+<p>Cheaper bugs.</p>
+<p><strong>Q126.</strong> What does continuous testing mean?</p>
+<p><strong>Answer:</strong> Automated tests as part of every pipeline stage</p>
+<p>Fast feedback.</p>
+<p><strong>Q127.</strong> Who owns quality?</p>
+<p><strong>Answer:</strong> The whole team</p>
+<p>Shared.</p>
+<p><strong>Q128.</strong> What supports shift-left?</p>
+<p><strong>Answer:</strong> Testable design, fast unit tests and early reviews</p>
+<p>Culture.</p>
+<h3 id="03-contract-testing-pact"><a href="../level-4/03-contract-testing/">03 · Contract Testing (Pact)</a><a class="headerlink" href="#03-contract-testing-pact" title="Permanent link">&para;</a></h3>
+<p><strong>Q129.</strong> What is contract testing?</p>
+<p><strong>Answer:</strong> Verifying that consumers and providers agree on an API contract independently</p>
+<p>Pact.</p>
+<p><strong>Q130.</strong> What problem does it solve?</p>
+<p><strong>Answer:</strong> Breaking integrations without slow end-to-end environments</p>
+<p>Microservices.</p>
+<p><strong>Q131.</strong> Who defines the contract in consumer-driven contracts?</p>
+<p><strong>Answer:</strong> Consumers state what they need; providers verify they satisfy it</p>
+<p>Direction.</p>
+<p><strong>Q132.</strong> Where run contract verification?</p>
+<p><strong>Answer:</strong> In the provider's CI</p>
+<p>Gate.</p>
+<h3 id="04-security-testing-basics-for-qa"><a href="../level-4/04-security-testing/">04 · Security Testing Basics for QA</a><a class="headerlink" href="#04-security-testing-basics-for-qa" title="Permanent link">&para;</a></h3>
+<p><strong>Q133.</strong> Which issues does basic security testing look for?</p>
+<p><strong>Answer:</strong> Injection, broken auth, XSS and misconfiguration</p>
+<p>OWASP Top 10.</p>
+<p><strong>Q134.</strong> What is SAST vs DAST?</p>
+<p><strong>Answer:</strong> SAST analyzes source code; DAST tests the running app</p>
+<p>Complementary.</p>
+<p><strong>Q135.</strong> What tool scans dependencies?</p>
+<p><strong>Answer:</strong> pip-audit/Dependabot</p>
+<p>Supply chain.</p>
+<p><strong>Q136.</strong> Who does security testing?</p>
+<p><strong>Answer:</strong> Everyone, with specialists for deep reviews</p>
+<p>Shared.</p>
+<h3 id="05-test-metrics-quality-gates"><a href="../level-4/05-test-metrics-quality-gates/">05 · Test Metrics &amp; Quality Gates</a><a class="headerlink" href="#05-test-metrics-quality-gates" title="Permanent link">&para;</a></h3>
+<p><strong>Q137.</strong> What is a quality gate?</p>
+<p><strong>Answer:</strong> Criteria that must pass before code proceeds (tests, coverage, security)</p>
+<p>Automated.</p>
+<p><strong>Q138.</strong> Why not chase 100% coverage?</p>
+<p><strong>Answer:</strong> Coverage doesn't measure assertion quality; focus on risk</p>
+<p>Meaningful tests.</p>
+<p><strong>Q139.</strong> Which metrics help?</p>
+<p><strong>Answer:</strong> Defect escape rate, flakiness and lead time</p>
+<p>Outcome-focused.</p>
+<p><strong>Q140.</strong> How avoid metric gaming?</p>
+<p><strong>Answer:</strong> Use them for learning, not individual performance</p>
+<p>Healthy.</p>
+<h3 id="06-containerized-test-environments"><a href="../level-4/06-containerized-environments/">06 · Containerized Test Environments</a><a class="headerlink" href="#06-containerized-test-environments" title="Permanent link">&para;</a></h3>
+<p><strong>Q141.</strong> Why use containers for test environments?</p>
+<p><strong>Answer:</strong> Reproducible, isolated and disposable environments</p>
+<p>Parity.</p>
+<p><strong>Q142.</strong> What does docker compose give tests?</p>
+<p><strong>Answer:</strong> A multi-service environment (app, DB) started on demand</p>
+<p>Integration.</p>
+<p><strong>Q143.</strong> What are Testcontainers?</p>
+<p><strong>Answer:</strong> Libraries that start throwaway containers from test code</p>
+<p>Real dependencies.</p>
+<p><strong>Q144.</strong> What should containers avoid?</p>
+<p><strong>Answer:</strong> Persisting state between tests</p>
+<p>Clean.</p>
+<h3 id="07-ai-assisted-testing"><a href="../level-4/07-ai-assisted-testing/">07 · AI-Assisted Testing</a><a class="headerlink" href="#07-ai-assisted-testing" title="Permanent link">&para;</a></h3>
+<p><strong>Q145.</strong> A good use of AI in testing?</p>
+<p><strong>Answer:</strong> Generating test ideas and boilerplate that humans review</p>
+<p>Assist.</p>
+<p><strong>Q146.</strong> A risk?</p>
+<p><strong>Answer:</strong> Plausible but wrong tests that assert nothing meaningful</p>
+<p>Review.</p>
+<p><strong>Q147.</strong> What must stay human?</p>
+<p><strong>Answer:</strong> Judgement about risk and what 'correct' means</p>
+<p>Responsibility.</p>
+<p><strong>Q148.</strong> How evaluate AI-generated tests?</p>
+<p><strong>Answer:</strong> Run mutation testing or seed bugs to see if they fail</p>
+<p>Test the tests.</p>
+<h3 id="08-building-an-in-house-test-framework"><a href="../level-4/08-inhouse-framework/">08 · Building an In-House Test Framework</a><a class="headerlink" href="#08-building-an-in-house-test-framework" title="Permanent link">&para;</a></h3>
+<p><strong>Q149.</strong> When build an in-house framework?</p>
+<p><strong>Answer:</strong> When off-the-shelf tools can't meet needs, built as thin layers over proven libraries</p>
+<p>Avoid reinventing.</p>
+<p><strong>Q150.</strong> What should the framework provide?</p>
+<p><strong>Answer:</strong> Conventions, reusable helpers, reporting and docs</p>
+<p>Productivity.</p>
+<p><strong>Q151.</strong> What is a risk?</p>
+<p><strong>Answer:</strong> Becoming a bottleneck nobody else understands</p>
+<p>Document and share.</p>
+<p><strong>Q152.</strong> How measure success?</p>
+<p><strong>Answer:</strong> Adoption, stability and time to write tests</p>
+<p>Outcome.</p>
+<h3 id="09-qa-leadership-strategy"><a href="../level-4/09-qa-leadership-strategy/">09 · QA Leadership &amp; Strategy</a><a class="headerlink" href="#09-qa-leadership-strategy" title="Permanent link">&para;</a></h3>
+<p><strong>Q153.</strong> What does QA leadership focus on?</p>
+<p><strong>Answer:</strong> Strategy, risk, coaching and enabling quality across teams</p>
+<p>Scale.</p>
+<p><strong>Q154.</strong> How build a quality culture?</p>
+<p><strong>Answer:</strong> Shared ownership, fast feedback and learning from escapes</p>
+<p>Mindset.</p>
+<p><strong>Q155.</strong> What is a test strategy review for?</p>
+<p><strong>Answer:</strong> Aligning approach with product risk and goals</p>
+<p>Governance.</p>
+<p><strong>Q156.</strong> How grow testers?</p>
+<p><strong>Answer:</strong> Coaching, varied challenges and technical depth</p>
+<p>Development.</p>
+<h3 id="10-capstone-production-grade-framework"><a href="../level-4/10-capstone-project/">10 · Capstone — Production-Grade Framework</a><a class="headerlink" href="#10-capstone-production-grade-framework" title="Permanent link">&para;</a></h3>
+<p><strong>Q157.</strong> What does the capstone combine?</p>
+<p><strong>Answer:</strong> Framework design, CI, reports, quality gates and documentation</p>
+<p>Level 4 project.</p>
+<p><strong>Q158.</strong> How prove it works?</p>
+<p><strong>Answer:</strong> Stable CI runs, trend metrics and fewer escaped defects</p>
+<p>Evidence.</p>
+<p><strong>Q159.</strong> What documentation helps?</p>
+<p><strong>Answer:</strong> Architecture, conventions and how to debug failures</p>
+<p>Onboarding.</p>
+<p><strong>Q160.</strong> What sustains it?</p>
+<p><strong>Answer:</strong> Ownership, flake triage and regular updates</p>
+<p>Maintenance.</p>
+<h2 id="mixed-questions-across-all-levels">Mixed questions across all levels<a class="headerlink" href="#mixed-questions-across-all-levels" title="Permanent link">&para;</a></h2>
+<p><strong>Q161.</strong> What does pytest report?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># test_a.py</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s2">"x,y"</span><span class="p">,</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)])</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_eq</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    <span class="k">assert</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span>
+</code></pre></div>
+<p><strong>Answer:</strong> .F.
+1 failed, 2 passed</p>
+<p>One test per parameter set. Verified by running pytest (shown output normalized).</p>
+<p><strong>Q162.</strong> What does pytest report?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># test_b.py</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s2">"module"</span><span class="p">)</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">shared</span><span class="p">():</span> <span class="k">return</span> <span class="p">[]</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_one</span><span class="p">(</span><span class="n">shared</span><span class="p">):</span> <span class="n">shared</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="k">assert</span> <span class="n">shared</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_two</span><span class="p">(</span><span class="n">shared</span><span class="p">):</span> <span class="k">assert</span> <span class="n">shared</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div>
+<p><strong>Answer:</strong> ..
+2 passed</p>
+<p>Module-scoped fixtures are shared within a file. Verified by running pytest (shown output normalized).</p>
+<p><strong>Q163.</strong> What does pytest report?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># test_c.py</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_raises_message</span><span class="p">():</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">match</span><span class="o">=</span><span class="s2">"positive"</span><span class="p">):</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"qty must be positive"</span><span class="p">)</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_wrong_exception</span><span class="p">():</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Answer:</strong> .F
+1 failed, 1 passed</p>
+<p>A different exception type propagates and fails the test. Verified by running pytest (shown output normalized).</p>
+<p><strong>Q164.</strong> What does pytest report?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># test_d.py</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">unittest.mock</span><span class="w"> </span><span class="kn">import</span> <span class="n">patch</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">greeting</span><span class="p">(</span><span class="n">now</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>    <span class="n">hour</span> <span class="o">=</span> <span class="p">(</span><span class="n">now</span> <span class="ow">or</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span><span class="o">.</span><span class="n">hour</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>    <span class="k">return</span> <span class="s2">"morning"</span> <span class="k">if</span> <span class="n">hour</span> <span class="o">&lt;</span> <span class="mi">12</span> <span class="k">else</span> <span class="s2">"evening"</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_fixed_time</span><span class="p">():</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>    <span class="k">assert</span> <span class="n">greeting</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2026</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span> <span class="o">==</span> <span class="s2">"morning"</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>    <span class="k">assert</span> <span class="n">greeting</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2026</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">18</span><span class="p">))</span> <span class="o">==</span> <span class="s2">"evening"</span>
+</code></pre></div>
+<p><strong>Answer:</strong> .
+1 passed</p>
+<p>Injecting the clock makes tests deterministic. Verified by running pytest (shown output normalized).</p>
+<p><strong>Q165.</strong> What does pytest report?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># test_e.py</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_a</span><span class="p">():</span> <span class="k">assert</span> <span class="kc">True</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">skip</span><span class="p">(</span><span class="n">reason</span><span class="o">=</span><span class="s2">"later"</span><span class="p">)</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_b</span><span class="p">():</span> <span class="k">assert</span> <span class="kc">False</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">skipif</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">reason</span><span class="o">=</span><span class="s2">"never runs here"</span><span class="p">)</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_c</span><span class="p">():</span> <span class="k">assert</span> <span class="kc">False</span>
+</code></pre></div>
+<p><strong>Answer:</strong> .ss
+1 passed, 2 skipped</p>
+<p>skip and skipif. Verified by running pytest (shown output normalized).</p>
+<p><strong>Q166.</strong> A test passes alone but fails after another test. Cause?</p>
+<p><strong>Answer:</strong> Shared state or order dependence</p>
+<p>Make tests independent.</p>
+<p><strong>Q167.</strong> What does a fixture with yield guarantee?</p>
+<p><strong>Answer:</strong> The code after yield runs as teardown even if the test fails</p>
+<p>Cleanup.</p>
+<p><strong>Q168.</strong> What should you mock?</p>
+<p><strong>Answer:</strong> External boundaries like network, clock and filesystem</p>
+<p>Not your logic.</p>
+<p><strong>Q169.</strong> What's wrong with asserting a mock was called without checking arguments?</p>
+<p><strong>Answer:</strong> It can pass while the call used the wrong values</p>
+<p>assert_called_once_with.</p>
+<p><strong>Q170.</strong> What is the test pyramid?</p>
+<p><strong>Answer:</strong> Many fast unit tests, fewer integration tests, few end-to-end tests</p>
+<p>Speed and reliability.</p>
+<p><strong>Q171.</strong> Which Selenium wait is preferred?</p>
+<p><strong>Answer:</strong> Explicit waits on conditions</p>
+<p>Reduce flakiness.</p>
+<p><strong>Q172.</strong> What does the Page Object Model improve?</p>
+<p><strong>Answer:</strong> Maintainability: UI changes are fixed in one place</p>
+<p>Encapsulation.</p>
+<p><strong>Q173.</strong> A UI test fails only in CI. What do you collect first?</p>
+<p><strong>Answer:</strong> Screenshots, logs and traces from the failing run</p>
+<p>Evidence.</p>
+<p><strong>Q174.</strong> When is a retry acceptable?</p>
+<p><strong>Answer:</strong> Temporarily, while tracking and fixing the root cause of flakiness</p>
+<p>Don't hide it.</p>
+<p><strong>Q175.</strong> What does Hypothesis add?</p>
+<p><strong>Answer:</strong> Generated inputs and shrinking to minimal failing examples</p>
+<p>Properties.</p>
+<p><strong>Q176.</strong> What does contract testing protect?</p>
+<p><strong>Answer:</strong> Integrations between consumers and providers without full end-to-end environments</p>
+<p>Pact.</p>
+<p><strong>Q177.</strong> Why not chase 100% coverage?</p>
+<p><strong>Answer:</strong> Coverage doesn't prove assertions are meaningful</p>
+<p>Focus on risk.</p>
+<p><strong>Q178.</strong> What belongs in a quality gate?</p>
+<p><strong>Answer:</strong> Tests passing, coverage trend and security scan results</p>
+<p>Automated.</p>
+<p><strong>Q179.</strong> How run tests in parallel safely?</p>
+<p><strong>Answer:</strong> Make them independent and isolate shared resources</p>
+<p>pytest-xdist.</p>
+<p><strong>Q180.</strong> What does shift-left mean?</p>
+<p><strong>Answer:</strong> Finding defects earlier through reviews, unit tests and CI</p>
+<p>Cheaper.</p>
+<h2 id="practical-coding-questions">Practical coding questions<a class="headerlink" href="#practical-coding-questions" title="Permanent link">&para;</a></h2>
+<h3 id="a-parametrized-test-suite-for-a-shopping-cart">A parametrized test suite for a shopping cart<a class="headerlink" href="#a-parametrized-test-suite-for-a-shopping-cart" title="Permanent link">&para;</a></h3>
+<p>Write the pytest suite for the Cart class: a fixture, merging quantities, parametrized rejection of bad input, parametrized discount boundaries, KeyError on removing a missing SKU, a total and one strict xfail that documents an unspecified rounding case. The file runs itself with pytest.main so it can be executed with plain python.</p>
+<p>Starter code:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>import pytest
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a># ---- code under test ----
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>class Cart:
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>    def __init__(self): self.lines = {}
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>    def add(self, sku, qty, price_cents):
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>        if qty &lt;= 0: raise ValueError("qty must be positive")
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>        if price_cents &lt; 0: raise ValueError("price must not be negative")
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>        if sku in self.lines: self.lines[sku][0] += qty
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>        else: self.lines[sku] = [qty, price_cents]
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>    def remove(self, sku):
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>        del self.lines[sku]
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>    def subtotal(self): return sum(q * p for q, p in self.lines.values())
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>    def discount(self): return self.subtotal() // 10 if self.subtotal() &gt;= 10_000 else 0
+<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>    def total(self): return self.subtotal() - self.discount()
+<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>
+<a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a># ---- tests ----
+<a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a># TODO: write tests (pytest) so that the final run reports:  10 passed, 1 xfailed
+<a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a>#  - a `cart` fixture with 2 pens at 250 cents
+<a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a>#  - subtotal, merging quantities on a repeated add
+<a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a>#  - parametrized rejection of bad input (qty 0, qty -1, negative price)  -&gt; 3 tests
+<a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a>#  - parametrized discount boundary (9_999 -&gt; 0, 10_000 -&gt; 1_000, 25_000 -&gt; 2_500)  -&gt; 3 tests
+<a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a>#  - removing a missing SKU raises KeyError
+<a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a>#  - total after discount (4 x 3_000 -&gt; 10_800)
+<a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a>#  - one strict xfail documenting that fractional-cent discounts are unspecified
+<a id="__codelineno-16-26" name="__codelineno-16-26" href="#__codelineno-16-26"></a>
+<a id="__codelineno-16-27" name="__codelineno-16-27" href="#__codelineno-16-27"></a>if __name__ == "__main__":
+<a id="__codelineno-16-28" name="__codelineno-16-28" href="#__codelineno-16-28"></a>    raise SystemExit(pytest.main([__file__, "-q", "--tb=no", "-rN", "-p", "no:cacheprovider", "-W", "ignore"]))
+</code></pre></div>
+<p>Expected output:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>..........x                                                              [100%]
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>10 passed, 1 xfailed
+</code></pre></div>
+<p>??? success "Show a solution"</p>
+<div class="highlight"><pre><span></span><code>```
+import pytest
+
+# ---- code under test ----
+class Cart:
+    def __init__(self): self.lines = {}
+    def add(self, sku, qty, price_cents):
+        if qty &lt;= 0: raise ValueError("qty must be positive")
+        if price_cents &lt; 0: raise ValueError("price must not be negative")
+        if sku in self.lines: self.lines[sku][0] += qty
+        else: self.lines[sku] = [qty, price_cents]
+    def remove(self, sku):
+        del self.lines[sku]
+    def subtotal(self): return sum(q * p for q, p in self.lines.values())
+    def discount(self): return self.subtotal() // 10 if self.subtotal() &gt;= 10_000 else 0
+    def total(self): return self.subtotal() - self.discount()
+
+# ---- tests ----
+@pytest.fixture
+def cart():
+    c = Cart(); c.add("pen", 2, 250); return c
+
+def test_subtotal(cart):
+    assert cart.subtotal() == 500
+
+def test_add_merges_quantities(cart):
+    cart.add("pen", 3, 250)
+    assert cart.lines["pen"][0] == 5 and cart.subtotal() == 1250
+
+@pytest.mark.parametrize("qty,price", [(0, 100), (-1, 100), (1, -5)])
+def test_add_rejects_bad_input(qty, price):
+    with pytest.raises(ValueError):
+        Cart().add("x", qty, price)
+
+@pytest.mark.parametrize("subtotal_cents,expected_discount", [(9_999, 0), (10_000, 1_000), (25_000, 2_500)])
+def test_discount_boundary(subtotal_cents, expected_discount):
+    c = Cart(); c.add("big", 1, subtotal_cents)
+    assert c.discount() == expected_discount
+
+def test_remove_missing_sku_raises(cart):
+    with pytest.raises(KeyError):
+        cart.remove("nope")
+
+def test_total_after_discount():
+    c = Cart(); c.add("a", 4, 3_000)
+    assert c.total() == 10_800
+
+@pytest.mark.xfail(reason="rounding of fractional cents is not specified yet", strict=True)
+def test_known_gap():
+    c = Cart(); c.add("a", 1, 10_001)
+    assert c.discount() == 1_000.1
+
+if __name__ == "__main__":
+    raise SystemExit(pytest.main([__file__, "-q", "--tb=no", "-rN", "-p", "no:cacheprovider", "-W", "ignore"]))
+```
+
+Fixtures give every test fresh state, parametrization turns boundary tables into separate test cases, pytest.raises checks the error path and a strict xfail documents a known gap (it would fail the run if the behavior unexpectedly started working). Verified by running the file with pytest.
+</code></pre></div>
+<h3 id="testing-a-rate-limiter-with-a-fake-clock-parametrization-and-hypothesis">Testing a rate limiter with a fake clock, parametrization and Hypothesis<a class="headerlink" href="#testing-a-rate-limiter-with-a-fake-clock-parametrization-and-hypothesis" title="Permanent link">&para;</a></h3>
+<p>Write tests for a token-bucket RateLimiter using an injected FakeClock (no real sleeping), a parametrized partial-refill table and two Hypothesis properties (tokens stay in bounds; allowed calls never exceed the budget). Include a test proving the limiter uses the injected clock and not wall time.</p>
+<p>Starter code:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>import time
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>import pytest
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>from hypothesis import given, strategies as st
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a># ---- code under test: a token-bucket rate limiter with an injectable clock ----
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>class RateLimiter:
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>    def __init__(self, capacity, per_second, clock=time.monotonic):
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>        self.capacity, self.rate, self.clock = capacity, per_second, clock
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>        self.tokens, self.last = float(capacity), clock()
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>    def allow(self, cost=1):
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>        now = self.clock()
+<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>        self.tokens = min(self.capacity, self.tokens + (now - self.last) * self.rate)
+<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>        self.last = now
+<a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>        if self.tokens &gt;= cost:
+<a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>            self.tokens -= cost
+<a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a>            return True
+<a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a>        return False
+<a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a>
+<a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a>class FakeClock:
+<a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a>    def __init__(self): self.t = 0.0
+<a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a>    def __call__(self): return self.t
+<a id="__codelineno-19-22" name="__codelineno-19-22" href="#__codelineno-19-22"></a>    def advance(self, s): self.t += s
+<a id="__codelineno-19-23" name="__codelineno-19-23" href="#__codelineno-19-23"></a>
+<a id="__codelineno-19-24" name="__codelineno-19-24" href="#__codelineno-19-24"></a># ---- tests ----
+<a id="__codelineno-19-25" name="__codelineno-19-25" href="#__codelineno-19-25"></a># TODO: write the tests so the run reports:  9 passed
+<a id="__codelineno-19-26" name="__codelineno-19-26" href="#__codelineno-19-26"></a>#  - a FakeClock-based `clock` fixture (already defined above)
+<a id="__codelineno-19-27" name="__codelineno-19-27" href="#__codelineno-19-27"></a>#  - burst of 3 then blocked; refill after advancing the clock
+<a id="__codelineno-19-28" name="__codelineno-19-28" href="#__codelineno-19-28"></a>#  - parametrized partial refill: capacity 1, rate 2/s: waits 0.4 -&gt; False, 0.5 -&gt; True, 10 -&gt; True   (3 tests)
+<a id="__codelineno-19-29" name="__codelineno-19-29" href="#__codelineno-19-29"></a>#  - never exceeds capacity after a very long wait
+<a id="__codelineno-19-30" name="__codelineno-19-30" href="#__codelineno-19-30"></a>#  - hypothesis: tokens always within [0, capacity] for random waits
+<a id="__codelineno-19-31" name="__codelineno-19-31" href="#__codelineno-19-31"></a>#  - hypothesis: number of allowed calls == min(capacity, calls) when the rate is 1/s and no time passes
+<a id="__codelineno-19-32" name="__codelineno-19-32" href="#__codelineno-19-32"></a>#  - the limiter uses the injected clock, not wall time (sleep 10 ms, still blocked)
+<a id="__codelineno-19-33" name="__codelineno-19-33" href="#__codelineno-19-33"></a>
+<a id="__codelineno-19-34" name="__codelineno-19-34" href="#__codelineno-19-34"></a>if __name__ == "__main__":
+<a id="__codelineno-19-35" name="__codelineno-19-35" href="#__codelineno-19-35"></a>    raise SystemExit(pytest.main([__file__, "-q", "--tb=no", "-rN", "-p", "no:cacheprovider", "-W", "ignore"]))
+</code></pre></div>
+<p>Expected output:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>.........                                                                [100%]
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>9 passed
+</code></pre></div>
+<p>??? success "Show a solution"</p>
+<div class="highlight"><pre><span></span><code>```
+import time
+import pytest
+from hypothesis import given, strategies as st
+
+# ---- code under test: a token-bucket rate limiter with an injectable clock ----
+class RateLimiter:
+    def __init__(self, capacity, per_second, clock=time.monotonic):
+        self.capacity, self.rate, self.clock = capacity, per_second, clock
+        self.tokens, self.last = float(capacity), clock()
+    def allow(self, cost=1):
+        now = self.clock()
+        self.tokens = min(self.capacity, self.tokens + (now - self.last) * self.rate)
+        self.last = now
+        if self.tokens &gt;= cost:
+            self.tokens -= cost
+            return True
+        return False
+
+class FakeClock:
+    def __init__(self): self.t = 0.0
+    def __call__(self): return self.t
+    def advance(self, s): self.t += s
+
+# ---- tests ----
+@pytest.fixture
+def clock(): return FakeClock()
+
+def test_burst_then_blocked(clock):
+    rl = RateLimiter(3, 1, clock)
+    assert [rl.allow() for _ in range(4)] == [True, True, True, False]
+
+def test_refills_over_time(clock):
+    rl = RateLimiter(2, 1, clock)
+    rl.allow(); rl.allow()
+    assert not rl.allow()
+    clock.advance(1)
+    assert rl.allow() and not rl.allow()
+
+@pytest.mark.parametrize("wait,expected", [(0.4, False), (0.5, True), (10, True)])
+def test_partial_refill(clock, wait, expected):
+    rl = RateLimiter(1, 2, clock)
+    assert rl.allow()
+    clock.advance(wait)
+    assert rl.allow() == expected
+
+def test_never_exceeds_capacity(clock):
+    rl = RateLimiter(2, 5, clock)
+    clock.advance(1000)
+    assert [rl.allow() for _ in range(3)] == [True, True, False]
+
+@given(st.lists(st.floats(min_value=0, max_value=5, allow_nan=False), max_size=50))
+def test_tokens_stay_within_bounds(waits):
+    clock = FakeClock(); rl = RateLimiter(4, 2, clock)
+    for w in waits:
+        clock.advance(w)
+        rl.allow()
+        assert 0 &lt;= rl.tokens &lt;= rl.capacity
+
+@given(st.integers(min_value=1, max_value=20), st.integers(min_value=1, max_value=20))
+def test_allowed_never_exceeds_budget(capacity, calls):
+    clock = FakeClock(); rl = RateLimiter(capacity, 1, clock)
+    assert sum(rl.allow() for _ in range(calls)) == min(capacity, calls)
+
+def test_uses_injected_clock_not_wall_time(clock):
+    rl = RateLimiter(1, 1, clock)
+    assert rl.allow()
+    time.sleep(0.01)                      # real time passing must not refill the bucket
+    assert not rl.allow()
+
+if __name__ == "__main__":
+    raise SystemExit(pytest.main([__file__, "-q", "--tb=no", "-rN", "-p", "no:cacheprovider", "-W", "ignore"]))
+```
+
+Injecting the clock makes time-based code deterministic; properties check invariants for many generated inputs; example-based tests pin down boundaries. Verified by running the file with pytest and Hypothesis.
+</code></pre></div>
+<hr />
+<p>More free practice: the <a href="../">Python Testing Mastery Path</a> curriculum, the <a href="https://learnmasterypath.com/interview-pack/">Interview Prep Pack</a> and the <a href="https://learnmasterypath.com/resume/">free resume ATS check</a>.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+  
+  <nav class="mp-related" aria-label="Related free courses">
+    <h2>Related free courses</h2>
+    <ul>
+      <li><a href="https://learnmasterypath.com/java-testing-mastery-path/">Java Testing</a></li><li><a href="https://learnmasterypath.com/cpp-testing-mastery-path/">C/C++ Testing</a></li><li><a href="https://learnmasterypath.com/automotive-testing-mastery-path/">Automotive Testing</a></li><li><a href="https://learnmasterypath.com/selenium-mastery-path/">Selenium</a></li><li><a href="https://learnmasterypath.com/cypress-mastery-path/">Cypress</a></li>
+      <li><a href="https://learnmasterypath.com/">All 100+ courses &rarr;</a></li>
+    </ul>
+  </nav>
+  
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Home
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../cheat-sheet/" class="md-footer__link md-footer__link--next" aria-label="Next: Cheat Sheet">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Cheat Sheet
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+  <div class="mp-foot">
+    <div class="mp-foot-inner">
+      <a class="mp-foot-brand" href="https://learnmasterypath.com/"><svg class="mp-mark" viewBox="0 0 160 160" role="img" aria-label="Mastery Path logo">
+  <circle cx="80" cy="80" r="74" fill="#FAF7EF" stroke="#2FA98D" stroke-width="5"/>
+  <rect class="mp-bar mp-bar-1" x="36" y="90" width="17" height="24" rx="5" fill="#2FA98D"/>
+  <rect class="mp-bar mp-bar-2" x="59" y="74" width="17" height="40" rx="5" fill="#7FC9B7"/>
+  <rect class="mp-bar mp-bar-3" x="82" y="56" width="17" height="58" rx="5" fill="#E0B457"/>
+  <rect class="mp-bar mp-bar-4" x="105" y="38" width="17" height="76" rx="5" fill="#C97B4A"/>
+  <circle class="mp-dot" cx="44.5" cy="82" r="7" fill="#22261f"/>
+</svg><span>Mastery Path</span></a>
+      <nav class="mp-sitelinks" aria-label="Site and legal links">
+        <a href="https://learnmasterypath.com/">All courses</a>
+        <a href="https://learnmasterypath.com/about.html">About</a>
+        <a href="https://learnmasterypath.com/contact.html">Contact</a>
+        <a href="https://learnmasterypath.com/python-testing-mastery-path/privacy/">Privacy Policy</a>
+        <a href="https://learnmasterypath.com/terms.html">Terms</a>
+        <a href="https://learnmasterypath.com/python-testing-mastery-path/license/">License</a>
+        <a href="https://learnmasterypath.com/verify/">Verify a certificate</a>
+      </nav>
+    </div>
+    <p class="mp-license-note">
+      © 2026 Vinod Kumar Sigilipelli · Except where otherwise noted, lesson content is licensed under
+      <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> and code examples under the
+      <a href="https://opensource.org/license/mit">MIT License</a>.
+    </p>
+  </div>
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.path", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "navigation.footer", "navigation.indexes", "toc.follow", "content.code.copy", "content.code.annotate", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../javascripts/progress-tracker.js"></script>
+      
+        <script src="../javascripts/final-quiz.js"></script>
+      
+    
+  </body>
+</html>
