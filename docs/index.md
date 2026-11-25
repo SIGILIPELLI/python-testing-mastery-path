@@ -8,8 +8,7 @@ description: "Free software testing course using Python -- 36 hands-on lessons, 
 A structured, module-wise software testing program that takes you from your first
 test case to a production-grade automation framework — covering **both manual
 testing fundamentals and Python test automation**, with runnable code and
-real-world templates in every module and a hands-on project at the end of each
-level.
+real-world templates in every module and a hands-on project at the end of Levels 1–3 and a capstone at the end of Level 4.
 
 ## How the program is organized
 
@@ -32,7 +31,7 @@ level.
 - Manual-testing modules give you templates and worked examples you can reuse on
   a real project; automation modules give you runnable code — copy them into a
   local `.py` file and run them.
-- Each level ends with a project that combines everything learned in that level.
+- Levels 1–3 each end with a project that combines everything learned in that level, and Level 4 ends with the course capstone.
 - Use the search bar (top of the page) to jump straight to a topic.
 
 Start here → [Level 1 · Entry](level-1/index.md)
